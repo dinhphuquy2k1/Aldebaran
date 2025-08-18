@@ -1,0 +1,76 @@
+version: "3.8"
+services:
+  aldebaran-backend:
+    image: aldebaran_backend_image
+    container_name: aldebaran-backend
+    build:
+      context: .
+      dockerfile: "docker/app/Backend"
+    volumes:
+      - ./backend:/var/www/html/
+      - ./docker/config/php:/usr/local/etc/
+      - ./frontend/src/i18n/languages:/var/www/html/storage/languages
+    depends_on:
+      - aldebaran-db
+    restart: unless-stopped
+    links:
+      - aldebaran-db
+    ports:
+      - "2000:80"
+    networks:
+      - aldebaran-networks
+#  aldebaran-frontend:
+#    image: aldebaran_frontend_image
+#    container_name: aldebaran-frontend
+#    build:
+#      context: "./frontend"
+#      dockerfile: "../docker/app/Frontend"
+#    volumes:
+#      - ./frontend/:/app
+#      - /app/node_modules
+#      - ./frontend/src/i18n/languages:/app/src/i18n/languages
+#    #    env_file:
+#    #      - ./frontend/.env
+#    environment:
+#      - WATCHPACK_POLLING=true
+#    ports:
+#      - "2001:8080"
+#    depends_on:
+#      - aldebaran-backend
+#    networks:
+#      - aldebaran-networks
+#    restart: always
+  aldebaran-db:
+    image: mysql:8.0
+    container_name: aldebaran-db
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'laravel_docker'
+      MYSQL_USER: 'admin'
+      MYSQL_PASSWORD: '1181080029'
+      MYSQL_ROOT_PASSWORD: '1181080029'
+      MYSQL_ROOT_HOST: '%'
+    volumes:
+      - mysql-db:/var/lib/mysql
+      - ./docker/mysql:/docker-entrypoint-initdb.d
+    ports:
+      - "2002:3306"
+    networks:
+      - aldebaran-networks
+  aldebaran-phpmyadmin:
+    container_name: aldebaran-phpmyadmin
+    image: phpmyadmin:latest
+    ports:
+      - "2003:80"
+    environment:
+      - PMA_ARBITRARY=1
+    networks:
+      - aldebaran-networks
+
+volumes:
+  mysql-db:
+
+networks:
+  aldebaran-networks:
+    driver: bridge
+    name: aldebaran-networks
