@@ -19,27 +19,27 @@ services:
       - "2000:80"
     networks:
       - aldebaran-networks
-#  aldebaran-frontend:
-#    image: aldebaran_frontend_image
-#    container_name: aldebaran-frontend
-#    build:
-#      context: "./frontend"
-#      dockerfile: "../docker/app/Frontend"
-#    volumes:
-#      - ./frontend/:/app
-#      - /app/node_modules
-#      - ./frontend/src/i18n/languages:/app/src/i18n/languages
-#    #    env_file:
-#    #      - ./frontend/.env
-#    environment:
-#      - WATCHPACK_POLLING=true
-#    ports:
-#      - "2001:8080"
-#    depends_on:
-#      - aldebaran-backend
-#    networks:
-#      - aldebaran-networks
-#    restart: always
+  aldebaran-frontend:
+    image: aldebaran_frontend_image
+    container_name: aldebaran-frontend
+    build:
+      context: "./frontend"
+      dockerfile: "../docker/app/Frontend"
+    volumes:
+      - ./frontend/:/app
+      - /app/node_modules
+      - ./frontend/src/translations/languages:/app/src/translations/languages
+    #    env_file:
+    #      - ./frontend/.env
+    environment:
+      - WATCHPACK_POLLING=true
+    ports:
+      - "2001:8080"
+    depends_on:
+      - aldebaran-backend
+    networks:
+      - aldebaran-networks
+    restart: always
   aldebaran-db:
     image: mysql:8.0
     container_name: aldebaran-db
