@@ -43,5 +43,11 @@
   "blogs": "Blogs",
   "pages": "Trang nội dung",
   "menus": "Menu",
-  "settings": "Cấu hình"
+  "settings": "Cấu hình",
+  "product_list": "Danh sách sản phẩm",
+  "add_filter_condition": "Thêm điều kiện lọc",
+  "save_filter": "Lưu bộ lọc",
+  "search": "Tìm kiếm",
+  "show_all_products_by": "Hiển thị tất cả sản phẩm theo",
+  "cancel": "Hủy"
 }

@@ -86,7 +86,7 @@ export default {
 <style lang="scss">
 .ms-navbar {
   overflow: hidden;
-  width: $navbar-width;
+  width: var(--sidebar-width);
   padding: 1px;
   transition: width .2s;
   box-shadow: inset 0 1.5px 2px 0 rgba(0, 0, 0, .1);

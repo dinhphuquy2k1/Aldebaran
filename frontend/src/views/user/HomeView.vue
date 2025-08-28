@@ -228,7 +228,7 @@
 import {ref} from "vue";
 import Carousel from 'primevue/carousel';
 import Button from 'primevue/button';
-import {useCarouselDrag} from "@/composables/useCarouselDrag";
+import {useCarouselDrag} from "@/core/utils/useCarouselDrag";
 
 export default {
   components: {
