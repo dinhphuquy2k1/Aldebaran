@@ -1,0 +1,33 @@
+.p-carousel {
+
+  &.ms-carousel-indicator-group {
+    .p-carousel-content {
+      .p-carousel-indicators {
+        margin-top: 10px;
+
+        .p-carousel-indicator {
+          margin-right: 0;
+
+          &.p-highlight {
+            .p-link {
+              background: var(--shop-color-main);
+            }
+          }
+
+          &:first-child {
+            .p-link {
+              border-radius: 6px 0 0 6px;
+            }
+          }
+
+          &:last-child {
+            .p-link {
+              border-radius: 0 6px 6px 0;
+            }
+          }
+
+        }
+      }
+    }
+  }
+}

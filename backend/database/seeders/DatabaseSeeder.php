@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             PropertySeeder::class,
             CategoryPropertiesSeeder::class,
             PropertyValueSeeder::class,
+            MenuSeeder::class,
         ]);
 
         User::factory()->create([

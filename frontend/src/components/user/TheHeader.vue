@@ -327,11 +327,6 @@ export default {
       border: 1px solid #ececec;
       border-radius: 15px;
 
-      &:has(.p-inputtext:focus) {
-        outline: 0;
-        border: 1px solid var(--shop-color-main);
-      }
-
       .p-inputtext {
         border-radius: 15px !important;
         padding: 7px 40px 7px 15px !important;

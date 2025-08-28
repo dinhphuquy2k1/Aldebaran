@@ -31,47 +31,50 @@ const routes: Array<RouteRecordRaw> = [
         path: '/admin',
         name: 'admin',
         components: {
-            home: () => import('@/views/admin/HomeView.vue'),
+            home: () => import('@/layouts/admin/HomePage.vue'),
         },
         children: [
             {
-                path: 'homepage',
-                components: {
-                    header: () => import('@/views/admin/components/Header.vue'),
-                    content: () => import('@/views/admin/components/AddProduct.vue'),
-                    navbar: () => import('@/views/admin/components/NavBar.vue'),
-                },
-            },
-            {
-                path: 'dashboard',
+                path: 'dashboard/generals',
                 children: [
                     {
                         path: '',
                         components: {
-                            header: () => import('@/views/admin/components/Header.vue'),
-                            content: () => import('@/views/admin/components/AddProduct.vue'),
-                            navbar: () => import('@/views/admin/components/NavBar.vue'),
-                        }
-                    },
-                    {
-                        path: 'order',
-                        components: {
-                            header: () => import('@/views/admin/components/Header.vue'),
-                            content: () => import('@/views/admin/components/ProductList.vue'),
-                            navbar: () => import('@/views/admin/components/NavBar.vue'),
-                        }
-                    },
-                    {
-                        path: 'product',
-                        components: {
-                            header: () => import('@/views/admin/components/Header.vue'),
-                            content: () => import('@/views/admin/components/AddProduct.vue'),
+                            header: () => import('@/components/admin/TheHeader.vue'),
+                            navbar: () => import('@/components/admin/TheNavbar.vue'),
+                            content: () => import('@/views/admin/HomeView.vue')
                         }
                     },
                 ],
             },
             {
-                path: 'product',
+                path: 'orders',
+                children: [
+                    {
+                        path: '',
+                        components: {
+                            header: () => import('@/components/admin/TheHeader.vue'),
+                            navbar: () => import('@/components/admin/TheNavbar.vue'),
+                            content: () => import('@/views/admin/HomeView.vue')
+                        }
+                    },
+                ],
+            },
+            {
+                path: 'draft_orders',
+                children: [
+                    {
+                        path: '',
+                        components: {
+                            header: () => import('@/components/admin/TheHeader.vue'),
+                            navbar: () => import('@/components/admin/TheNavbar.vue'),
+                            content: () => import('@/views/admin/HomeView.vue')
+                        }
+                    },
+                ],
+            },
+            {
+                path: 'products',
                 children: [
                     {
                         path: '',
