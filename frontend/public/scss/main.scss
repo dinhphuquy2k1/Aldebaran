@@ -21,7 +21,7 @@ body {
   font-family: GoogleSans;
   font-size: 14px;
   color: #212121;
-  background: var(--shop-color-bg);
+  background-color: var(--color-coolgray-100);
   overflow: auto;
 }
 
@@ -851,7 +851,29 @@ img {
   padding-right: 10px !important;
 }
 
+.border-bottom {
+  border-bottom: 1px solid #dee2e6 !important;
+}
+
+.w-0 {
+  width: unset !important;
+}
+
+.ml-10 {
+  margin-left: 10px;
+}
+
+.mr-10 {
+  margin-right: 10px;
+}
+
+.text-primary {
+  color: var(--Primary-color) !important;
+}
+
 .omni-tabs {
+  border-radius: 4px;
+
   .p-tabview-nav-container {
     .p-tabview-nav-content {
       .p-tabview-nav {

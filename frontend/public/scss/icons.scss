@@ -467,3 +467,21 @@ span.icon24 {
   width: 24px;
   background: transparent url("@public/assets/icons/icon-close.svg") no-repeat center;
 }
+
+.icon-next {
+  width: 7px;
+  height: 7px;
+  -webkit-mask: url("@public/assets/icons/svg-next-icon.svg") no-repeat center;
+  -webkit-mask-size: contain;
+  mask: url("@public/assets/icons/svg-next-icon.svg") no-repeat center;
+  mask-size: contain;
+  background-color: currentColor;
+}
+
+.svg-next-icon-rotate--90 {
+  transform: rotate(-90deg);
+}
+
+.svg-next-icon-rotate-90 {
+  transform: rotate(90deg);
+}

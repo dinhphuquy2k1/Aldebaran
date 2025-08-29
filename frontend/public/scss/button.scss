@@ -1,19 +1,32 @@
 .ms-btn {
-  min-height: 36px;
-  height: 40px;
-  min-width: 80px;
   border: none;
   box-shadow: none;
   position: relative;
   overflow: hidden;
-  padding: 0;
-  border-radius: 4px;
+  padding: 10px 15px;
+  line-height: 18px;
+  border-radius: 3px;
   white-space: nowrap;
   align-items: center;
+  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
   justify-items: center;
+  font-weight: 400;
+
+  .p-button-label {
+    font-weight: 400;
+  }
+
+  &.btn-primary {
+    background: var(--Primary-color);
+    color: #fff;
+    outline: none;
+    border: none;
+  }
 
   &:disabled {
-    opacity: .56;
+    opacity: .65;
+    color: #fff;
+    background-color: var(--Primary-color-200);
   }
 
   &.p-selectbutton {
@@ -244,5 +257,24 @@
         right: 0;
       }
     }
+  }
+}
+
+.btn-default {
+  background: var(--color-light-gray) !important;
+  border: none !important;
+  outline: none;
+
+  svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  &:hover {
+    background-color: var(--bg-btn-default-hover) !important;
+  }
+
+  .p-button-label {
+    color: var(--color-text-button-default) !important;
   }
 }

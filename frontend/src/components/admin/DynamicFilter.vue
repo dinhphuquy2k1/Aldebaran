@@ -23,30 +23,30 @@
       <div class="col">
         <IconField iconPosition="left">
           <InputIcon class="pi pi-search"></InputIcon>
-          <InputText v-model="value1" :placeholder="$t('search')" />
+          <InputText v-model="value1" :placeholder="$t('search')"/>
         </IconField>
       </div>
     </div>
 
-    <!-- Panel -->
-    <OverlayPanel ref="menuFilters" id="overlay_menu" :dismissable="true">
-      <div class="p-3 w-72">
-        <!-- render dropdown đa cấp -->
+    <OverlayPanel ref="menuFilters" class="filter-options__overlay__menu" :dismissable="true">
+      <div>
+        <div style="margin-bottom: 5px" class="sub_title">Hiển thị tất cả sản phẩm theo:</div>
         <template v-for="(level, idx) in levels" :key="idx">
           <Dropdown
               v-model="level.selected"
               :options="level.options"
               optionLabel="label"
               :placeholder="$t('add_filter_condition')"
-              class="w-full mb-3"
+              class="omni-selection"
+              style="margin-bottom: 5px"
               @change="onSelect(idx)"
           />
         </template>
 
         <!-- nút hành động -->
-        <div class="flex gap-2 justify-end mt-3">
-          <Button :label="$t('cancel')" severity="secondary" outlined @click="close"/>
-          <Button :label="$t('add_filter_condition')" @click="addFilter"/>
+        <div class="d-flex gap-2 justify-end mt-3" style="gap: 10px">
+          <Button :label="$t('cancel')" class="btn-hover-opacity ms-btn btn-default" outlined @click="close"/>
+          <Button :label="$t('add_filter_condition')" class="ms-btn btn-primary" style="padding: 9px 22px" disabled @click="addFilter"/>
         </div>
       </div>
     </OverlayPanel>
@@ -149,6 +149,19 @@ export default {
     color: var(--color-coolgray-900);
     font-weight: 400;
     margin-left: 10px;
+  }
+}
+
+.filter-options__overlay__menu {
+  .p-overlaypanel-content {
+    padding: 15px;
+
+    .sub_title {
+      color: var(--color-coolgray-900);
+      line-height: 18px;
+      font-size: 14px;
+      font-weight: 400;
+    }
   }
 }
 </style>

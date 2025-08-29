@@ -283,3 +283,36 @@
     }
   }
 }
+
+.omni-selection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #e3e9ed;
+  color: #212121;
+  font-size: 14px;
+  padding: 10px;
+  height: 40px;
+  border-radius: 4px;
+  line-height: 18px;
+  width: 100%;
+  transition: all .2s ease-out;
+  outline: none;
+  cursor: pointer;
+  background-color: #fff;
+
+  .p-inputtext {
+    padding: 0 !important;
+    color: var(--color-dark) !important;
+  }
+
+  .p-dropdown-trigger {
+    border: 0;
+    width: 16px !important;
+
+    svg {
+      width: 8px;
+      height: 8px;
+    }
+  }
+}

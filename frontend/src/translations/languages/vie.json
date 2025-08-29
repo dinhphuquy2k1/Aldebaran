@@ -49,5 +49,11 @@
   "save_filter": "Lưu bộ lọc",
   "search": "Tìm kiếm",
   "show_all_products_by": "Hiển thị tất cả sản phẩm theo",
-  "cancel": "Hủy"
+  "cancel": "Hủy",
+  "product_name": "Tên sản phẩm",
+  "stock": "Tồn kho",
+  "category": "Loại",
+  "brand": "Thương hiệu",
+  "show": "Hiển thị %s",
+  "total": "Tổng"
 }

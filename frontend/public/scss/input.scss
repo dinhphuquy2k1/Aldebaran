@@ -181,22 +181,24 @@ input:focus {
 }
 
 .p-checkbox, .p-radiobutton {
-  width: 24px !important;
-  height: 24px !important;
+  width: 16px !important;
+  height: 16px !important;
 
   .p-checkbox-input, .p-radiobutton-input {
     position: absolute;
     cursor: pointer;
-    width: 24px;
-    height: 24px;
+    width: 16px;
+    height: 16px;
     margin: 0;
+    border: 0;
+    border-radius: 2px;
     padding: 0;
     opacity: 0;
     z-index: 500;
   }
 
   .p-checkbox-box {
-    background: url('@public/assets/icons/ic_checkbox_gray.545380ea.svg');
+    background-color: var(--bg-input-checkbox) !important;
     display: inline-block;
     content: "";
     width: 100% !important;
@@ -218,11 +220,6 @@ input:focus {
     border: unset !important;
   }
 
-  .p-checkbox-input:not(:disabled):not(:checked):hover ~ .p-checkbox-box {
-    cursor: pointer;
-    background: url('@public/assets/icons/ic_checkbox_hover.d04300f4.svg');
-  }
-
   .p-radiobutton-input:not(:disabled):not(:checked):hover ~ .p-radiobutton-box {
     cursor: pointer;
     background: url('@public/assets/icons/ic_radio_hover.9f996444.svg');
@@ -234,6 +231,7 @@ input:focus {
     }
 
     background: url('@public/assets/icons/ic_checkbox_active.5a4982e1.svg');
+    background-position: center;
   }
 
   .p-radiobutton-input:checked ~ .p-radiobutton-box {

@@ -87,6 +87,7 @@ export default {
   height: $header-height-admin;
 
   .ms-header-container {
+    height: var(--header-height);
     display: grid;
     grid-template-columns: var(--sidebar-width) auto;
     gap: 1.6rem;
