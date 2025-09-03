@@ -39,7 +39,7 @@
         background: #fff;
         box-shadow: inset 0 -1px #2632381a;
 
-        &:hover {
+        &:not(.p-datatable-row-expansion):hover {
           background-color: var(--border-tr-hover);
         }
 
@@ -141,6 +141,18 @@
         background: #fff;
         border-color: var(--Primary-color-300);
         cursor: default;
+      }
+    }
+  }
+}
+
+.p-datatable-table {
+  .p-datatable-tbody {
+    tr {
+      &:has(+ .p-datatable-row-expansion) {
+        .svg-rotate {
+          transform: rotate(180deg);
+        }
       }
     }
   }

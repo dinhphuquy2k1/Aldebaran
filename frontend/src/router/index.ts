@@ -46,7 +46,20 @@ const routes: Array<RouteRecordRaw> = [
                         components: {
                             header: () => import('@/components/admin/TheHeader.vue'),
                             navbar: () => import('@/components/admin/TheNavbar.vue'),
-                            content: () => import('@/views/admin/HomeView.vue')
+                            content: () => import('@/modules/order/views/admin/OrderList.vue')
+                        }
+                    },
+                ],
+            },
+            {
+                path: 'orders_new',
+                children: [
+                    {
+                        path: '',
+                        components: {
+                            header: () => import('@/components/admin/TheHeader.vue'),
+                            navbar: () => import('@/components/admin/TheNavbar.vue'),
+                            content: () => import('@/modules/order/views/admin/AddOrder.vue')
                         }
                     },
                 ],
@@ -73,6 +86,19 @@ const routes: Array<RouteRecordRaw> = [
                             header: () => import('@/components/admin/TheHeader.vue'),
                             navbar: () => import('@/components/admin/TheNavbar.vue'),
                             content: () => import('@/modules/product/views/admin/ProductList.vue')
+                        }
+                    },
+                ],
+            },
+            {
+                path: 'products_new',
+                children: [
+                    {
+                        path: '',
+                        components: {
+                            header: () => import('@/components/admin/TheHeader.vue'),
+                            navbar: () => import('@/components/admin/TheNavbar.vue'),
+                            content: () => import('@/modules/product/views/admin/AddProduct.vue')
                         }
                     },
                 ],

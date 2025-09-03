@@ -5,7 +5,7 @@
         <div class="padding-container">
           <div class="row no-gutters pb-4">
             <div class="col align-items-center d-flex">
-              <p class="title-page">{{ $t('product_list') }}</p>
+              <p class="title-page">{{ $t('order_list') }}</p>
             </div>
             <div class="col-auto pl-0"></div>
           </div>
@@ -24,8 +24,10 @@
               <div class="position-relative">
                 <div class="table-list-container table-list-product-list table-list--config">
                   <div class="ui-table-listing-container">
-                    <DataTable v-model:selection="selectedProduct" :value="products" class="ui-table" paginator
+                    <DataTable v-model:expandedRows="selectedProduct" :value="products" class="ui-table" paginator
                                :rows="10"
+                               dataKey="id"
+                               @rowExpand="onRowExpand" @rowCollapse="onRowCollapse"
                                paginatorTemplate="PageLinks FirstPageLink PrevPageLink NextPageLink LastPageLink"
                                currentPageReportTemplate="{totalRecords}"
                                :pt="{thead: (options) => ({class: ['border-bottom',]})}">
@@ -50,26 +52,32 @@
                           </div>
                         </div>
                       </template>
+                      <template #expansion="slotProps">
+                        <div>
+                          <OrderInfoCard></OrderInfoCard>
+                        </div>
+                      </template>
+                      <Column expander header-class="table-header--check">
+                        <template #body="{rowTogglerCallback}">
+                          <div class="svg-next-icon-size-20 pointer" @click="rowTogglerCallback">
+                            <div
+                                class="icon-next-dark animate-transition svg-next-icon-size-20 svg-next-icon-rotate-90 svg-rotate"></div>
+                          </div>
+                        </template>
+                      </Column>
                       <Column selectionMode="multiple" header-class="table-header--check"></Column>
-                      <Column field="code" style="min-width: 175px">
+                      <Column field="code" style="min-width: 75px">
                         <template #header>
                           <div class="d-inline-flex align-items-center">
                             <span class="d-inline-flex align-items-center">
-                              <span>{{ $t('product_name') }}</span>
-                            </span>
-                            <span class="d-inline-flex flex-column ml-10">
-                              <span class="icon-next svg-next-icon-rotate--90 svg-next-icon-size-7"></span>
-                              <span class="icon-next svg-next-icon-rotate-90 svg-next-icon-size-7"></span>
+                              <span>{{ $t('code') }}</span>
                             </span>
                           </div>
                         </template>
                         <template #body="{data}">
                           <div class="product-list-td-second">
                             <div class="d-flex">
-                              <div class="table-cell--image m-0">
-                                <img src="/assets/images/slide_4_img.jpg" alt="" class="box-image">
-                              </div>
-                              <div class="ml-10 align-self-center title-name pointer">
+                              <div class="align-self-center title-name pointer">
                                 <div class="table-break-word text-primary">
                                   <span>{{ data.name }}</span>
                                 </div>
@@ -78,16 +86,12 @@
                           </div>
                         </template>
                       </Column>
-                      <Column field="name" style="min-width: 80px">
+                      <Column field="name" style="min-width: 145px">
                         <template #header>
                           <div class="d-inline-flex align-items-center">
                             <div class="d-inline-flex align-items-center">
-                              <span>{{ $t('stock') }}</span>
+                              <span>{{ $t('created_date') }}</span>
                             </div>
-                            <span class="d-inline-flex flex-column ml-10">
-                              <span class="icon-next svg-next-icon-rotate--90 svg-next-icon-size-7"></span>
-                              <span class="icon-next svg-next-icon-rotate-90 svg-next-icon-size-7"></span>
-                            </span>
                           </div>
                         </template>
                       </Column>
@@ -95,16 +99,64 @@
                         <template #header>
                           <div class="d-inline-flex align-items-center">
                             <div class="d-inline-flex align-items-center">
-                              <span>{{ $t('category') }}</span>
+                              <span>{{ $t('customers') }}</span>
                             </div>
                           </div>
                         </template>
                       </Column>
-                      <Column field="quantity" style="min-width: 125px">
+                      <Column field="quantity" style="min-width: 60px">
                         <template #header>
                           <div class="d-inline-flex align-items-center">
                             <div class="d-inline-flex align-items-center">
-                              <span>{{ $t('brand') }}</span>
+                              <span>{{ $t('payment') }}</span>
+                            </div>
+                          </div>
+                        </template>
+                        <template #body="{data}">
+                          {{ data.name }}
+                        </template>
+                      </Column>
+                      <Column field="quantity" style="min-width: 60px">
+                        <template #header>
+                          <div class="d-inline-flex align-items-center">
+                            <div class="d-inline-flex align-items-center">
+                              <span>{{ $t('order_delivery') }}</span>
+                            </div>
+                          </div>
+                        </template>
+                        <template #body="{data}">
+                          {{ data.name }}
+                        </template>
+                      </Column>
+                      <Column field="quantity" style="min-width: 60px">
+                        <template #header>
+                          <div class="d-inline-flex align-items-center">
+                            <div class="d-inline-flex align-items-center">
+                              <span>{{ $t('cod') }}</span>
+                            </div>
+                          </div>
+                        </template>
+                        <template #body="{data}">
+                          {{ data.name }}
+                        </template>
+                      </Column>
+                      <Column field="quantity" style="min-width: 100px">
+                        <template #header>
+                          <div class="d-inline-flex align-items-center">
+                            <div class="d-inline-flex align-items-center">
+                              <span>{{ $t('total_amount') }}</span>
+                            </div>
+                          </div>
+                        </template>
+                        <template #body="{data}">
+                          {{ data.name }}
+                        </template>
+                      </Column>
+                      <Column field="quantity" style="min-width: 60px">
+                        <template #header>
+                          <div class="d-inline-flex align-items-center">
+                            <div class="d-inline-flex align-items-center">
+                              <span>{{ $t('channel') }}</span>
                             </div>
                           </div>
                         </template>
@@ -132,6 +184,7 @@ import DynamicFilter from "@/components/admin/DynamicFilter.vue";
 import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
 import Dropdown from "primevue/dropdown";
+import OrderInfoCard from "@/components/admin/OrderInfoCard.vue"
 
 export default {
   components: {
@@ -142,6 +195,7 @@ export default {
     DataTable,
     Column,
     Dropdown,
+    OrderInfoCard,
   },
   data() {
     return {
