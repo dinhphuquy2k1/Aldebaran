@@ -22,7 +22,7 @@ export default {
 
 <style lang="scss">
 .ms-wrapper {
-  color: #212121;
+  color: var(--color-coolgray-900);
   background-color: var(--color-coolgray-100);
   overflow: hidden;
 

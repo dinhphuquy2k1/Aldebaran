@@ -1242,6 +1242,76 @@ img {
   line-height: 20px;
 }
 
+.pdr-10, .pdx-10 {
+  padding-right: var(--space-10) !important;
+}
+
+.hrv-image-thumbnail {
+  position: relative;
+  display: block;
+  background: var(--background-image-wrapper);
+  padding: 0 0 50px;
+  width: 50px;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+
+  &:before {
+    z-index: 1;
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border: 1px solid rgba(195, 207, 216, .3);
+  }
+
+  .hrv-image-thumbnail--image {
+    position: absolute;
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+  }
+}
+
+.text-content_accent {
+  color: var(--alias-color-content-accent);
+}
+
+.border-bottom-0 {
+  border-bottom: 0 !important;
+}
+
+.add-promotions-wrapper--reason-title {
+  margin-bottom: var(--gap-1);
+}
+
+.content-coolgray--500 {
+  color: var(--color-coolgray-500);
+}
+
+.pdt-1, .pdy-1 {
+  padding-top: var(--space-1) !important;
+}
+
+.hrv-image-thumbnail--image {
+  color: var(--color-thumnail-image);
+}
+
+svg.hrv-image-thumbnail--image {
+  color: #cecece;
+}
+
 @supports (overflow: clip) {
   .hrv-card {
     overflow: clip;

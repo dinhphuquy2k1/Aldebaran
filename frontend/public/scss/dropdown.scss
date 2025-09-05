@@ -337,4 +337,8 @@
     width: 12px;
     height: 12px;
   }
+
+  &.p-disabled {
+    background: var(--alias-color-background-faded);
+  }
 }

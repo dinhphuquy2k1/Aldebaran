@@ -1,5 +1,38 @@
 .p-dialog {
   border-radius: 4px !important;
+
+  .p-dialog-header {
+    display: flex;
+    flex: 0 0 56px;
+    padding: 8px 16px;
+    align-items: center;
+    gap: 16px;
+    background: var(--background-default, #fff);
+    border-bottom: .1rem solid #e5e7eb;
+    position: relative;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    color: var(--content-default, #111827);
+    white-space: pre-wrap;
+  }
+
+  .p-dialog-content {
+    padding: 0;
+  }
+
+  .modal-body {
+    background: var(--background-default);
+    flex: 1 1 auto;
+    overflow: auto;
+  }
+
+  &.modal_container {
+    .p-dialog-footer {
+      padding: 12px 16px;
+      border-top: 1px solid var(--color-coolgray-200);
+    }
+  }
 }
 
 .p-dialog-header-icon {

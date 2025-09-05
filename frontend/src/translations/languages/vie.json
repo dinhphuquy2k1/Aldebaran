@@ -134,5 +134,18 @@
   "suggest_promotion": "Gợi ý khuyến mãi",
   "product_amount": "Tiền hàng",
   "shipping_fee": "Phí vận chuyển",
-  "copy_cart_link": "Sao chép link giỏ hàng"
+  "copy_cart_link": "Sao chép link giỏ hàng",
+  "enter_product_name": "Nhập tên sản phẩm",
+  "set_new_price_for_product": "Đặt giá mới cho sản phẩm",
+  "discount_product": "Giảm giá sản phẩm",
+  "discount_type": "Loại giảm giá",
+  "discount_amount": "Giảm tiền",
+  "discount_percent": "Giảm %",
+  "value": "Giá trị",
+  "discount_reason": "Lý do giảm giá",
+  "discount_reason_visible": "Khách hàng có thể thấy lý do giảm giá",
+  "enter_promotion_code": "Nhập mã khuyến mãi",
+  "enter_custom_promotion": "Nhập khuyến mãi tùy ý",
+  "use_promotion_for_loyal_customer": "Dùng khuyến mãi cho khách hàng thân thiết",
+  "delete_promotion": "Xóa khuyến mãi"
 }

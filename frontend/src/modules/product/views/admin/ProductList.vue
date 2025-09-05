@@ -1,7 +1,7 @@
 <template>
   <section class="layout-container layout-wrapper-block">
     <div class="layout-container-sub layout-wrapper-block_sub">
-      <div class="padding-container pdb-0">
+      <div class="padding-container">
         <div class="padding-container">
           <div class="row no-gutters pb-4">
             <div class="col align-items-center d-flex">
