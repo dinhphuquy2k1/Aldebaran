@@ -23,6 +23,22 @@
     border: none;
   }
 
+  &.btn-danger {
+    background: var(--bg-danger);
+    border: none;
+
+    &:hover {
+      background: var(--bg-danger-hover);
+      color: #fff;
+    }
+  }
+
+  &.btn-bg {
+    background: var(--bg-button);
+    border-radius: 4px !important;
+    color: var(--content-default);
+  }
+
   &:disabled {
     opacity: .65;
     color: #fff;
@@ -283,6 +299,10 @@
   &:hover {
     fill: var(--Primary-color) !important;
     color: var(--Primary-color) !important;
+
+    .text-secondary {
+      color: unset !important;
+    }
   }
 }
 
@@ -323,4 +343,8 @@
     border: 0;
     box-shadow: none;
   }
+}
+
+.fix-height--button {
+  height: 40px;
 }

@@ -52,6 +52,19 @@ const routes: Array<RouteRecordRaw> = [
                 ],
             },
             {
+                path: 'orders/:orderId',
+                children: [
+                    {
+                        path: '',
+                        components: {
+                            header: () => import('@/components/admin/TheHeader.vue'),
+                            navbar: () => import('@/components/admin/TheNavbar.vue'),
+                            content: () => import('@/modules/order/views/admin/OrderDetail.vue')
+                        }
+                    },
+                ],
+            },
+            {
                 path: 'orders_new',
                 children: [
                     {
