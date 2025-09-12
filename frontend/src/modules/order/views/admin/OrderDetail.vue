@@ -198,8 +198,8 @@
                       <div class="col-12 mt-10">
                         <div class="row">
                           <div class="col-12 col-sm-4">
-                            <Button class="ms-btn btn-danger ix-height--button btn-xs-block mb-5">
-                              <div class="p-button-label ml-3 d-none d-sm-inline-block">{{
+                            <Button class="ms-btn btn-danger fix-height--button btn-xs-block mb-5">
+                              <div class="p-button-label">{{
                                   $t('cancel_delivery')
                                 }}
                               </div>
@@ -207,19 +207,19 @@
                           </div>
                           <div class="col-12 col-sm-8 text-end">
                             <Button class="ms-btn btn-clean fix-height--button btn-bg btn-xs-block m-xs-b-2 mb-5">
-                              <div class="svg-next-icon-size-16 mr-5 text-secondary">
+                              <div class="svg-next-icon-size-16 mr-5 text-secondary d-none d-lg-block">
                                 <div class="icon-edit"></div>
                               </div>
-                              <div class="p-button-label ml-3 d-none d-sm-inline-block">{{
+                              <div class="p-button-label ml-3">{{
                                   $t('update_tracking_code')
                                 }}
                               </div>
                             </Button>
-                            <Button class="ms-btn btn-clean ml-10 fix-height--button btn-bg btn-xs-block m-xs-b-2 mb-5">
-                              <div class="svg-next-icon-size-16 mr-5 text-secondary">
+                            <Button class="ms-btn btn-clean ml-10 fix-height--button btn-bg btn-xs-block ml-10 m-xs-l-0 mb-5">
+                              <div class="svg-next-icon-size-16 mr-5 text-secondary d-none d-lg-block">
                                 <div class="icon-print"></div>
                               </div>
-                              <div class="p-button-label ml-3 d-none d-sm-inline-block">{{
+                              <div class="p-button-label ml-3">{{
                                   $t('print_waybill')
                                 }}
                               </div>
@@ -248,8 +248,8 @@
                                     rows="1"/>
                         </div>
                         <div class="mb-15 text-end">
-                          <Button class="ms-btn btn-default ml-10 fix-height--button btn-bg btn-xs-block m-xs-b-2 mb-5">
-                            <div class="p-button-label ml-3 d-none d-sm-inline-block">{{ $t('update') }}</div>
+                          <Button class="ms-btn btn-default">
+                            <div class="p-button-label ml-3">{{ $t('update') }}</div>
                           </Button>
                         </div>
                       </div>
@@ -378,7 +378,7 @@
                   <div class="omni-layout-card--section">
                     <div class="mb-16">{{ $t('please_verify_order') }}</div>
                     <Button class="ms-btn btn-primary w-100">
-                      <div class="p-button-label ml-3 d-none d-sm-inline-block">{{ $t('verify_order') }}</div>
+                      <div class="p-button-label">{{ $t('verify_order') }}</div>
                     </Button>
                   </div>
                 </div>
@@ -465,7 +465,7 @@
                     </div>
                     <div class="text-end">
                       <Button class="ms-btn btn-default mt-10">
-                        <div class="p-button-label ml-3 d-none d-sm-inline-block">{{ $t('save') }}</div>
+                        <div class="p-button-label">{{ $t('save') }}</div>
                       </Button>
                     </div>
                   </div>
@@ -542,5 +542,13 @@ export default {
 
 .order-detail--list-status .ui-product-body, .order-detail--list-status .ui-product-head {
   margin-bottom: 0 !important;
+}
+
+@media (max-width: 575px) {
+  .order-detail-header {
+    .ui-toolbar-product-info {
+      text-align: center;
+    }
+  }
 }
 </style>

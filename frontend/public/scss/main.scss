@@ -1426,7 +1426,7 @@ svg.hrv-image-thumbnail--image {
 .omni-layout-card--section {
   padding: 16px;
 
-  & + .omni-layout-card--section, .omni-layout-card--header {
+  & + .omni-layout-card--section, & + .omni-layout-card--header {
     border-top: 1px solid rgb(225 227 229);
   }
 }
@@ -1565,5 +1565,23 @@ svg.hrv-image-thumbnail--image {
   .ms-container-fluid {
     max-width: 1400px;
     justify-content: space-between;
+  }
+}
+
+@media (max-width: 575px) {
+  .ui-toolbar-product-info {
+    width: 100%;
+    margin: auto;
+  }
+}
+
+@media (max-width: 576px) {
+  .btn-xs-block {
+    display: block;
+    width: 100%;
+  }
+
+  .m-xs-l-0 {
+    margin-left: 0 !important;
   }
 }
