@@ -5,14 +5,14 @@
         <div class="padding-container">
           <div class="row no-gutters">
             <div class="col align-items-center d-flex">
-              <p class="title-page">{{ $t('product_group_list') }}</p>
+              <p class="title-page">{{ $t('price_list') }}</p>
             </div>
             <div class="col-auto pl-10">
               <Button class="ms-btn btn-primary">
                 <div class="p-button-icon svg-next-icon-size-16">
                   <div class="icon-add-circle"></div>
                 </div>
-                <div class="p-button-label ml-10 d-none d-sm-inline-block">{{ $t('create_product_group') }}</div>
+                <div class="p-button-label ml-10 d-none d-sm-inline-block">{{ $t('create_price_list') }}</div>
               </Button>
             </div>
           </div>
@@ -58,11 +58,11 @@
                         </div>
                       </template>
                       <Column selectionMode="multiple" header-class="table-header--check"></Column>
-                      <Column field="code" class="min-width-200px">
+                      <Column field="code" class="table-header--name">
                         <template #header>
                           <div class="d-inline-flex align-items-center">
                             <span class="d-inline-flex align-items-center">
-                              <span>{{ $t('product_name') }}</span>
+                              <span>{{ $t('price_list_name') }}</span>
                             </span>
                             <span class="d-inline-flex flex-column ml-10">
                               <span class="icon-next svg-next-icon-rotate--90 svg-next-icon-size-7"></span>
@@ -85,11 +85,63 @@
                           </div>
                         </template>
                       </Column>
+                      <Column field="name" class="table-header--name">
+                        <template #header>
+                          <div class="d-inline-flex align-items-center">
+                            <div class="d-inline-flex align-items-center">
+                              <span>{{ $t('status') }}</span>
+                            </div>
+                            <span class="d-inline-flex flex-column ml-10">
+                              <span class="icon-next svg-next-icon-rotate--90 svg-next-icon-size-7"></span>
+                              <span class="icon-next svg-next-icon-rotate-90 svg-next-icon-size-7"></span>
+                            </span>
+                          </div>
+                        </template>
+                      </Column>
+                      <Column field="name" class="table-header--name">
+                        <template #header>
+                          <div class="d-inline-flex align-items-center">
+                            <div class="d-inline-flex align-items-center">
+                              <span>{{ $t('channel') }}</span>
+                            </div>
+                            <span class="d-inline-flex flex-column ml-10">
+                              <span class="icon-next svg-next-icon-rotate--90 svg-next-icon-size-7"></span>
+                              <span class="icon-next svg-next-icon-rotate-90 svg-next-icon-size-7"></span>
+                            </span>
+                          </div>
+                        </template>
+                      </Column>
+                      <Column field="name" class="table-header--name">
+                        <template #header>
+                          <div class="d-inline-flex align-items-center">
+                            <div class="d-inline-flex align-items-center">
+                              <span>{{ $t('start') }}</span>
+                            </div>
+                            <span class="d-inline-flex flex-column ml-10">
+                              <span class="icon-next svg-next-icon-rotate--90 svg-next-icon-size-7"></span>
+                              <span class="icon-next svg-next-icon-rotate-90 svg-next-icon-size-7"></span>
+                            </span>
+                          </div>
+                        </template>
+                      </Column>
+                      <Column field="name" class="table-header--name">
+                        <template #header>
+                          <div class="d-inline-flex align-items-center">
+                            <div class="d-inline-flex align-items-center">
+                              <span>{{ $t('end') }}</span>
+                            </div>
+                            <span class="d-inline-flex flex-column ml-10">
+                              <span class="icon-next svg-next-icon-rotate--90 svg-next-icon-size-7"></span>
+                              <span class="icon-next svg-next-icon-rotate-90 svg-next-icon-size-7"></span>
+                            </span>
+                          </div>
+                        </template>
+                      </Column>
                       <Column field="name" class="min-width-200px">
                         <template #header>
                           <div class="d-inline-flex align-items-center">
                             <div class="d-inline-flex align-items-center">
-                              <span>{{ $t('stock') }}</span>
+                              <span>{{ $t('create_date') }}</span>
                             </div>
                             <span class="d-inline-flex flex-column ml-10">
                               <span class="icon-next svg-next-icon-rotate--90 svg-next-icon-size-7"></span>

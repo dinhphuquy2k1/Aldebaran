@@ -10,7 +10,7 @@
       </div>
       <div class="header-actions">
         <div class="d-none d-lg-block min-width-0">
-          <div class="breadcrumb-item">Danh sách nhóm sản phẩm</div>
+          <div class="breadcrumb-item">{{ $route.meta.title ? $t($route.meta.title) : '' }}</div>
         </div>
         <div class="d-block d-lg-none"></div>
         <div class="header-right-actions">

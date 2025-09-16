@@ -206,5 +206,12 @@
   "product_group_list": "Danh sách nhóm sản phẩm",
   "all_categories": "Tất cả danh mục",
   "group_condition": "Điều kiện nhóm",
-  "group_name": "Tên nhóm"
+  "group_name": "Tên nhóm",
+  "price_list_list": "Danh sách bảng giá",
+  "create_price_list": "Tạo bảng giá",
+  "all_price_lists": "Tất cả bảng giá",
+  "price_list_name": "Tên bảng giá",
+  "status": "Trạng thái",
+  "start": "Bắt đầu",
+  "end": "Kết thúc"
 }

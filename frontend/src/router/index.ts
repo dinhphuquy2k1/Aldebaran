@@ -49,31 +49,31 @@ const routes: Array<RouteRecordRaw> = [
                             content: () => import('@/modules/order/views/admin/OrderList.vue')
                         }
                     },
-                ],
-            },
-            {
-                path: 'orders/:orderId',
-                children: [
                     {
-                        path: '',
-                        components: {
-                            header: () => import('@/components/admin/TheHeader.vue'),
-                            navbar: () => import('@/components/admin/TheNavbar.vue'),
-                            content: () => import('@/modules/order/views/admin/OrderDetail.vue')
-                        }
+                        path: 'new',
+                        children: [
+                            {
+                                path: '',
+                                components: {
+                                    header: () => import('@/components/admin/TheHeader.vue'),
+                                    navbar: () => import('@/components/admin/TheNavbar.vue'),
+                                    content: () => import('@/modules/order/views/admin/AddOrder.vue')
+                                }
+                            },
+                        ],
                     },
-                ],
-            },
-            {
-                path: 'orders_new',
-                children: [
                     {
-                        path: '',
-                        components: {
-                            header: () => import('@/components/admin/TheHeader.vue'),
-                            navbar: () => import('@/components/admin/TheNavbar.vue'),
-                            content: () => import('@/modules/order/views/admin/AddOrder.vue')
-                        }
+                        path: ':orderId',
+                        children: [
+                            {
+                                path: '',
+                                components: {
+                                    header: () => import('@/components/admin/TheHeader.vue'),
+                                    navbar: () => import('@/components/admin/TheNavbar.vue'),
+                                    content: () => import('@/modules/order/views/admin/OrderDetail.vue')
+                                }
+                            },
+                        ],
                     },
                 ],
             },
@@ -102,14 +102,14 @@ const routes: Array<RouteRecordRaw> = [
                         }
                     },
                     {
-                        path: ':productId',
+                        path: 'new',
                         children: [
                             {
                                 path: '',
                                 components: {
                                     header: () => import('@/components/admin/TheHeader.vue'),
                                     navbar: () => import('@/components/admin/TheNavbar.vue'),
-                                    content: () => import('@/modules/product/views/admin/ProductDetail.vue')
+                                    content: () => import('@/modules/product/views/admin/AddProduct.vue')
                                 }
                             },
                         ],
@@ -126,19 +126,35 @@ const routes: Array<RouteRecordRaw> = [
                                 }
                             },
                         ],
-                    }
-                ],
-            },
-            {
-                path: 'products_new',
-                children: [
+                        meta: {title: 'product_group_list'}
+                    },
                     {
-                        path: '',
-                        components: {
-                            header: () => import('@/components/admin/TheHeader.vue'),
-                            navbar: () => import('@/components/admin/TheNavbar.vue'),
-                            content: () => import('@/modules/product/views/admin/AddProduct.vue')
-                        }
+                        path: 'pricing_list',
+                        children: [
+                            {
+                                path: '',
+                                components: {
+                                    header: () => import('@/components/admin/TheHeader.vue'),
+                                    navbar: () => import('@/components/admin/TheNavbar.vue'),
+                                    content: () => import('@/modules/pricing/views/admin/PricingList.vue')
+                                }
+                            },
+                        ],
+                        meta: {title: 'price_list_list'}
+                    },
+                    {
+                        path: ':productId',
+                        children: [
+                            {
+                                path: '',
+                                components: {
+                                    header: () => import('@/components/admin/TheHeader.vue'),
+                                    navbar: () => import('@/components/admin/TheNavbar.vue'),
+                                    content: () => import('@/modules/product/views/admin/ProductDetail.vue')
+                                }
+                            },
+                        ],
+                        meta: {title: 'product_group_list'}
                     },
                 ],
             },
