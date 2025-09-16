@@ -50,7 +50,7 @@ input:focus {
 
 .p-inputtext {
   width: 100%;
-  border-radius: 3.5px !important;
+  border-radius: 4px !important;
   font-family: GoogleSans, serif !important;
   font-size: 14px !important;
   color: #000 !important;
@@ -268,46 +268,6 @@ input:focus {
   border: 1px solid red;
 }
 
-.p-icon-field {
-  .p-input-icon {
-    width: 18px;
-    height: 18px;
-    margin-top: -9px;
-  }
-
-  .p-inputtext {
-    padding-left: 35px !important;
-    line-height: inherit !important;
-    height: unset !important;
-    min-height: unset !important;
-    border: 1px solid var(--color-light-gray) !important;
-
-    &:focus {
-      border-color: var(--color-royal-blue) !important;
-    }
-  }
-
-  &.p-icon-field-left, &.p-icon-field-right {
-    .p-input-icon {
-      padding-left: 10px;
-      align-self: center;
-      flex: none;
-      white-space: nowrap;
-      height: 18px;
-      color: var(--color-blue-gray);
-      font-size: 14px;
-      font-weight: 600;
-      line-height: 18px;
-      cursor: pointer;
-    }
-
-    .pi-search {
-      background-size: 18px 18px;
-      background-image: url('@public/assets/icons/search.svg');
-    }
-  }
-}
-
 .hrv-ui-textarea {
   font-weight: 400;
   line-height: 16px;
@@ -473,4 +433,55 @@ input:focus {
   width: 100%;
   transition: all .2s ease-out;
   outline: none;
+}
+
+.p-icon-field {
+  .p-input-icon {
+    width: 18px;
+    height: 18px;
+    margin-top: -9px;
+  }
+
+  .p-inputtext {
+    padding-left: 35px !important;
+    line-height: inherit !important;
+    min-height: unset !important;
+    border: 1px solid var(--color-light-gray) !important;
+
+    &:focus {
+      border-color: var(--color-royal-blue) !important;
+    }
+  }
+
+  &.p-icon-field-left, &.p-icon-field-right {
+    .p-input-icon {
+      padding-left: 10px;
+      align-self: center;
+      flex: none;
+      white-space: nowrap;
+      height: 18px;
+      color: var(--color-blue-gray);
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 18px;
+      cursor: pointer;
+    }
+
+    .pi-search {
+      background-size: 18px 18px;
+      background-image: url('@public/assets/icons/search.svg');
+    }
+  }
+
+  &.p-icon-field-left {
+    .p-inputtext {
+      padding: 0 40px !important;
+    }
+  }
+
+  &.p-icon-field-right {
+    .p-inputtext {
+      padding: 0 40px 0 10px !important;
+    }
+  }
 }

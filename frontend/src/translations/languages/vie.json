@@ -201,5 +201,10 @@
   "variant_count": "%s Biến thể",
   "edit_variant": "Chỉnh sửa biến thể",
   "no_promotion_applied": "Không áp dụng khuyến mãi",
-  "product_quote": "Trích dẫn sản phẩm"
+  "product_quote": "Trích dẫn sản phẩm",
+  "create_product_group": "Tạo nhóm sản phẩm",
+  "product_group_list": "Danh sách nhóm sản phẩm",
+  "all_categories": "Tất cả danh mục",
+  "group_condition": "Điều kiện nhóm",
+  "group_name": "Tên nhóm"
 }

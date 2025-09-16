@@ -333,10 +333,10 @@
                         </div>
                         <div class="emoji-action">
                           <div class="emoji-input">
-                            <div class="next-input--stylized">
-                              <IconField iconPosition="right" class="ms-input-size-m d-flex flex-1">
+                            <div>
+                              <IconField iconPosition="right" class="next-icon-field--stylized h-40 d-flex flex-1">
                                 <InputText :placeholder="$t('search')"
-                                           class="flex-1 ms-input-wrapper"/>
+                                           class="flex-1"/>
                                 <InputIcon class="pi pi-search"></InputIcon>
                               </IconField>
                             </div>

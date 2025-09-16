@@ -21,9 +21,9 @@
         </div>
       </div>
       <div class="col">
-        <IconField iconPosition="left">
+        <IconField iconPosition="left" class="next-icon-field--stylized h-40">
           <InputIcon class="pi pi-search"></InputIcon>
-          <InputText v-model="value1" :placeholder="$t('search')"/>
+          <InputText v-model="value1" :placeholder="$t('search')" class="next-input next-input--invisible"/>
         </IconField>
       </div>
     </div>
@@ -46,7 +46,8 @@
         <!-- nút hành động -->
         <div class="d-flex gap-2 justify-end mt-3" style="gap: 10px">
           <Button :label="$t('cancel')" class="btn-hover-opacity ms-btn btn-default" outlined @click="close"/>
-          <Button :label="$t('add_filter_condition')" class="ms-btn btn-primary" style="padding: 9px 22px" disabled @click="addFilter"/>
+          <Button :label="$t('add_filter_condition')" class="ms-btn btn-primary" style="padding: 9px 22px" disabled
+                  @click="addFilter"/>
         </div>
       </div>
     </OverlayPanel>

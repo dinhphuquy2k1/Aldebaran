@@ -101,19 +101,32 @@ const routes: Array<RouteRecordRaw> = [
                             content: () => import('@/modules/product/views/admin/ProductList.vue')
                         }
                     },
-                ],
-            },
-            {
-                path: 'products/:productId',
-                children: [
                     {
-                        path: '',
-                        components: {
-                            header: () => import('@/components/admin/TheHeader.vue'),
-                            navbar: () => import('@/components/admin/TheNavbar.vue'),
-                            content: () => import('@/modules/product/views/admin/ProductDetail.vue')
-                        }
+                        path: ':productId',
+                        children: [
+                            {
+                                path: '',
+                                components: {
+                                    header: () => import('@/components/admin/TheHeader.vue'),
+                                    navbar: () => import('@/components/admin/TheNavbar.vue'),
+                                    content: () => import('@/modules/product/views/admin/ProductDetail.vue')
+                                }
+                            },
+                        ],
                     },
+                    {
+                        path: 'collections',
+                        children: [
+                            {
+                                path: '',
+                                components: {
+                                    header: () => import('@/components/admin/TheHeader.vue'),
+                                    navbar: () => import('@/components/admin/TheNavbar.vue'),
+                                    content: () => import('@/modules/product_group/views/admin/ProductGroupList.vue')
+                                }
+                            },
+                        ],
+                    }
                 ],
             },
             {

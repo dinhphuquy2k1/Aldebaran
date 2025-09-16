@@ -145,5 +145,10 @@
   "variant_count": "%s Variants",
   "edit_variant": "Edit Variant",
   "no_promotion_applied": "No Promotion Applied",
-  "product_quote": "Product Quote"
+  "product_quote": "Product Quote",
+  "create_product_group": "Create Product Group",
+  "product_group_list": "Product Group List",
+  "all_categories": "All Categories",
+  "group_condition": "Group Condition",
+  "group_name": "Group Name"
 }
