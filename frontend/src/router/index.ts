@@ -104,6 +104,19 @@ const routes: Array<RouteRecordRaw> = [
                 ],
             },
             {
+                path: 'products/:productId',
+                children: [
+                    {
+                        path: '',
+                        components: {
+                            header: () => import('@/components/admin/TheHeader.vue'),
+                            navbar: () => import('@/components/admin/TheNavbar.vue'),
+                            content: () => import('@/modules/product/views/admin/ProductDetail.vue')
+                        }
+                    },
+                ],
+            },
+            {
                 path: 'products_new',
                 children: [
                     {

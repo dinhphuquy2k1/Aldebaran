@@ -35,7 +35,6 @@
   width: 34px !important;
   display: flex;
   justify-content: center;
-  border-left: 1px solid #e0e0e0;
   align-items: center;
 }
 
@@ -340,5 +339,17 @@
 
   &.p-disabled {
     background: var(--alias-color-background-faded);
+  }
+}
+
+.next-dropdown {
+  border: 1px solid var(--border-label-hover-description);
+  border-radius: 4px;
+
+  .p-dropdown-trigger {
+    svg {
+      width: 8px;
+      height: 8px;
+    }
   }
 }

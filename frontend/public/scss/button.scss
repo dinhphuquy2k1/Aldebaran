@@ -348,3 +348,20 @@
 .fix-height--button {
   height: 40px;
 }
+
+.btn-link {
+  background: unset;
+  text-decoration: unset;
+  font-weight: 700 !important;
+
+  &:hover {
+    color: var(--btn-link-hover);
+    text-decoration: underline;
+    background-color: transparent;
+    border-color: transparent;
+  }
+
+  &.no-padding {
+    padding: 0;
+  }
+}

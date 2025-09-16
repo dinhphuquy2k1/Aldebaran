@@ -631,3 +631,13 @@ span.icon24 {
   background-size: contain;
   background: url("@public/assets/icons/svg-avatar-blue-icon.svg") no-repeat center;
 }
+
+.icon-add {
+  width: 100%;
+  height: 100%;
+  -webkit-mask: url("@public/assets/icons/svg-add-icon.svg") no-repeat center;
+  -webkit-mask-size: contain;
+  mask: url("@public/assets/icons/svg-add-icon.svg") no-repeat center;
+  mask-size: contain;
+  background-color: currentColor;
+}
