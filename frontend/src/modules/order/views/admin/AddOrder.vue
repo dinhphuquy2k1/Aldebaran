@@ -401,7 +401,7 @@ export default {
       visibleCreateDiscount: false,
       createDiscountType: 1,
       promotionsType: '1',
-      visibleAddProduct: true,
+      visibleAddProduct: false,
     }
   },
   methods: {

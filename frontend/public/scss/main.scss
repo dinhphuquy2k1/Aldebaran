@@ -194,6 +194,15 @@ a {
   padding-left: var(--space-4) !important;
 }
 
+.ml-15 {
+  margin-left: 15px;
+}
+
+.px-30 {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
 .p-tag.sold-out {
   color: #fff;
   background: #929FA5;
@@ -1263,6 +1272,10 @@ img {
   margin-top: 16px;
 }
 
+.p-15 {
+  padding: 15px;
+}
+
 .mb-2x5 {
   margin-bottom: 2.5px;
 }
@@ -1601,6 +1614,13 @@ svg.hrv-image-thumbnail--image {
       }
     }
   }
+}
+
+.wrapper-card-content {
+  background: #fff;
+  border: 1px solid var(--border-label-hover-description);
+  box-sizing: border-box;
+  border-radius: 4px;
 }
 
 @supports (overflow: clip) {

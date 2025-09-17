@@ -20,9 +20,6 @@
           <div class="product-filter-modal__table">
             <TreeTable v-model:expanded-keys="expandedKeys" v-model:selectionKeys="selectedKey" :value="products"
                        selectionMode="checkbox">
-              <ColumnGroup type="header">
-                <Row></Row>
-              </ColumnGroup>
               <Column expander style="min-width: 320px; width: 320px">
                 <template #header>
                   <div class="d-inline-flex align-items-center">

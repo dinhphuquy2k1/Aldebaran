@@ -1,8 +1,10 @@
 <template>
-  <div>
-    <div class="row no-gutters">
-      <div class="col-auto pr-10">
-        <div class="trigger">
+  <div class="row no-gutters">
+    <div class="col">
+      <div>
+        <div class="row no-gutters">
+          <div class="col-auto pr-10">
+            <div class="trigger">
       <span>
         <Button @click="toggle" aria-haspopup="true" aria-controls="overlay_menu"
                 class="filter-options__childrent__dropdown__menu">
@@ -18,49 +20,68 @@
           <div class="p-button-label ml-3 d-none d-sm-inline-block">{{ $t('add_filter_condition') }}</div>
         </Button>
       </span>
+            </div>
+          </div>
+          <div class="col">
+            <IconField iconPosition="left" class="next-icon-field--stylized h-40">
+              <InputIcon class="pi pi-search"></InputIcon>
+              <InputText v-model="search" :placeholder="$t('search')" class="next-input next-input--invisible"
+                         @input="changeSearch"/>
+            </IconField>
+          </div>
         </div>
-      </div>
-      <div class="col">
-        <IconField iconPosition="left" class="next-icon-field--stylized h-40">
-          <InputIcon class="pi pi-search"></InputIcon>
-          <InputText v-model="value1" :placeholder="$t('search')" class="next-input next-input--invisible"/>
-        </IconField>
+
+        <OverlayPanel ref="menuFilters" class="filter-options__overlay__menu" :dismissable="true">
+          <div>
+            <div style="margin-bottom: 5px" class="sub_title">Hiển thị tất cả sản phẩm theo:</div>
+            <template v-for="(level, idx) in levels" :key="idx">
+              <Dropdown
+                  v-model="level.selected"
+                  :options="level.options"
+                  optionLabel="label"
+                  :placeholder="$t('add_filter_condition')"
+                  class="omni-selection"
+                  style="margin-bottom: 5px"
+                  @change="onSelect(idx)"
+              />
+            </template>
+
+            <!-- nút hành động -->
+            <div class="d-flex gap-2 justify-end mt-3" style="gap: 10px">
+              <Button :label="$t('cancel')" class="btn-hover-opacity ms-btn btn-default" outlined @click="close"/>
+              <Button :label="$t('add_filter_condition')" class="ms-btn btn-primary" style="padding: 9px 22px" disabled
+                      @click="addFilter"/>
+            </div>
+          </div>
+        </OverlayPanel>
       </div>
     </div>
-
-    <OverlayPanel ref="menuFilters" class="filter-options__overlay__menu" :dismissable="true">
-      <div>
-        <div style="margin-bottom: 5px" class="sub_title">Hiển thị tất cả sản phẩm theo:</div>
-        <template v-for="(level, idx) in levels" :key="idx">
-          <Dropdown
-              v-model="level.selected"
-              :options="level.options"
-              optionLabel="label"
-              :placeholder="$t('add_filter_condition')"
-              class="omni-selection"
-              style="margin-bottom: 5px"
-              @change="onSelect(idx)"
-          />
-        </template>
-
-        <!-- nút hành động -->
-        <div class="d-flex gap-2 justify-end mt-3" style="gap: 10px">
-          <Button :label="$t('cancel')" class="btn-hover-opacity ms-btn btn-default" outlined @click="close"/>
-          <Button :label="$t('add_filter_condition')" class="ms-btn btn-primary" style="padding: 9px 22px" disabled
-                  @click="addFilter"/>
-        </div>
+    <div class="col-auto pl-0" v-if="layout">
+      <div class="view-layout-options ml-15 mr-5 text-end">
+        <SelectButton v-model="selectedLayoutOption" :options="layoutOptions" optionLabel="value" optionValue="value"
+                      dataKey="value"
+                      aria-labelledby="basic" class="medium-button-group medium-button-group-default"
+                      optionDisabled="constant" @change="changeLayout" :allowEmpty="false">
+          <template #option="slotProps">
+            <div class="svg-next-icon-size-16">
+              <div :class="slotProps.option.icon"></div>
+            </div>
+          </template>
+        </SelectButton>
       </div>
-    </OverlayPanel>
+    </div>
   </div>
 </template>
 
 <script>
+import SelectButton from 'primevue/selectbutton';
 import Dropdown from "primevue/dropdown";
 import Button from "primevue/button";
 import OverlayPanel from "primevue/overlaypanel";
 import IconField from 'primevue/iconfield';
 import InputIcon from 'primevue/inputicon';
 import InputText from 'primevue/inputtext';
+import {DEBOUNCE, LAYOUT_TYPE} from "@/core/constants";
 
 export default {
   name: "DynamicFilter",
@@ -71,14 +92,42 @@ export default {
     IconField,
     InputIcon,
     InputText,
+    SelectButton,
   },
   props: {
     options: {type: Array, required: true},
-    defaultValue: {type: [Object, String, Number], default: null}
+    defaultValue: {type: [Object, String, Number], default: null},
+    modelValue: {
+      type: Object,
+      default: () => ({
+        search: '',
+        select: null,
+        selectedLayoutOption: null,
+      })
+    },
+    layout: {
+      type: Boolean,
+      default: false,
+    }
   },
+  emits: ['update:modelValue', 'change'],
   data() {
     return {
-      levels: [] // [{ options, selected }]
+      levels: [],
+      layoutOptions: [
+        {
+          icon: 'icon-list',
+          value: LAYOUT_TYPE.LIST,
+          constant: true,
+        },
+        {
+          icon: 'icon-grid',
+          value: LAYOUT_TYPE.GRID,
+          constant: false,
+        },
+      ],
+      selectedLayoutOption: null,
+      search: null,
     };
   },
   mounted() {
@@ -116,6 +165,39 @@ export default {
       const path = this.levels.map(l => l.selected?.value);
       console.log("Filter path:", path);
       this.close();
+    },
+    changeLayout() {
+      this.layoutOptions = this.layoutOptions.map(option => ({
+        ...option,
+        constant: option.value === this.selectedLayoutOption
+      }));
+
+      this.emitChange();
+    },
+    changeSearch() {
+      clearTimeout(this.debounce);
+      this.debounce = setTimeout(() => {
+        this.emitChange();
+      }, DEBOUNCE.INPUT)
+    },
+
+    emitChange() {
+      const newValue = {
+        search: this.search,
+        select: null,
+        selectedLayoutOption: this.selectedLayoutOption,
+      };
+
+      this.$emit('update:modelValue', newValue);
+      this.$emit('change', newValue);
+    }
+  },
+  created() {
+    if (!this.modelValue.selectedLayoutOption) {
+      this.$emit('update:modelValue', {
+        ...this.modelValue,
+        selectedLayoutOption: this.layoutOptions[0].value,
+      });
     }
   }
 };
