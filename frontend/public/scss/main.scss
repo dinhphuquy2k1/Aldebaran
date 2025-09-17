@@ -190,6 +190,10 @@ a {
   min-width: 200px !important;
 }
 
+.pdl-4 {
+  padding-left: var(--space-4) !important;
+}
+
 .p-tag.sold-out {
   color: #fff;
   background: #929FA5;
@@ -1081,7 +1085,7 @@ img {
 }
 
 .pl-0 {
-  padding-left: 0;
+  padding-left: 0 !important;
 }
 
 .text-nodata {

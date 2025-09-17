@@ -157,5 +157,9 @@
   "price_list_name": "Price List Name",
   "status": "Status",
   "start": "Start",
-  "end": "End"
+  "end": "End",
+  "complete_selection": "Complete Selection",
+  "find_product": "Find Product",
+  "sale_price": "Sale Price",
+  "sku": "SKU"
 }

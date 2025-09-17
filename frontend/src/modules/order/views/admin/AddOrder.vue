@@ -83,7 +83,8 @@
                   <div class="w-100 pdb-3">
                     <div class="d-flex justify-content-between align-items-center">
                       <Button
-                              class="ms-btn bg-transparent ms-btn-size-m p-0 text-content_accent" @click="showModalAddDiscount(0)">
+                          class="ms-btn bg-transparent ms-btn-size-m p-0 text-content_accent"
+                          @click="showModalAddDiscount(0)">
                         <div class="p-button-label ml-3 d-none d-sm-inline-block">{{ $t('add_promotion') }}</div>
                       </Button>
                       <div>
@@ -356,6 +357,13 @@
       </div>
     </template>
   </Dialog>
+
+  <Dialog v-model:visible="visibleAddProduct" modal :style="{ width: '800px' }" class="modal_container">
+    <template #container>
+      <ProductSelector/>
+    </template>
+    <ProductSelector/>
+  </Dialog>
 </template>
 <script>
 import TopActionBar from "@/components/admin/TopActionBar.vue";
@@ -369,6 +377,7 @@ import Dialog from 'primevue/dialog';
 import Checkbox from 'primevue/checkbox';
 import InputNumber from 'primevue/inputnumber';
 import RadioButton from 'primevue/radiobutton';
+import ProductSelector from "@/components/admin/ProductSelector.vue";
 
 export default {
   components: {
@@ -383,6 +392,7 @@ export default {
     Checkbox,
     InputNumber,
     RadioButton,
+    ProductSelector,
   },
   data() {
     return {
@@ -391,6 +401,7 @@ export default {
       visibleCreateDiscount: false,
       createDiscountType: 1,
       promotionsType: '1',
+      visibleAddProduct: true,
     }
   },
   methods: {

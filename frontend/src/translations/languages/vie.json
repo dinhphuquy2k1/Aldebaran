@@ -213,5 +213,9 @@
   "price_list_name": "Tên bảng giá",
   "status": "Trạng thái",
   "start": "Bắt đầu",
-  "end": "Kết thúc"
+  "end": "Kết thúc",
+  "complete_selection": "Hoàn tất chọn",
+  "find_product": "Tìm sản phẩm",
+  "sale_price": "Giá bán",
+  "sku": "SKU"
 }
