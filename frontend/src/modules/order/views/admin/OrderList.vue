@@ -19,7 +19,8 @@
                 </template>
               </TabMenu>
               <div style="padding: 15px">
-                <DynamicFilter v-model="filters" :options="filterOptions" layout @change="onFilterChange"></DynamicFilter>
+                <DynamicFilter v-model="filters" :options="filterOptions" layout
+                               @change="onFilterChange"></DynamicFilter>
               </div>
               <div class="position-relative" v-if="filters.selectedLayoutOption === LAYOUT_TYPE.LIST">
                 <div class="table-list-container table-list-product-list table-list--config">
@@ -218,17 +219,113 @@ export default {
     return {
       filterOptions: [
         {
-          label: "Loại sản phẩm", value: "category", children: [
+          label: "Loại sản phẩm",
+          value: "category",
+          type: "select",
+          children: [
             {
-              label: "Điện thoại", value: "phone", children: [
-                {label: "iPhone", value: "iphone"},
-                {label: "Samsung", value: "samsung"}
+              label: "Là",
+              value: "=",
+              type: "select",
+              children: [
+                {
+                  label: "iPhone",
+                  value: "iphone",
+                  type: "multiselect",
+                },
+                {
+                  label: "Samsung",
+                  value: "samsung",
+                  type: "multiselect",
+                }
               ]
             },
-            {label: "Laptop", value: "laptop"}
+            {
+              label: "Khác",
+              value: "<>",
+              type: "select",
+              children: [
+                {
+                  label: "dell",
+                  value: "dell",
+                  type: "select",
+                },
+                {
+                  label: "lenovo",
+                  value: "lenovo",
+                  type: "select",
+                }
+              ]
+            }
           ]
         },
-        {label: "Giá", value: "price"}
+        {
+          label: "Giá",
+          value: "price",
+          type: "select",
+          children: [
+            {
+              label: "Lớn hơn",
+              value: ">",
+              type: "select",
+              children: [
+                {
+                  label: "Nhập giá trị",
+                  value: "input",
+                  type: "input"
+                }
+              ]
+            },
+            {
+              label: "Trong khoảng",
+              value: "between",
+              type: "group",
+              children: [
+                {
+                  label: "Giá trị từ",
+                  value: "from",
+                  type: "date"
+                },
+                {
+                  label: "Giá trị đến",
+                  value: "to",
+                  type: "input"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          label: "Tên sản phẩm",
+          value: "product_name",
+          type: "select",
+          children: [
+            {
+              label: "Bắt đầu với",
+              value: "startswith",
+              type: "select",
+              children: [
+                {
+                  label: "Nhập từ khoá",
+                  value: "input",
+                  type: "input"
+                }
+              ]
+            },
+            {
+              label: "Kết thúc với",
+              value: "endswith",
+              type: "select",
+              children: [
+                {
+                  label: "Nhập từ khoá",
+                  value: "input",
+                  type: "input"
+                }
+              ]
+            }
+          ]
+        }
       ],
       filters: {
         search: '',

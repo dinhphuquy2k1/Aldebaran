@@ -5,21 +5,22 @@
         <div class="row no-gutters">
           <div class="col-auto pr-10">
             <div class="trigger">
-      <span>
-        <Button @click="toggle" aria-haspopup="true" aria-controls="overlay_menu"
-                class="filter-options__childrent__dropdown__menu">
-          <div class="p-button-icon">
-              <svg class="svg-next-icon svg-next-icon-size-14" width="14" height="14">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 459 459">
-                  <g>
-                    <path d="M178.5,382.5h102v-51h-102V382.5z M0,76.5v51h459v-51H0z M76.5,255h306v-51h-306V255z"></path>
-                  </g>
-                </svg>
-              </svg>
-            </div>
-          <div class="p-button-label ml-3 d-none d-sm-inline-block">{{ $t('add_filter_condition') }}</div>
-        </Button>
-      </span>
+              <span>
+                <Button @click="toggle" aria-haspopup="true" aria-controls="overlay_menu"
+                        class="filter-options__childrent__dropdown__menu">
+                  <div class="p-button-icon">
+                      <svg class="svg-next-icon svg-next-icon-size-14" width="14" height="14">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 459 459">
+                          <g>
+                            <path
+                                d="M178.5,382.5h102v-51h-102V382.5z M0,76.5v51h459v-51H0z M76.5,255h306v-51h-306V255z"></path>
+                          </g>
+                        </svg>
+                      </svg>
+                    </div>
+                  <div class="p-button-label ml-3 d-none d-sm-inline-block">{{ $t('add_filter_condition') }}</div>
+                </Button>
+              </span>
             </div>
           </div>
           <div class="col">
@@ -35,21 +36,17 @@
           <div>
             <div style="margin-bottom: 5px" class="sub_title">Hiển thị tất cả sản phẩm theo:</div>
             <template v-for="(level, idx) in levels" :key="idx">
-              <Dropdown
-                  v-model="level.selected"
-                  :options="level.options"
-                  optionLabel="label"
-                  :placeholder="$t('add_filter_condition')"
-                  class="omni-selection"
-                  style="margin-bottom: 5px"
+              <component
+                  :is="getInputComponent(level)"
+                  v-model="level.inputValue"
+                  v-bind="getInputProps(level)"
                   @change="onSelect(idx)"
               />
             </template>
 
-            <!-- nút hành động -->
             <div class="d-flex gap-2 justify-end mt-3" style="gap: 10px">
               <Button :label="$t('cancel')" class="btn-hover-opacity ms-btn btn-default" outlined @click="close"/>
-              <Button :label="$t('add_filter_condition')" class="ms-btn btn-primary" style="padding: 9px 22px" disabled
+              <Button :label="$t('add_filter_condition')" class="ms-btn btn-primary" style="padding: 9px 22px"
                       @click="addFilter"/>
             </div>
           </div>
@@ -81,6 +78,9 @@ import OverlayPanel from "primevue/overlaypanel";
 import IconField from 'primevue/iconfield';
 import InputIcon from 'primevue/inputicon';
 import InputText from 'primevue/inputtext';
+import InputNumber from "primevue/inputnumber";
+import MultiSelect from 'primevue/multiselect';
+import Calendar from 'primevue/calendar';
 import {DEBOUNCE, LAYOUT_TYPE} from "@/core/constants";
 
 export default {
@@ -93,6 +93,9 @@ export default {
     InputIcon,
     InputText,
     SelectButton,
+    InputNumber,
+    MultiSelect,
+    Calendar,
   },
   props: {
     options: {type: Array, required: true},
@@ -128,21 +131,12 @@ export default {
       ],
       selectedLayoutOption: null,
       search: null,
+      filters: [],
     };
   },
   mounted() {
-    // khởi tạo cấp đầu tiên
-    let first = this.defaultValue
-        ? this.options.find(opt => opt.value === this.defaultValue || opt.label === this.defaultValue)
-        : this.options[0];
-    this.levels = [{options: this.options, selected: first || null}];
-
-    // nếu có children thì tự động mở tiếp
-    let current = first;
-    while (current?.children) {
-      this.levels.push({options: current.children, selected: current.children[0]});
-      current = current.children[0];
-    }
+    this.initLevels();
+    console.log(this.levels)
   },
   methods: {
     toggle(event) {
@@ -152,20 +146,136 @@ export default {
       this.$refs.menuFilters.hide();
     },
     onSelect(levelIndex) {
-      // cắt bỏ các level sau
       this.levels.splice(levelIndex + 1);
 
-      const selected = this.levels[levelIndex].selected;
-      if (selected?.children) {
-        this.levels.push({options: selected.children, selected: selected.children[0]});
+      const selected = this.levels[levelIndex].inputValue;
+      if (!selected) return;
+      if (selected.type === "group") {
+        selected.children.forEach(c => {
+          this.autoFillChildren([c], levelIndex + 1);
+        });
+      } else if (selected.children) {
+        this.autoFillChildren(selected.children, levelIndex + 1);
+      } else if (selected?.type === "input" || selected?.type === "number") {
+        this.levels[levelIndex].inputValue = null;
+      }
+
+      console.log(this.levels)
+    },
+
+    autoFillChildren(children, levelIndex) {
+      if (!children || !children.length) return;
+
+      const first = children[0];
+      let newLevel = {options: children, value: first, inputValue: first};
+
+      if (first.type === "input" || first.type === "number" || first.type === 'date') {
+        newLevel.inputValue = null;
+      } else if (first.type === 'multiselect') {
+        newLevel.inputValue = children.map(c => c.value);
+      }
+
+      this.levels.push(newLevel);
+
+      if (first.children) {
+        this.autoFillChildren(first.children, levelIndex + 1);
       }
     },
+
     addFilter() {
-      // lấy đường dẫn lựa chọn
-      const path = this.levels.map(l => l.selected?.value);
-      console.log("Filter path:", path);
-      this.close();
+      if (!this.levels.length) return;
+
+      let filter = {
+        field: null,
+        label: null,
+        operator: null,
+        value: null,
+      };
+
+      for (let idx = 0; idx < this.levels.length; idx++) {
+        const level = this.levels[idx];
+        const sel = level.inputValue;
+        if (!sel) continue;
+
+        if (idx === 0) {
+          filter.field = sel.value;
+          filter.label = sel.label;
+        } else if (sel.type === "input" || sel.type === "number") {
+          filter.value = sel.inputValue ?? null;
+        } else if (sel.type === "group") {
+          filter.value = sel.children
+              .map(c => {
+                const childLevel = this.levels.find(l => l.value.value === c.value);
+                return childLevel?.inputValue ?? "";
+              })
+              .join("|");
+          filter.operator = sel.value;
+          break;
+        } else if (sel.children) {
+          filter.operator = sel.value;
+        } else if (sel.type === "select") {
+          filter.value = sel.value;
+        } else {
+          filter.value = sel;
+        }
+      }
+
+      if (!filter.operator) filter.operator = "=";
+
+      this.filters.push(filter);
+      console.log("Filter built:", filter);
     },
+
+    getInputComponent(level) {
+      switch (level.value?.type) {
+        case 'multiselect':
+          return 'MultiSelect';
+        case 'group':
+          return 'GroupInput';
+        case 'number':
+          return 'InputNumber';
+        case 'date':
+          return 'Calendar';
+        case 'select':
+          return 'Dropdown';
+        default:
+          return 'InputText';
+      }
+    },
+
+    getInputProps(level) {
+      const type = level.value?.type;
+      if (!type || type === 'select') {
+        return {options: level.options, optionLabel: 'label', placeholder: this.levelPlaceholder(level)};
+      }
+      if (type === 'multiselect') {
+        return {
+          options: level.options,
+          optionLabel: 'label',
+          optionValue: 'value',
+          display: 'chip',
+          placeholder: 'Chọn nhiều...'
+        };
+      }
+      if (type === 'group') {
+        return {level}; // GroupInput tự xử lý children
+      }
+      if (type === 'number') {
+        return {placeholder: 'Nhập giá trị', class: 'w-full mb-2'};
+      }
+      if (type === 'date') {
+        return {showIcon: true, iconDisplay: 'input'};
+      }
+      if (type === 'input') {
+        return {placeholder: 'Nhập giá trị', style: 'margin-bottom: 5px'};
+      }
+      return {};
+    },
+
+    levelPlaceholder(level) {
+      return 'Nhập giá trị';
+    },
+
     changeLayout() {
       this.layoutOptions = this.layoutOptions.map(option => ({
         ...option,
@@ -190,15 +300,41 @@ export default {
 
       this.$emit('update:modelValue', newValue);
       this.$emit('change', newValue);
-    }
+    },
+
+    // initialize default condition value
+    initLevels() {
+      let first = this.options[0];
+      this.levels = [{options: this.options, value: first || null, inputValue: first || null}];
+
+      let current = first;
+      while (current?.children) {
+        let inputValue = null;
+        if (current.children[0]?.type === 'multiselect') {
+          inputValue = [];
+        } else {
+          inputValue = current.children[0];
+        }
+
+        this.levels.push({options: current.children, value: current.children[0], inputValue});
+        current = current.children[0];
+      }
+    },
+
+    /**
+     * initialize value
+     */
+    init() {
+      if (!this.modelValue.selectedLayoutOption) {
+        this.$emit('update:modelValue', {
+          ...this.modelValue,
+          selectedLayoutOption: this.layoutOptions[0].value,
+        });
+      }
+    },
   },
   created() {
-    if (!this.modelValue.selectedLayoutOption) {
-      this.$emit('update:modelValue', {
-        ...this.modelValue,
-        selectedLayoutOption: this.layoutOptions[0].value,
-      });
-    }
+    this.init();
   }
 };
 </script>
