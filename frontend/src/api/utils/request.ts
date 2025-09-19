@@ -2,7 +2,7 @@ import axios, { AxiosInstance, AxiosResponse } from 'axios';
 
 const service: AxiosInstance = axios.create({
     baseURL: "http://localhost:2000/api/v1", // uri = baseURL + apiFunction truyền tới
-    timeout: 5000,
+    timeout: 10000,
     headers: { // Request Headers
         'Content-Type': 'application/json',
         'Accept': 'application/json'

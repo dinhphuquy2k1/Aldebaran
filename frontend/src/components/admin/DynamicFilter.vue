@@ -304,6 +304,7 @@ export default {
 
     // initialize default condition value
     initLevels() {
+      if (this.options.length === 0) return
       let first = this.options[0];
       this.levels = [{options: this.options, value: first || null, inputValue: first || null}];
 
@@ -333,7 +334,19 @@ export default {
       }
     },
   },
+  watch: {
+    options: {
+      handler(newOptions) {
+        if (Array.isArray(newOptions) && newOptions.length > 0) {
+          this.initLevels();
+        }
+      },
+      immediate: true,
+      deep: true,
+    },
+  },
   created() {
+    console.log(this.options)
     this.init();
   }
 };

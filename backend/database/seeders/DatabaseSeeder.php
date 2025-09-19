@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             CategoryPropertiesSeeder::class,
             PropertyValueSeeder::class,
             MenuSeeder::class,
+            FilterOptionsSeeder::class,
         ]);
 
         User::factory()->create([

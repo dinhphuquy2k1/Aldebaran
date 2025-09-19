@@ -21,6 +21,8 @@
               <div style="padding: 15px">
                 <DynamicFilter v-model="filters" :options="filterOptions" layout
                                @change="onFilterChange"></DynamicFilter>
+
+                <Dropdown :options="filterOptions" option-label="label" option-value="value"></Dropdown>
               </div>
               <div class="position-relative" v-if="filters.selectedLayoutOption === LAYOUT_TYPE.LIST">
                 <div class="table-list-container table-list-product-list table-list--config">
@@ -198,6 +200,7 @@ import Column from 'primevue/column';
 import Dropdown from "primevue/dropdown";
 import OrderInfoCard from "@/components/admin/OrderInfoCard.vue"
 import {LAYOUT_TYPE} from "@/core/constants";
+import {getFilters} from "@/api/filter";
 
 export default {
   computed: {
@@ -217,116 +220,7 @@ export default {
   },
   data() {
     return {
-      filterOptions: [
-        {
-          label: "Loại sản phẩm",
-          value: "category",
-          type: "select",
-          children: [
-            {
-              label: "Là",
-              value: "=",
-              type: "select",
-              children: [
-                {
-                  label: "iPhone",
-                  value: "iphone",
-                  type: "multiselect",
-                },
-                {
-                  label: "Samsung",
-                  value: "samsung",
-                  type: "multiselect",
-                }
-              ]
-            },
-            {
-              label: "Khác",
-              value: "<>",
-              type: "select",
-              children: [
-                {
-                  label: "dell",
-                  value: "dell",
-                  type: "select",
-                },
-                {
-                  label: "lenovo",
-                  value: "lenovo",
-                  type: "select",
-                }
-              ]
-            }
-          ]
-        },
-        {
-          label: "Giá",
-          value: "price",
-          type: "select",
-          children: [
-            {
-              label: "Lớn hơn",
-              value: ">",
-              type: "select",
-              children: [
-                {
-                  label: "Nhập giá trị",
-                  value: "input",
-                  type: "input"
-                }
-              ]
-            },
-            {
-              label: "Trong khoảng",
-              value: "between",
-              type: "group",
-              children: [
-                {
-                  label: "Giá trị từ",
-                  value: "from",
-                  type: "date"
-                },
-                {
-                  label: "Giá trị đến",
-                  value: "to",
-                  type: "input"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          label: "Tên sản phẩm",
-          value: "product_name",
-          type: "select",
-          children: [
-            {
-              label: "Bắt đầu với",
-              value: "startswith",
-              type: "select",
-              children: [
-                {
-                  label: "Nhập từ khoá",
-                  value: "input",
-                  type: "input"
-                }
-              ]
-            },
-            {
-              label: "Kết thúc với",
-              value: "endswith",
-              type: "select",
-              children: [
-                {
-                  label: "Nhập từ khoá",
-                  value: "input",
-                  type: "input"
-                }
-              ]
-            }
-          ]
-        }
-      ],
+      filterOptions: [],
       filters: {
         search: '',
         select: null,
@@ -447,8 +341,19 @@ export default {
     },
     onFilterChange() {
       console.log(this.filters)
+    },
+
+    async loadFilters() {
+      await getFilters({screenKey: 1}).then(res => {
+        this.filterOptions = res.data
+      }).catch(error => {
+        console.log(error)
+      });
     }
-  }
+  },
+  async created() {
+    await this.loadFilters();
+  },
 }
 </script>
 

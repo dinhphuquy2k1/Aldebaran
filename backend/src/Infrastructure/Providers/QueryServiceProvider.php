@@ -5,6 +5,8 @@ namespace Src\Infrastructure\Providers;
 use Illuminate\Support\ServiceProvider;
 use Src\Application\Category\UseCases\Queries\GetCategoryQuery;
 use Src\Application\Category\UseCases\Queries\GetCategoryQueryHandler;
+use Src\Application\FilterOption\UseCases\Queries\GetFilterOptionQuery;
+use Src\Application\FilterOption\UseCases\Queries\GetFilterOptionQueryHandler;
 use Src\Application\Menu\UseCases\Queries\GetMenuQuery;
 use Src\Application\Menu\UseCases\Queries\GetMenuQueryHandler;
 use Src\Application\Shared\Bus\QueryBus;
@@ -24,6 +26,11 @@ class QueryServiceProvider extends ServiceProvider
             $queryBus->register(
                 GetMenuQuery::class,
                 $app->make(GetMenuQueryHandler::class)
+            );
+
+            $queryBus->register(
+                GetFilterOptionQuery::class,
+                $app->make(GetFilterOptionQueryHandler::class)
             );
 
             return $queryBus;
