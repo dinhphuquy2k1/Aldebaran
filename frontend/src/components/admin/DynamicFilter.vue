@@ -134,10 +134,6 @@ export default {
       filters: [],
     };
   },
-  mounted() {
-    this.initLevels();
-    console.log(this.levels)
-  },
   methods: {
     toggle(event) {
       this.$refs.menuFilters.toggle(event);
@@ -338,7 +334,13 @@ export default {
     options: {
       handler(newOptions) {
         if (Array.isArray(newOptions) && newOptions.length > 0) {
-          this.initLevels();
+          this.levels[0] = {
+            inputValue: newOptions[0],
+            value: newOptions[0],
+            options: newOptions
+          }
+
+          this.onSelect(0)
         }
       },
       immediate: true,
@@ -346,7 +348,6 @@ export default {
     },
   },
   created() {
-    console.log(this.options)
     this.init();
   }
 };

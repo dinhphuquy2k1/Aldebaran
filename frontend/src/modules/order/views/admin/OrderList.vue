@@ -21,8 +21,6 @@
               <div style="padding: 15px">
                 <DynamicFilter v-model="filters" :options="filterOptions" layout
                                @change="onFilterChange"></DynamicFilter>
-
-                <Dropdown :options="filterOptions" option-label="label" option-value="value"></Dropdown>
               </div>
               <div class="position-relative" v-if="filters.selectedLayoutOption === LAYOUT_TYPE.LIST">
                 <div class="table-list-container table-list-product-list table-list--config">
