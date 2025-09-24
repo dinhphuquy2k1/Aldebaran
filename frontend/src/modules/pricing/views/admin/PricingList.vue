@@ -185,20 +185,7 @@ export default {
   },
   data() {
     return {
-      filterOptions: [
-        {
-          label: "Loại sản phẩm", value: "category", children: [
-            {
-              label: "Điện thoại", value: "phone", children: [
-                {label: "iPhone", value: "iphone"},
-                {label: "Samsung", value: "samsung"}
-              ]
-            },
-            {label: "Laptop", value: "laptop"}
-          ]
-        },
-        {label: "Giá", value: "price"}
-      ],
+      filterOptions: [],
       tabMenus: [
         {
           name: this.$t('all_products'),

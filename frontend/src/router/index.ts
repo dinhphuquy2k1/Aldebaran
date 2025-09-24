@@ -143,6 +143,20 @@ const routes: Array<RouteRecordRaw> = [
                         meta: {title: 'price_list_list'}
                     },
                     {
+                        path: 'pricing_new',
+                        children: [
+                            {
+                                path: '',
+                                components: {
+                                    header: () => import('@/components/admin/TheHeader.vue'),
+                                    navbar: () => import('@/components/admin/TheNavbar.vue'),
+                                    content: () => import('@/modules/pricing/views/admin/AddPricing.vue')
+                                }
+                            },
+                        ],
+                        meta: {title: 'price_list_list'}
+                    },
+                    {
                         path: ':productId',
                         children: [
                             {

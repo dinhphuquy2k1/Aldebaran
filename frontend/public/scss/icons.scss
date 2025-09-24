@@ -491,6 +491,11 @@ span.icon24 {
   height: 20px !important;
 }
 
+.svg-next-icon-size-22 {
+  width: 22px !important;
+  height: 22px !important;
+}
+
 .svg-next-icon-size-7 {
   width: 7px;
   height: 7px;
@@ -668,6 +673,16 @@ span.icon24 {
   -webkit-mask: url("@public/assets/icons/svg-accuracy-icon.svg") no-repeat center;
   -webkit-mask-size: contain;
   mask: url("@public/assets/icons/svg-accuracy-icon.svg") no-repeat center;
+  mask-size: contain;
+  background-color: currentColor;
+}
+
+.icon-help {
+  width: 100%;
+  height: 100%;
+  -webkit-mask: url("@public/assets/icons/svg-help-icon.svg") no-repeat center;
+  -webkit-mask-size: contain;
+  mask: url("@public/assets/icons/svg-help-icon.svg") no-repeat center;
   mask-size: contain;
   background-color: currentColor;
 }

@@ -1206,6 +1206,14 @@ img {
   }
 }
 
+.mt-15 {
+  margin-top: 15px;
+}
+
+.p-16px {
+  padding: 16px;
+}
+
 .hrv-card-section {
   padding: 16px;
 }
@@ -1649,6 +1657,12 @@ svg.hrv-image-thumbnail--image {
 @media (min-width: 808px) {
   .layout-wrapper-block_sub {
     padding: 24px;
+  }
+}
+
+@media (min-width: 992px) {
+  .mt-lg-0 {
+    margin-top: 0 !important;
   }
 }
 
