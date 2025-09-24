@@ -1181,6 +1181,10 @@ img {
   line-height: 20px;
 }
 
+.pd-all-20 {
+  padding: 20px !important;
+}
+
 .hrv-card {
   border-radius: 16px;
   background: #fff;
@@ -1204,6 +1208,13 @@ img {
 
 .hrv-card-section {
   padding: 16px;
+}
+
+.omni-alert-pannel {
+  .alert-info {
+    border-color: var(--alert-info-border-color);
+    background: var(--alert-info-bg-color);
+  }
 }
 
 .fw-600 {

@@ -186,6 +186,134 @@
       </div>
     </div>
   </section>
+
+  <Dialog v-model:visible="visibleCancelOrder" modal
+          class="modal_container modal-lg modal-dialog omni-modal">
+    <template #header>
+      <div class="pdr-10">
+        <div class="text-bodyl font-weight-600 d-flex align-items-center">{{ $t('order_cancel') }}</div>
+      </div>
+    </template>
+    <div class="modal-body">
+      <div>
+        <div style="padding:20px 20px 0px">
+          <div class="form-group mb-0">
+            <div class="omni-alert-pannel pb-10">
+              <div class="d-flex justify-content-start alert alert-md alert-info">
+                <div class="p-0 flex-grow-1">
+                  <div class="row">
+                    <div class="col-12 col-sm omni-alert-pannel--content">
+                      <div class="omni-alert-pannel--description mb-0">
+                        <div>
+                          <p>{{ $t('order_cancel_note') }}</p>
+                          <p class="mb-0">{{ $t('order_cancel_warning') }}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6 col-12 pb-3">
+                <label for="" class="label-input-group">{{ $t('order_cancel_reason') }}</label>
+                <Dropdown
+                    :options="[
+                                { label: 'Hiển thị 10', value: 10 },
+                                { label: 'Hiển thị 20', value: 20 },
+                                { label: 'Hiển thị 50', value: 50 }
+                                ]"
+                    optionLabel="label"
+                    optionValue="value"
+                    :placeholder="$t('order_cancel_reason_select')"
+                    class="hrv-btn w-0 h-40"
+                />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-6 col-md-12">
+                <label for="" class="label-input-group">{{ $t('note') }}</label>
+                <Textarea rows="1" class="ms-textarea"
+                          style="overflow:hidden;overflow-wrap:break-word;height:40px;border-radius: 4px !important;"
+                          :placeholder="$t('order_cancel_note_placeholder')"/>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pd-all-20">
+          <div class="row">
+            <div class="col-12 mb-15">
+              <strong>{{ $t('order_payment_refund') }}</strong>
+            </div>
+          </div>
+          <div>
+            <div class="mb-15">
+              <div class="col-12">
+                <div class="ui-table-normal-container"></div>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="form-group"></div>
+              <div class="form-group">
+                <div class="row">
+                  <div class="col col-sm-4">
+                    <span>{{ $t('promotions') }}:</span>
+                    <p class="mb-0"></p>
+                  </div>
+                  <div class="col col-sm-6 text-left">
+                    <span>50,000 ₫</span>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="row">
+                  <div class="col col-sm-4">
+                    <span>{{ $t('shipping_fee') }}:</span>
+                    <p class="mb-0"></p>
+                  </div>
+                  <div class="col col-sm-6 text-left">
+                    <span>50,000 ₫</span>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="row">
+                  <div class="col col-sm-4">
+                    <span>{{ $t('order_refund_total') }}:</span>
+                    <p class="mb-0"></p>
+                  </div>
+                  <div class="col col-sm-6 text-left">
+                    <span>50,000 ₫</span>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="row">
+                  <div class="col col-sm-4">
+                    <span>{{ $t('order_payment_cod') }}:</span>
+                    <p class="mb-0"></p>
+                  </div>
+                  <div class="col col-sm-6 text-left">
+                    <span>50,000 ₫</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <template #footer>
+      <div class="d-flex justify-end gap-2">
+        <Button class="ms-btn btn-mono--secondary ms-btn-size-m">
+          <div class="p-button-label ml-3 d-none d-sm-inline-block">{{ $t('cancel') }}</div>
+        </Button>
+        <Button class="ms-btn btn-accent--primary ms-btn-size-m">
+          <div class="p-button-label ml-3 d-none d-sm-inline-block">{{ $t('order_cancel') }}</div>
+        </Button>
+      </div>
+    </template>
+  </Dialog>
 </template>
 
 <script>
@@ -198,6 +326,8 @@ import Column from 'primevue/column';
 import Dropdown from "primevue/dropdown";
 import OrderInfoCard from "@/components/admin/OrderInfoCard.vue"
 import {LAYOUT_TYPE} from "@/core/constants";
+import Dialog from 'primevue/dialog';
+import Textarea from "primevue/textarea";
 import {getFilters} from "@/api/filter";
 
 export default {
@@ -215,6 +345,8 @@ export default {
     Column,
     Dropdown,
     OrderInfoCard,
+    Dialog,
+    Textarea,
   },
   data() {
     return {
@@ -331,6 +463,7 @@ export default {
           rating: 5
         },
       ],
+      visibleCancelOrder: true,
     }
   },
   methods: {

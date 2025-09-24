@@ -2,6 +2,7 @@
   border-radius: 4px !important;
 
   .p-dialog-header {
+    width: 100%;
     display: flex;
     flex: 0 0 56px;
     padding: 8px 16px;
@@ -31,6 +32,7 @@
     box-shadow: unset;
 
     .p-dialog-footer {
+      width: 100%;
       padding: 12px 16px;
       border-top: 1px solid var(--color-coolgray-200);
     }
@@ -40,5 +42,30 @@
 .p-dialog-header-icon {
   &:focus {
     box-shadow: unset;
+  }
+}
+
+@media (min-width: 576px) {
+  .modal-dialog {
+    max-width: 500px;
+    margin: 17.5px auto;
+  }
+
+  .modal-dialog-centered {
+    min-height: calc(100% - 35px);
+  }
+}
+
+@media (max-width: 768px) {
+  .omni-modal {
+    &.modal-dialog {
+      min-width: 100%;
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .modal-lg {
+    max-width: 800px;
   }
 }

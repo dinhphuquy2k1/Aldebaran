@@ -215,7 +215,8 @@
                                 }}
                               </div>
                             </Button>
-                            <Button class="ms-btn btn-clean ml-10 fix-height--button btn-bg btn-xs-block ml-10 m-xs-l-0 mb-5">
+                            <Button
+                                class="ms-btn btn-clean ml-10 fix-height--button btn-bg btn-xs-block ml-10 m-xs-l-0 mb-5">
                               <div class="svg-next-icon-size-16 mr-5 text-secondary d-none d-lg-block">
                                 <div class="icon-print"></div>
                               </div>
@@ -380,6 +381,14 @@
                     <Button class="ms-btn btn-primary w-100">
                       <div class="p-button-label">{{ $t('verify_order') }}</div>
                     </Button>
+                  </div>
+                  <div class="omni-layout-card--section">
+                    <p class="mb-0 d-flex align-items-center">
+                      <div class="svg-next-icon-size-16 text-primary mr-10">
+                        <div class="icon-accuracy"></div>
+                      </div>
+                      <span>{{ $t('order_verified') }}</span>
+                    </p>
                   </div>
                 </div>
                 <div class="omni-layout-card card-default">
