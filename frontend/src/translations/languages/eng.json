@@ -212,5 +212,6 @@
   "price_list_delete": "Delete Price List",
   "price_list_created_by": "Price list created by %s",
   "suspend": "Suspend",
-  "inactive": "Inactive"
+  "inactive": "Inactive",
+  "add": "Add"
 }

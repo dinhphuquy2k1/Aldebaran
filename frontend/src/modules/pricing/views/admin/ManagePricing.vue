@@ -228,6 +228,12 @@
       </div>
     </div>
   </section>
+  <Dialog v-model:visible="visibleSelectProduct" modal :style="{ width: '800px' }" class="modal_container">
+    <template #container>
+      <ProductSelector :title="$t('find_product')" :finish-title="$t('add')"/>
+    </template>
+    <ProductSelector/>
+  </Dialog>
 </template>
 
 <script>
@@ -239,6 +245,8 @@ import Calendar from 'primevue/calendar';
 import Button from "primevue/button";
 import HistoryTimeLine from "@/components/admin/HistoryTimeLine.vue";
 import {FORM_MODE} from "@/core/constants";
+import Dialog from "primevue/dialog";
+import ProductSelector from "@/components/admin/ProductSelector.vue";
 
 export default {
   computed: {
@@ -247,6 +255,7 @@ export default {
     }
   },
   components: {
+    ProductSelector,
     InputText,
     Textarea,
     Checkbox,
@@ -254,10 +263,12 @@ export default {
     Calendar,
     Button,
     HistoryTimeLine,
+    Dialog,
   },
   data() {
     return {
       mode: null,
+      visibleSelectProduct: true,
     }
   },
   created() {

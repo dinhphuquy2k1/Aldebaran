@@ -360,7 +360,7 @@
 
   <Dialog v-model:visible="visibleAddProduct" modal :style="{ width: '800px' }" class="modal_container">
     <template #container>
-      <ProductSelector/>
+      <ProductSelector :title="$t('all_products')"/>
     </template>
     <ProductSelector/>
   </Dialog>

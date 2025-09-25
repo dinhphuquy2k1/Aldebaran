@@ -2,7 +2,7 @@
   <div class="product-selector-wrapper">
     <div class="product-selector-header">
       <div class="pdr-10">
-        <div class="d-flex align-items-center">{{ $t('all_products') }}</div>
+        <div class="d-flex align-items-center">{{ computedTitle }}</div>
       </div>
       <div class="svg-next-icon-size-20 selector-close pointer">
         <div class="icon-close-no-circle"></div>
@@ -67,7 +67,7 @@
           <div class="p-button-label ml-3 d-none d-sm-inline-block">{{ $t('cancel') }}</div>
         </Button>
         <Button class="ms-btn btn-accent--primary ms-btn-size-m" disabled>
-          <div class="p-button-label ml-3 d-none d-sm-inline-block">{{ $t('complete_selection') }}</div>
+          <div class="p-button-label ml-3 d-none d-sm-inline-block">{{ computedFinishTitle }}</div>
         </Button>
       </div>
     </div>
@@ -88,6 +88,16 @@ export default {
     InputText,
     TreeTable,
     Column,
+  },
+  props: {
+    title: {
+      type: String,
+      default: '',
+    },
+    finishTitle: {
+      type: String,
+      default: '',
+    },
   },
   data() {
     return {
@@ -453,9 +463,17 @@ export default {
       }, {});
     }
   },
+  computed: {
+    computedFinishTitle() {
+      return this.finishTitle || this.$t('complete_selection')
+    },
+    computedTitle() {
+      return this.title || this.$t('all_products')
+    }
+  },
   mounted() {
     this.expandAll();
-  }
+  },
 }
 </script>
 

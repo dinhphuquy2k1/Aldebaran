@@ -268,5 +268,6 @@
   "price_list_delete": "Xoá bảng giá",
   "price_list_created_by": "Bảng giá được tạo bởi %s",
   "suspend": "Tạm ngưng",
-  "inactive": "Chưa kích hoạt"
+  "inactive": "Chưa kích hoạt",
+  "add": "Thêm"
 }
