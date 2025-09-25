@@ -139,19 +139,34 @@ const routes: Array<RouteRecordRaw> = [
                                     content: () => import('@/modules/pricing/views/admin/PricingList.vue')
                                 }
                             },
-                        ],
-                        meta: {title: 'price_list_list'}
-                    },
-                    {
-                        path: 'pricing_new',
-                        children: [
                             {
-                                path: '',
-                                components: {
-                                    header: () => import('@/components/admin/TheHeader.vue'),
-                                    navbar: () => import('@/components/admin/TheNavbar.vue'),
-                                    content: () => import('@/modules/pricing/views/admin/AddPricing.vue')
-                                }
+                                path: 'new',
+                                children: [
+                                    {
+                                        path: '',
+                                        components: {
+                                            header: () => import('@/components/admin/TheHeader.vue'),
+                                            navbar: () => import('@/components/admin/TheNavbar.vue'),
+                                            content: () => import('@/modules/pricing/views/admin/ManagePricing.vue')
+                                        }
+                                    },
+                                ],
+                                meta: {title: 'price_list_list'}
+                            },
+                            {
+                                path: ':id',
+                                children: [
+                                    {
+                                        path: '',
+                                        components: {
+                                            header: () => import('@/components/admin/TheHeader.vue'),
+                                            navbar: () => import('@/components/admin/TheNavbar.vue'),
+                                            content: () => import('@/modules/pricing/views/admin/ManagePricing.vue')
+                                        }
+                                    },
+                                ],
+                                props: true,
+                                meta: {title: 'price_list_list'}
                             },
                         ],
                         meta: {title: 'price_list_list'}

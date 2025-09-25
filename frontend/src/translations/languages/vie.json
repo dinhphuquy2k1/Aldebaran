@@ -261,5 +261,12 @@
   "staff_options": "Tuỳ chọn nhân viên",
   "all_channels": "Tất cả kênh bán",
   "channel_options": "Tùy chọn kênh",
-  "branch": "Chi nhánh"
+  "branch": "Chi nhánh",
+  "price_list_no_products": "Bảng giá chưa có sản phẩm nào được áp dụng",
+  "price_list_add_product": "Thêm sản phẩm",
+  "price_list_import_products": "Nhập file sản phẩm",
+  "price_list_delete": "Xoá bảng giá",
+  "price_list_created_by": "Bảng giá được tạo bởi %s",
+  "suspend": "Tạm ngưng",
+  "inactive": "Chưa kích hoạt"
 }

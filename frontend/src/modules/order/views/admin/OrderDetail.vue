@@ -324,51 +324,7 @@
                   </div>
                 </div>
                 <div class="omni-layout-card card-default ghosty">
-                  <p class="order-history--title">{{ $t('history') }}</p>
-                  <div class="activity-log">
-                    <div class="timeline-emojipicker border-top-0 p-0">
-                      <div class="emoji-container">
-                        <div class="img-rounded svg-next-icon-size-40">
-                          <div class="icon-avatar-blue">
-                          </div>
-                        </div>
-                        <div class="emoji-action">
-                          <div class="emoji-input">
-                            <div>
-                              <IconField iconPosition="right" class="next-icon-field--stylized h-40 d-flex flex-1">
-                                <InputText :placeholder="$t('search')"
-                                           class="flex-1"/>
-                                <InputIcon class="pi pi-search"></InputIcon>
-                              </IconField>
-                            </div>
-                          </div>
-                          <div class="emoji-action__button"></div>
-                        </div>
-                      </div>
-                    </div>
-                    <div>
-                      <div class="timeline-date-event timline-date-event--margin mt-0">
-                        <div class="timeline-date-time text-uppercase timeline-tilte">
-                          <span>20/08/2025</span>
-                        </div>
-                        <div class="timeline-event-content active">
-                          <div class="timeline-item">
-                            <div class="timeline-body">
-                              <div class="timeline__message-container">
-                                <div class="timeline__inner-message">
-                                  <span>Hệ thống đã chuyển cho cửa hàng</span>
-                                  <span>Địa điểm mặc định</span>
-                                </div>
-                              </div>
-                              <div class="timeline__time">
-                                <span>09:06 SA</span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  <HistoryTimeLine :title="$t('history')"></HistoryTimeLine>
                 </div>
               </div>
               <div class="col-lg-3 col-12">
@@ -498,9 +454,11 @@ import Dialog from 'primevue/dialog';
 import Checkbox from 'primevue/checkbox';
 import InputNumber from 'primevue/inputnumber';
 import RadioButton from 'primevue/radiobutton';
+import HistoryTimeLine from "@/components/admin/HistoryTimeLine.vue";
 
 export default {
   components: {
+    HistoryTimeLine,
     InputText,
     IconField,
     InputIcon,

@@ -205,5 +205,12 @@
   "staff_options": "Staff Options",
   "all_channels": "All Sales Channels",
   "channel_options": "Channel Options",
-  "branch": "Branch"
+  "branch": "Branch",
+  "price_list_no_products": "No products have been applied to this price list",
+  "price_list_add_product": "Add Product",
+  "price_list_import_products": "Import Products File",
+  "price_list_delete": "Delete Price List",
+  "price_list_created_by": "Price list created by %s",
+  "suspend": "Suspend",
+  "inactive": "Inactive"
 }

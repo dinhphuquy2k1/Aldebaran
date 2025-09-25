@@ -12,6 +12,7 @@
 @import './dialog.scss';
 @import './button.scss';
 @import './carousel.scss';
+@import './calendar.scss';
 
 * {
   box-sizing: border-box;
@@ -20,6 +21,9 @@
 body {
   font-family: GoogleSans;
   font-size: 14px;
+  line-height: 18px;
+  text-transform: initial;
+  letter-spacing: initial;
   color: #212121;
   background-color: var(--color-coolgray-100);
   overflow: auto;
@@ -1218,11 +1222,87 @@ img {
   padding: 16px;
 }
 
+.box-shadow {
+  box-shadow: 0 2px 4px #0000001a;
+}
+
 .omni-alert-pannel {
+  .alert {
+    border: 1px solid var(--alert-border-color);
+    border-radius: 5px;
+    background-color: var(--alert-bg-color);
+    color: var(--color-header-title);
+    padding: 20px 20px 10px;
+    margin: 0;
+
+    .omni-alert-pannel--icon {
+      margin-right: 20px;
+    }
+
+    .omni-alert-pannel--content {
+      padding-bottom: 10px;
+    }
+  }
+
   .alert-info {
     border-color: var(--alert-info-border-color);
     background: var(--alert-info-bg-color);
   }
+}
+
+.lh-normal {
+  line-height: normal;
+}
+
+.ml-5 {
+  margin-left: 5px;
+}
+
+.color-heather {
+  color: var(--color-heather);
+}
+
+.font-size-20px {
+  font-size: 20px !important;
+}
+
+.text-no--data {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--no-data-color);
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.my-5 {
+  margin-bottom: 30px !important;
+  margin-top: 30px !important;
+}
+
+.omni-layout-body {
+  padding: 0 0 52px;
+  background-color: var(--coolgray100);
+  font-style: var(--font-style-default);
+  font-weight: var(--font-weight-regular);
+  text-decoration: var(--font-decor-default);
+}
+
+.hrv-next-input-radio {
+  position: relative;
+  gap: 8px;
+  cursor: pointer;
+
+  label {
+    cursor: pointer;
+  }
+
+  & + .hrv-next-input-radio {
+    margin-top: 16px;
+  }
+}
+
+.pr-0 {
+  padding-right: 0;
 }
 
 .fw-600 {
@@ -1490,6 +1570,12 @@ svg.hrv-image-thumbnail--image {
     background-color: var(--green50);
     color: var(--green600);
     border-color: var(--green300);
+  }
+
+  &.badge-light-default {
+    background-color: var(--color-coolgray-100);
+    color: var(--alias-color-content-neutral);
+    border-color: var(--color-coolgray-300);
   }
 }
 
