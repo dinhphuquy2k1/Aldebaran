@@ -228,7 +228,7 @@
       </div>
     </div>
   </section>
-  <Dialog v-model:visible="visibleSelectProduct" modal :style="{ width: '800px' }" class="modal_container">
+  <Dialog v-model:visible="visibleSelectProduct" modal :style="{ width: '800px' }" class="modal_container product-filter-modal">
     <template #container>
       <ProductSelector :title="$t('find_product')" :finish-title="$t('add')"/>
     </template>

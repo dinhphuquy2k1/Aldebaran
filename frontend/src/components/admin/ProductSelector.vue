@@ -64,10 +64,10 @@
     <div class="product-selector-footer">
       <div class="d-flex justify-content-end gap-2">
         <Button class="ms-btn btn-mono--secondary ms-btn-size-m">
-          <div class="p-button-label ml-3 d-none d-sm-inline-block">{{ $t('cancel') }}</div>
+          <div class="p-button-label ml-3">{{ $t('cancel') }}</div>
         </Button>
         <Button class="ms-btn btn-accent--primary ms-btn-size-m" disabled>
-          <div class="p-button-label ml-3 d-none d-sm-inline-block">{{ computedFinishTitle }}</div>
+          <div class="p-button-label ml-3">{{ computedFinishTitle }}</div>
         </Button>
       </div>
     </div>
@@ -614,6 +614,27 @@ export default {
     align-items: center;
     justify-content: end;
     border-radius: 0 0 var(--radius-rounded-l) var(--radius-rounded-l);
+  }
+}
+
+@media (max-width: 768px) {
+
+  .product-selector-footer, .product-selector-header {
+    border-radius: 0 !important;
+  }
+
+  @supports (height:100dvh) {
+    .product-filter-modal {
+      height: 100dvh;
+      max-height: 100dvh;
+      width: 100% !important;
+    }
+
+    .product-selector-wrapper {
+      height: 100dvh;
+      width: 100% !important;
+      max-height: 100dvh;
+    }
   }
 }
 </style>
