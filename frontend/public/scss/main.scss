@@ -1579,6 +1579,24 @@ svg.hrv-image-thumbnail--image {
   }
 }
 
+.mgl-1 {
+  margin-left: var(--space-1) !important;
+}
+
+.my-4 {
+  margin-top: 15px !important;
+  margin-bottom: 15px !important;
+}
+
+.my-3 {
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
+}
+
+.border-top--line {
+  border-top: 1px solid var(--border-top-line-color);
+}
+
 .omni-layout-card {
   background: var(--white);
   border-radius: 8px;

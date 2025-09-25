@@ -161,6 +161,10 @@ span.icon24 {
   background-position: -242px -168px;
 }
 
+.svg-color-lightblue {
+  color: var(--svg-color-lightblue);
+}
+
 .icon24.upload:before {
   background-position: -312px 0px;
 }
@@ -708,6 +712,16 @@ span.icon24 {
   -webkit-mask: url("@public/assets/icons/svg-send-icon.svg") no-repeat center;
   -webkit-mask-size: contain;
   mask: url("@public/assets/icons/svg-send-icon.svg") no-repeat center;
+  mask-size: contain;
+  background-color: currentColor;
+}
+
+.icon-question-mark {
+  width: 100%;
+  height: 100%;
+  -webkit-mask: url("@public/assets/icons/svg-question-mark-icon.svg") no-repeat center;
+  -webkit-mask-size: contain;
+  mask: url("@public/assets/icons/svg-question-mark-icon.svg") no-repeat center;
   mask-size: contain;
   background-color: currentColor;
 }

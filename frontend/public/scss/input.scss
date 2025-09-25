@@ -485,3 +485,27 @@ input:focus {
     }
   }
 }
+
+.hrv-next-input-checkbox {
+  position: relative;
+  min-width: 12px;
+  min-height: 16px;
+  display: flex;
+  align-items: center;
+
+  .hrv-next-label--switch {
+    position: relative;
+    padding-left: 8px;
+    margin-bottom: 0;
+    display: inline-block;
+    cursor: pointer;
+    font-weight: 400;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    line-height: 18px;
+    user-select: none;
+    color: var(--color-dark);
+  }
+}
