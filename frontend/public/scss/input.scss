@@ -224,8 +224,7 @@ input:focus {
       display: none;
     }
 
-    background: url('@public/assets/icons/ic_checkbox_active.5a4982e1.svg');
-    background-position: center;
+    background: url('@public/assets/icons/ic_checkbox_active.5a4982e1.svg') center;
     border: unset;
   }
 
@@ -234,8 +233,7 @@ input:focus {
       display: none;
     }
 
-    background: url('@public/assets/icons/ic_radio_active.68000fa3.svg');
-    background-position: center;
+    background: url('@public/assets/icons/ic_radio_active.68000fa3.svg') center;
     border: unset;
   }
 
@@ -284,7 +282,6 @@ input:focus {
   color: #212121;
   display: block;
   margin: 0;
-  max-width: unset;
   min-height: 40px;
   padding: 11px 12px;
   vertical-align: baseline;
@@ -500,6 +497,7 @@ input:focus {
     display: inline-block;
     cursor: pointer;
     font-weight: 400;
+    padding-top: 2px;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -moz-user-select: none;
