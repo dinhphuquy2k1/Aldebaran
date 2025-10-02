@@ -252,9 +252,18 @@
             </div>
           </div>
           <div class="clearfix">
+            <div class="float-left" v-if="mode === FORM_MODE.UPDATE">
+              <Button class="ms-btn btn-danger">
+                <div class="p-button-label">{{ $t('product_variant_delete') }}</div>
+              </Button>
+            </div>
             <div class="float-right">
               <Button class="ms-btn btn-primary">
-                <div class="p-button-label">{{ $t('product_variant_create') }}</div>
+                <div class="p-button-label">
+                  {{
+                    mode === FORM_MODE.INSERT ? $t('product_variant_create') : $t('update')
+                  }}
+                </div>
               </Button>
             </div>
           </div>
