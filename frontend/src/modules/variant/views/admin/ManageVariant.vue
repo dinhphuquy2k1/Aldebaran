@@ -1,8 +1,19 @@
 <template>
   <section class="layout-container layout-wrapper-block">
     <div class="layout-container-sub layout-wrapper-block_sub">
-      <div class="padding-container pdb-0">
+      <div class="padding-container">
         <div class="padding-container">
+          <div class="d-md-flex justify-content-between align-items-center pt-5" v-if="mode === FORM_MODE.UPDATE">
+            <div class="h2 mb-md-0" id="variant-header-title">Kem</div>
+            <div class="pl-10 flex-shrink-0 text-right">
+              <Button class="ms-btn btn-default color-coolgray btn-clean btn-clean mr-10">
+                <div class="p-button-label ml-3">{{ $t('update_history') }}</div>
+              </Button>
+              <Button class="ms-btn btn-default color-coolgray btn-clean btn-clean">
+                <div class="p-button-label ml-3">{{ $t('duplicate') }}</div>
+              </Button>
+            </div>
+          </div>
           <div class="row pt-30">
             <div class="col-12 col-lg-4">
               <div class="wrapper-content mb-30">
@@ -62,10 +73,11 @@
                     <span class="ui-information-title">{{ $t('product_variant_attributes') }}</span>
                   </div>
                   <div class="ui-information-body">
-                    <div class="row justify-content-center">
+                    <div class="d-flex justify-content-center mr--15 flex-wrap">
                       <div class="flex-grow-1">
-                        <div class="col-12 pt-15">
-                          <label for="">{{ $t('product_variant_color') }}</label>
+                        <div class="col-12 pt-15 pr-15">
+                          <label for="" class="mb-5">{{ $t('color') }}</label>
+                          <InputText class="next-input--stylized"></InputText>
                         </div>
                       </div>
                       <div class="pt-30 pr-10">
@@ -74,13 +86,166 @@
                             <div class="icon-upload-image"></div>
                           </div>
                           <Button class="ms-btn btn-outline-secondary mt-5">
-                            <div class="p-button-label ml-3 d-none d-sm-inline-block">{{
+                            <div class="p-button-label ml-3">{{
                                 $t('product_variant_select_image')
                               }}
                             </div>
                           </Button>
                         </div>
-                        <div class="d-block btn btn-link font-weight-bold">{{ $t('product_variant_select_from_existing') }}</div>
+                        <div class="d-block btn btn-link font-weight-bold">{{
+                            $t('choose_from_existing_images')
+                          }}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="wrapper-content mb-30">
+                <div class="ui-information">
+                  <div class="ui-information-head">
+                    <span class="ui-information-title">{{ $t('product_variant_detail') }}</span>
+                  </div>
+                  <div class="ui-information-body">
+                    <div class="row product-pricing">
+                      <div class="col-12 col-md-6 pt-15">
+                        <label for="" class="mb-5">
+                          <div class="d-flex align-items-center">
+                            {{ $t('sale_price') }}
+                            <div class="svg-next-icon-size-16 mgl-1 svg-color-lightblue">
+                              <div class="icon-question-mark"></div>
+                            </div>
+                          </div>
+                        </label>
+                        <div>
+                          <InputText class="next-input" :placeholder="$t('price_zero')"></InputText>
+                        </div>
+                      </div>
+                      <div class="col-12 col-md-6 pt-15">
+                        <label for="" class="mb-5">
+                          <div class="d-flex align-items-center">
+                            {{ $t('product_compare_price') }}
+                            <div class="svg-next-icon-size-16 mgl-1 svg-color-lightblue">
+                              <div class="icon-question-mark"></div>
+                            </div>
+                          </div>
+                        </label>
+                        <div>
+                          <InputText class="next-input" :placeholder="$t('price_zero')"></InputText>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="wrapper-content mb-30">
+                <div class="ui-information">
+                  <div class="ui-information-head">
+                    <span class="ui-information-title">{{ $t('product_inventory_management') }}</span>
+                  </div>
+                  <div class="ui-information-body">
+                    <div class="row">
+                      <div class="col-6 pt-15">
+                        <div class="hrv-next-input-checkbox ui-table">
+                          <Checkbox inputId="has_delivery" class="hrv-next-checkbox"/>
+                          <label for="" class="hrv-next-label--switch">{{ $t('product_inventory_tracked') }}</label>
+                        </div>
+                      </div>
+                      <div class="col-6 pt-15"></div>
+                      <div class="col-12">
+                        <div class="row">
+                          <div class="col-12 col-md-6 pt-15">
+                            <label for="" class="mb-5">
+                              <div class="d-flex align-items-center">
+                                {{ $t('sku') }}
+                                <span class="trigger d-inline-flex align-items-center mgl-1">
+                              <div class="svg-next-icon-size-16 svg-color-lightblue">
+                                <div class="icon-question-mark"></div>
+                              </div>
+                            </span>
+                              </div>
+                            </label>
+                            <div>
+                              <InputText class="next-input" :placeholder="$t('price_zero')"></InputText>
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-6 pt-15">
+                            <label for="" class="mb-5">
+                              <div class="d-flex align-items-center">
+                                {{ $t('product_barcode') }}
+                                <span class="trigger d-inline-flex align-items-center mgl-1">
+                                  <div class="svg-next-icon-size-16 svg-color-lightblue">
+                                    <div class="icon-question-mark"></div>
+                                  </div>
+                                </span>
+                              </div>
+                            </label>
+                            <div>
+                              <InputText class="next-input" :placeholder="$t('price_zero')"></InputText>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-12 pt-15">
+                        <div class="hrv-next-input-checkbox ui-table">
+                          <Checkbox inputId="has_delivery" class="hrv-next-checkbox"/>
+                          <label for="" class="hrv-next-label--switch">{{ $t('product_allow_backorder') }}</label>
+                        </div>
+                      </div>
+                      <div class="col-12 my-4">
+                        <div class="row mx-0 pt-10 border-top--line">
+                          <div class="col pl-0">
+                            <label for="" class="my-3">{{ $t('product_available_stock') }}</label>
+                          </div>
+                          <div class="col-auto pr-0">
+                            <div>
+                              <Button class="ms-btn btn-link text-end">
+                                <div class="p-button-label lh-normal ml-5">{{ $t('product_select_warehouse') }}</div>
+                              </Button>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row pb-10">
+                          <div class="col">
+                            <IconField iconPosition="left" class="d-flex flex-1">
+                              <InputIcon class="pi pi-search"></InputIcon>
+                              <InputText v-model="value1" :placeholder="$t('product_search_warehouse')"
+                                         class="flex-1 next-input--stylized"/>
+                            </IconField>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="wrapper-content mb-30">
+                <div class="ui-information">
+                  <div class="ui-information-head">
+                    <span class="ui-information-title">{{ $t('shipping') }}</span>
+                  </div>
+                  <div class="ui-information-body">
+                    <div class="row">
+                      <div class="col-6 pt-15">
+                        <div class="hrv-next-input-checkbox ui-table">
+                          <Checkbox inputId="has_delivery" class="hrv-next-checkbox"/>
+                          <label for="" class="hrv-next-label--switch">{{ $t('product_allow_delivery') }}</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="wrapper-content mb-30">
+                <div class="ui-information">
+                  <div class="ui-information-head">
+                    <span class="ui-information-title">{{ $t('product_unit') }}</span>
+                  </div>
+                  <div class="ui-information-body">
+                    <div class="form-group px-0 pb-0">
+                      <div class="hrv-next-input-checkbox ui-table">
+                        <Checkbox inputId="has_delivery" class="hrv-next-checkbox"/>
+                        <label for="" class="hrv-next-label--switch">{{ $t('product_multi_unit') }}</label>
                       </div>
                     </div>
                   </div>
@@ -88,19 +253,82 @@
               </div>
             </div>
           </div>
+          <div class="clearfix">
+            <div class="float-right">
+              <Button class="ms-btn btn-primary">
+                <div class="p-button-label d-none d-sm-inline-block">{{ $t('product_variant_create') }}</div>
+              </Button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
+  <Dialog v-model:visible="visibleVariantImage" modal
+          :draggable="false"
+          class="modal_container modal-dialog omni-modal">
+    <template #header>
+      <div class="pdr-10">
+        <div class="text-bodyl font-weight-600 d-flex align-items-center">{{ $t('product_variant_update_image') }}</div>
+      </div>
+    </template>
+    <div class="modal-body">
+      <FileUploader/>
+    </div>
+    <template #footer>
+      <div class="d-flex justify-content-between flex-1">
+        <div>
+          <Button class="ms-btn btn-danger btn-xs-block">
+            <div class="p-button-label ml-3">{{ $t('delete_image') }}</div>
+          </Button>
+        </div>
+        <div class="d-flex gap-2">
+          <Button class="ms-btn btn-default">
+            <div class="p-button-label ml-3">{{ $t('cancel') }}</div>
+          </Button>
+          <Button class="ms-btn btn-accent--primary">
+            <div class="p-button-label ml-3">{{ $t('confirm') }}</div>
+          </Button>
+        </div>
+      </div>
+    </template>
+  </Dialog>
 </template>
 
 <script>
 import Button from "primevue/button";
+import InputText from "primevue/inputtext";
+import Checkbox from "primevue/checkbox";
+import IconField from "primevue/iconfield";
+import InputIcon from "primevue/inputicon";
+import Dialog from "primevue/dialog";
+import FileUploader from "@/components/admin/FileUploader.vue";
+import {FORM_MODE} from "@/core/constants";
 
 export default {
   components: {
     Button,
+    InputText,
+    Checkbox,
+    IconField,
+    InputIcon,
+    Dialog,
+    FileUploader,
   },
+  computed: {
+    FORM_MODE() {
+      return FORM_MODE
+    }
+  },
+  data() {
+    return {
+      mode: FORM_MODE.INSERT,
+      visibleVariantImage: true,
+    }
+  },
+  created() {
+    this.mode = this.$route.params['id'] ? FORM_MODE.UPDATE : FORM_MODE.INSERT;
+  }
 }
 </script>
 
@@ -185,5 +413,11 @@ li.product-info-variant-item {
     border-radius: 4px;
     cursor: pointer;
   }
+}
+
+#variant-header-title {
+  line-height: 38px;
+  color: var(--color-navy);
+  word-break: break-word;
 }
 </style>

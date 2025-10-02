@@ -183,14 +183,14 @@ const routes: Array<RouteRecordRaw> = [
                                 }
                             },
                             {
-                                path: ':productId',
+                                path: ':id',
                                 children: [
                                     {
                                         path: '',
                                         components: {
                                             header: () => import('@/components/admin/TheHeader.vue'),
                                             navbar: () => import('@/components/admin/TheNavbar.vue'),
-                                            content: () => import('@/modules/product/views/admin/ManageProduct.vue')
+                                            content: () => import('@/modules/variant/views/admin/ManageVariant.vue')
                                         }
                                     },
                                 ],

@@ -177,6 +177,7 @@ input:focus {
 
 .p-checkbox, .p-radiobutton {
   width: 16px !important;
+  min-width: 16px;
   height: 16px !important;
 
   .p-checkbox-input, .p-radiobutton-input {

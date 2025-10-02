@@ -190,10 +190,10 @@
                               <div class="d-flex align-items-center">
                                 {{ $t('product_barcode') }}
                                 <span class="trigger d-inline-flex align-items-center mgl-1">
-                              <div class="svg-next-icon-size-16 svg-color-lightblue">
-                                <div class="icon-question-mark"></div>
-                              </div>
-                            </span>
+                                  <div class="svg-next-icon-size-16 svg-color-lightblue">
+                                    <div class="icon-question-mark"></div>
+                                  </div>
+                                </span>
                               </div>
                             </label>
                             <div>
@@ -221,6 +221,15 @@
                             </div>
                           </div>
                         </div>
+                        <div class="row pb-10">
+                          <div class="col">
+                            <IconField iconPosition="left" class="d-flex flex-1">
+                              <InputIcon class="pi pi-search"></InputIcon>
+                              <InputText v-model="value1" :placeholder="$t('product_search_warehouse')"
+                                         class="flex-1 next-input--stylized"/>
+                            </IconField>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -232,12 +241,10 @@
                     <span class="ui-information-title">{{ $t('shipping') }}</span>
                   </div>
                   <div class="ui-information-body">
-                    <div class="row">
-                      <div class="col-6 pt-15">
-                        <div class="hrv-next-input-checkbox ui-table">
-                          <Checkbox inputId="has_delivery" class="hrv-next-checkbox"/>
-                          <label for="" class="hrv-next-label--switch">{{ $t('product_allow_delivery') }}</label>
-                        </div>
+                    <div class="form-group px-0 pb-0">
+                      <div class="hrv-next-input-checkbox ui-table">
+                        <Checkbox inputId="has_delivery" class="hrv-next-checkbox"/>
+                        <label for="" class="hrv-next-label--switch">{{ $t('product_allow_delivery') }}</label>
                       </div>
                     </div>
                   </div>
@@ -249,12 +256,10 @@
                     <span class="ui-information-title">{{ $t('product_unit') }}</span>
                   </div>
                   <div class="ui-information-body">
-                    <div class="row">
-                      <div class="col-6 pt-15">
-                        <div class="hrv-next-input-checkbox ui-table">
-                          <Checkbox inputId="has_delivery" class="hrv-next-checkbox"/>
-                          <label for="" class="hrv-next-label--switch">{{ $t('product_multi_unit') }}</label>
-                        </div>
+                    <div class="form-group px-0 pb-0">
+                      <div class="hrv-next-input-checkbox ui-table">
+                        <Checkbox inputId="has_delivery" class="hrv-next-checkbox"/>
+                        <label for="" class="hrv-next-label--switch">{{ $t('product_multi_unit') }}</label>
                       </div>
                     </div>
                   </div>

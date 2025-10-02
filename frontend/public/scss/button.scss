@@ -457,3 +457,11 @@
   background-image: none;
   border: 1px solid var(--button-outline-secondary-border-color);
 }
+
+.btn {
+  font-size: 14px;
+  line-height: 18px;
+  padding: 10px 15px;
+  background: transparent;
+  border-radius: 3px;
+}
