@@ -239,3 +239,9 @@ $header-height-admin: 56px;
   --sidebar-width: 240px;
   --header-height: 56px;
 }
+
+@media (max-width: 992px) {
+  :root {
+    --sidebar-width: 0;
+  }
+}

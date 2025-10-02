@@ -225,12 +225,10 @@
                     <span class="ui-information-title">{{ $t('shipping') }}</span>
                   </div>
                   <div class="ui-information-body">
-                    <div class="row">
-                      <div class="col-6 pt-15">
-                        <div class="hrv-next-input-checkbox ui-table">
-                          <Checkbox inputId="has_delivery" class="hrv-next-checkbox"/>
-                          <label for="" class="hrv-next-label--switch">{{ $t('product_allow_delivery') }}</label>
-                        </div>
+                    <div class="form-group px-0 pb-0">
+                      <div class="hrv-next-input-checkbox ui-table">
+                        <Checkbox inputId="has_delivery" class="hrv-next-checkbox"/>
+                        <label for="" class="hrv-next-label--switch">{{ $t('product_allow_delivery') }}</label>
                       </div>
                     </div>
                   </div>
@@ -256,7 +254,7 @@
           <div class="clearfix">
             <div class="float-right">
               <Button class="ms-btn btn-primary">
-                <div class="p-button-label d-none d-sm-inline-block">{{ $t('product_variant_create') }}</div>
+                <div class="p-button-label">{{ $t('product_variant_create') }}</div>
               </Button>
             </div>
           </div>
