@@ -313,5 +313,11 @@
   "edit_compare_price": "Chỉnh giá so sánh",
   "apply_price_all_variants": "Áp dụng giá cho toàn bộ biến thể",
   "edit_barcode": "Chỉnh barcode",
-  "edit_sku": "Chỉnh SKU"
+  "edit_sku": "Chỉnh SKU",
+  "export_file": "Xuất file",
+  "add_remove": "Thêm bớt",
+  "reset": "Đặt lại",
+  "update_inventory": "Cập nhật tồn kho",
+  "sku_barcode": "Sku/Barcode",
+  "managing_warehouse": "Kho đang quản lý"
 }

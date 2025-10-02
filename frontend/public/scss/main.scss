@@ -1179,6 +1179,30 @@ a {
   padding-bottom: 30px;
 }
 
+.width-250 {
+  width: 250px;
+}
+
+.max-width-350px {
+  max-width: 350px !important;
+}
+
+.min-width-150px {
+  min-width: 150px !important;
+}
+
+.min-width-250px {
+  min-width: 250px !important;
+}
+
+.min-width-350px {
+  min-width: 350px !important;
+}
+
+.mr-15 {
+  margin-right: 15px;
+}
+
 .thin-b-line {
   border-bottom: 1px solid var(--border-label-hover-description);
 }

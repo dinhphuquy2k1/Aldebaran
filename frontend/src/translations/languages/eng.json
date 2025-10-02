@@ -257,5 +257,11 @@
   "edit_compare_price": "Edit Compare Price",
   "apply_price_all_variants": "Apply Price to All Variants",
   "edit_barcode": "Edit Barcode",
-  "edit_sku": "Edit SKU"
+  "edit_sku": "Edit SKU",
+  "export_file": "Export file",
+  "add_remove": "Add/Remove",
+  "reset": "Reset",
+  "update_inventory": "Update inventory",
+  "sku_barcode": "SKU/Barcode",
+  "managing_warehouse": "Managing warehouse"
 }

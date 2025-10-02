@@ -199,6 +199,14 @@ const routes: Array<RouteRecordRaw> = [
                         ],
                     },
                     {
+                        path: 'inventories',
+                        components: {
+                            header: () => import('@/components/admin/TheHeader.vue'),
+                            navbar: () => import('@/components/admin/TheNavbar.vue'),
+                            content: () => import('@/modules/inventory/views/admin/InventoryList.vue')
+                        }
+                    },
+                    {
                         path: ':productId',
                         children: [
                             {

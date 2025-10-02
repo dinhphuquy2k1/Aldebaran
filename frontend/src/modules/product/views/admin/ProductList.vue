@@ -18,7 +18,7 @@
                   </a>
                 </template>
               </TabMenu>
-              <div style="padding: 15px">
+              <div class="p-15">
                 <DynamicFilter :options="filterOptions"></DynamicFilter>
               </div>
               <div class="position-relative">
@@ -126,7 +126,6 @@
 
 <script>
 import TabView from 'primevue/tabview';
-import TabPanel from 'primevue/tabpanel';
 import TabMenu from 'primevue/tabmenu';
 import DynamicFilter from "@/components/admin/DynamicFilter.vue";
 import DataTable from 'primevue/datatable';
@@ -137,7 +136,6 @@ export default {
   components: {
     DynamicFilter,
     TabView,
-    TabPanel,
     TabMenu,
     DataTable,
     Column,
