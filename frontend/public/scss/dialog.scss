@@ -65,6 +65,18 @@
   min-height: calc(100% - 10px);
 }
 
+.omni-modal {
+  .modal-header {
+    .modal-title {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 26px;
+      color: var(--color-dark);
+    }
+  }
+}
+
 @media (min-width: 576px) {
   .modal-dialog {
     max-width: 500px;

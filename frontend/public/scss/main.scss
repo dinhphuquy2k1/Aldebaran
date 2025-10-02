@@ -1175,6 +1175,14 @@ a {
   float: left !important;
 }
 
+.pb-30 {
+  padding-bottom: 30px;
+}
+
+.thin-b-line {
+  border-bottom: 1px solid var(--border-label-hover-description);
+}
+
 .h2 {
   font-size: 20px;
   font-weight: 500;

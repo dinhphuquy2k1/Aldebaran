@@ -253,5 +253,9 @@
   "stock_tag": "Stock Tag",
   "product_variant_delete": "Delete Variant",
   "product_variant_detail_with_count": "{count} Variant Details",
-  "upload_image": "Upload Image"
+  "upload_image": "Upload Image",
+  "edit_compare_price": "Edit Compare Price",
+  "apply_price_all_variants": "Apply Price to All Variants",
+  "edit_barcode": "Edit Barcode",
+  "edit_sku": "Edit SKU"
 }

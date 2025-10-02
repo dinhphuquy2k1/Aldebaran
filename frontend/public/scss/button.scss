@@ -466,3 +466,13 @@
   background: transparent;
   border-radius: 3px;
 }
+
+.ms-btn-default {
+  background: var(--select-button-default-bg-color);
+  box-shadow: none;
+  color: var(--select-button-default-color);
+
+  &:hover {
+    background: var(--select-button-default-hover-color);
+  }
+}

@@ -309,5 +309,9 @@
   "stock_tag": "Thẻ kho",
   "product_variant_delete": "Xóa biến thể",
   "product_variant_detail_with_count": "{count} Chi tiết biến thể",
-  "upload_image": "Thêm hình ảnh"
+  "upload_image": "Thêm hình ảnh",
+  "edit_compare_price": "Chỉnh giá so sánh",
+  "apply_price_all_variants": "Áp dụng giá cho toàn bộ biến thể",
+  "edit_barcode": "Chỉnh barcode",
+  "edit_sku": "Chỉnh SKU"
 }

@@ -44,7 +44,7 @@
                               optionLabel="label"
                               optionValue="value"
                               @change="onRowsPerPageChange"
-                              class="hrv-btn hrv-btn-default btn-default w-0"
+                              class="hrv-btn ms-btn-default btn-default w-0"
                           />
                           <div class="col-auto mr-10">
                           <span style="color: rgb(128, 128, 128);">

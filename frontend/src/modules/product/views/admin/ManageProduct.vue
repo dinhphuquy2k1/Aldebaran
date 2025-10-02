@@ -349,6 +349,175 @@
       </div>
     </div>
   </section>
+  <Dialog v-model:visible="visibleComparePrice" modal
+          :draggable="false"
+          class="modal_container modal-dialog omni-modal modal-lg">
+    <template #header>
+      <div class="modal-header">
+        <h5 class="modal-title">
+          {{ $t('edit_compare_price') }}
+        </h5>
+      </div>
+    </template>
+    <div class="modal-body">
+      <div class="pd-all-20">
+        <div class="row no-gutters edit-compared-price">
+          <div class="col-12">
+            <label for="" class="mb-5">{{ $t('apply_price_all_variants') }}</label>
+          </div>
+          <div class="col-12 pb-10">
+            <div class="d-flex">
+              <div class="w-100">
+                <div>
+                  <InputText class="next-input" :placeholder="$t('price_zero')"></InputText>
+                </div>
+              </div>
+              <div class="ml-15">
+                <Button class="ms-btn ms-btn-default">
+                  <div class="p-button-label ml-3">{{ $t('apply') }}</div>
+                </Button>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 py-3" style="border-top:1px solid rgb(217,217,217)">
+            <div class="row">
+              <div class="col word-break align-self-center">
+                <b>Kem</b>
+              </div>
+              <div class="col">
+                <label class="mb-5">{{ $t("sale_price") }}</label>
+                <InputText class="next-input" :placeholder="$t('price_zero')"></InputText>
+              </div>
+              <div class="col">
+                <label class="mb-5">{{ $t("product_compare_price") }}</label>
+                <InputText class="next-input" :placeholder="$t('price_zero')"></InputText>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <template #footer>
+      <div class="d-flex justify-content-between flex-1">
+        <div>
+        </div>
+        <div class="d-flex gap-2">
+          <Button class="ms-btn btn-default">
+            <div class="p-button-label ml-3">{{ $t('cancel') }}</div>
+          </Button>
+          <Button class="ms-btn btn-accent--primary">
+            <div class="p-button-label ml-3">{{ $t('update') }}</div>
+          </Button>
+        </div>
+      </div>
+    </template>
+  </Dialog>
+  <Dialog v-model:visible="visibleEditBarcode" modal
+          :draggable="false"
+          class="modal_container modal-dialog omni-modal">
+    <template #header>
+      <div class="modal-header">
+        <h5 class="modal-title">
+          {{ $t('edit_barcode') }}
+        </h5>
+      </div>
+    </template>
+    <div class="modal-body">
+      <div class="pd-all-20">
+        <div class="mb-5 word-break">
+          <div class="row">
+            <div class="col-12 pt-30">
+              <div class="d-flex pb-30 thin-b-line">
+                <div class="align-self-center w-75">
+                  <b>Kem</b>
+                </div>
+                <div class="align-self-center">
+                  <InputText class="next-input" :placeholder="$t('price_zero')"></InputText>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 pt-30">
+              <div class="d-flex pb-30 thin-b-line">
+                <div class="align-self-center w-75">
+                  <b>Kem</b>
+                </div>
+                <div class="align-self-center">
+                  <InputText class="next-input" :placeholder="$t('price_zero')"></InputText>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <template #footer>
+      <div class="d-flex justify-content-between flex-1">
+        <div>
+        </div>
+        <div class="d-flex gap-2">
+          <Button class="ms-btn btn-default">
+            <div class="p-button-label ml-3">{{ $t('cancel') }}</div>
+          </Button>
+          <Button class="ms-btn btn-accent--primary">
+            <div class="p-button-label ml-3">{{ $t('update') }}</div>
+          </Button>
+        </div>
+      </div>
+    </template>
+  </Dialog>
+  <Dialog v-model:visible="visibleEditSKU" modal
+          :draggable="false"
+          class="modal_container modal-dialog omni-modal">
+    <template #header>
+      <div class="modal-header">
+        <h5 class="modal-title">
+          {{ $t('edit_sku') }}
+        </h5>
+      </div>
+    </template>
+    <div class="modal-body">
+      <div class="pd-all-20">
+        <div class="mb-5 word-break">
+          <div class="row">
+            <div class="col-12 pt-30">
+              <div class="d-flex pb-30 thin-b-line">
+                <div class="align-self-center w-75">
+                  <b>Kem</b>
+                </div>
+                <div class="align-self-center">
+                  <InputText class="next-input" :placeholder="$t('price_zero')"></InputText>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 pt-30">
+              <div class="d-flex pb-30 thin-b-line">
+                <div class="align-self-center w-75">
+                  <b>Kem</b>
+                </div>
+                <div class="align-self-center">
+                  <InputText class="next-input" :placeholder="$t('price_zero')"></InputText>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <template #footer>
+      <div class="d-flex justify-content-between flex-1">
+        <div>
+        </div>
+        <div class="d-flex gap-2">
+          <Button class="ms-btn btn-default">
+            <div class="p-button-label ml-3">{{ $t('cancel') }}</div>
+          </Button>
+          <Button class="ms-btn btn-accent--primary">
+            <div class="p-button-label ml-3">{{ $t('update') }}</div>
+          </Button>
+        </div>
+      </div>
+    </template>
+  </Dialog>
 </template>
 
 <script>
@@ -356,6 +525,7 @@ import InputText from 'primevue/inputtext';
 import Dropdown from "primevue/dropdown";
 import Button from 'primevue/button';
 import Checkbox from "primevue/checkbox";
+import Dialog from "primevue/dialog";
 import {FORM_MODE} from "@/core/constants";
 
 export default {
@@ -364,6 +534,7 @@ export default {
     Dropdown,
     Button,
     Checkbox,
+    Dialog,
   },
   computed: {
     FORM_MODE() {
@@ -373,6 +544,9 @@ export default {
   data() {
     return {
       mode: null,
+      visibleComparePrice: false,
+      visibleEditBarcode: false,
+      visibleEditSKU: true,
     }
   },
   created() {
