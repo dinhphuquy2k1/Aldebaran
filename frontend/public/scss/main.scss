@@ -1122,6 +1122,47 @@ img {
   margin-right: 2.5px;
 }
 
+.pl-2x5 {
+  padding-left: 2.5px;
+}
+
+.image-wrapper-border {
+  border: 1px dashed var(--image-wrapper-border-color);
+  border-radius: 4px;
+  background-color: var(--background-default);
+  z-index: 1;
+}
+
+.break-text {
+  word-break: break-all;
+}
+
+.h4 {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: inherit;
+}
+
+a {
+  color: var(--alias-color-content-accent);
+  cursor: pointer;
+}
+
+.py-3 {
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+}
+
+.small {
+  font-size: 85% !important;
+  font-weight: 400;
+}
+
+.mt-5 {
+  margin-top: 5px !important;
+}
+
 .pt-10 {
   padding-top: 10px;
 }

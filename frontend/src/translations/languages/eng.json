@@ -235,5 +235,22 @@
   "product_multi_variant": "This product has multiple variants. For example, different sizes or colors.",
   "product_seo": "SEO Optimization",
   "product_seo_note": "Set up meta tags to help customers easily find this category on search engines like Google",
-  "price_zero": "0 đ"
+  "price_zero": "0 đ",
+  "product_variant_detail": "Variant Details",
+  "product_variant_attributes": "Attributes",
+  "product_variant_back_to_product": "Back to Product Details",
+  "product_variant_select_image": "Select Image",
+  "product_variant_select_from_existing": "Choose from Existing Images",
+  "product_variant_list": "Variant List",
+  "product_variant_create": "Create Variant",
+  "product_variant_update_image": "Update Variant Image",
+  "product_variant_delete_image": "Delete Image",
+  "product_variant_confirm": "Confirm",
+  "product_variant_history": "Update History",
+  "product_variant_duplicate": "Duplicate",
+  "product_variant_change_image": "Change Image",
+  "product_variant_color": "Color",
+  "product_variant_stock_tag": "Stock Tag",
+  "product_variant_delete": "Delete Variant",
+  "product_variant_detail_with_count": "{count} Variant Details"
 }

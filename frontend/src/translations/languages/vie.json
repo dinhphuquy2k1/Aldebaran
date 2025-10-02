@@ -291,5 +291,22 @@
   "product_multi_variant": "Sản phẩm này có nhiều biến thể. Ví dụ như khác nhau về kích thước, màu sắc.",
   "product_seo": "Tối ưu SEO",
   "product_seo_note": "Thiết lập các thẻ mô tả giúp khách hàng dễ dàng tìm thấy danh mục này trên công cụ tìm kiếm như Google",
-  "price_zero": "0 đ"
+  "price_zero": "0 đ",
+  "product_variant_detail": "Chi tiết biến thể",
+  "product_variant_attributes": "Các thuộc tính",
+  "product_variant_back_to_product": "Quay về chi tiết sản phẩm",
+  "product_variant_select_image": "Chọn ảnh",
+  "product_variant_select_from_existing": "Chọn từ ảnh đã có",
+  "product_variant_list": "Danh sách biến thể",
+  "product_variant_create": "Tạo biến thể",
+  "product_variant_update_image": "Cập nhật hình ảnh biến thể",
+  "product_variant_delete_image": "Xóa hình ảnh",
+  "product_variant_confirm": "Xác nhận",
+  "product_variant_history": "Lịch sử cập nhật",
+  "product_variant_duplicate": "Nhân bản",
+  "product_variant_change_image": "Thay đổi ảnh",
+  "product_variant_color": "Màu sắc",
+  "product_variant_stock_tag": "Thẻ kho",
+  "product_variant_delete": "Xóa biến thể",
+  "product_variant_detail_with_count": "{count} Chi tiết biến thể"
 }

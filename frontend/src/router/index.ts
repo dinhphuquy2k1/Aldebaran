@@ -172,6 +172,33 @@ const routes: Array<RouteRecordRaw> = [
                         ],
                     },
                     {
+                        path: 'variant',
+                        children: [
+                            {
+                                path: 'new',
+                                components: {
+                                    header: () => import('@/components/admin/TheHeader.vue'),
+                                    navbar: () => import('@/components/admin/TheNavbar.vue'),
+                                    content: () => import('@/modules/variant/views/admin/ManageVariant.vue')
+                                }
+                            },
+                            {
+                                path: ':productId',
+                                children: [
+                                    {
+                                        path: '',
+                                        components: {
+                                            header: () => import('@/components/admin/TheHeader.vue'),
+                                            navbar: () => import('@/components/admin/TheNavbar.vue'),
+                                            content: () => import('@/modules/product/views/admin/ManageProduct.vue')
+                                        }
+                                    },
+                                ],
+                                meta: {title: 'product_group_list'}
+                            },
+                        ],
+                    },
+                    {
                         path: ':productId',
                         children: [
                             {

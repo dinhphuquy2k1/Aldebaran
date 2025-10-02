@@ -589,6 +589,11 @@ span.icon24 {
   height: 40px;
 }
 
+.svg-next-icon-size-48 {
+  width: 48px;
+  height: 48px;
+}
+
 .icon-close-no-circle {
   width: 100%;
   height: 100%;
@@ -722,6 +727,26 @@ span.icon24 {
   -webkit-mask: url("@public/assets/icons/svg-question-mark-icon.svg") no-repeat center;
   -webkit-mask-size: contain;
   mask: url("@public/assets/icons/svg-question-mark-icon.svg") no-repeat center;
+  mask-size: contain;
+  background-color: currentColor;
+}
+
+.icon-back {
+  width: 100%;
+  height: 100%;
+  -webkit-mask: url("@public/assets/icons/svg-back-icon.svg") no-repeat center;
+  -webkit-mask-size: contain;
+  mask: url("@public/assets/icons/svg-back-icon.svg") no-repeat center;
+  mask-size: contain;
+  background-color: currentColor;
+}
+
+.icon-upload-image {
+  width: 100%;
+  height: 100%;
+  -webkit-mask: url("@public/assets/icons/svg-update-image-icon.svg") no-repeat center;
+  -webkit-mask-size: contain;
+  mask: url("@public/assets/icons/svg-update-image-icon.svg") no-repeat center;
   mask-size: contain;
   background-color: currentColor;
 }
