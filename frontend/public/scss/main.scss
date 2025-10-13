@@ -1304,6 +1304,18 @@ a {
   margin-top: 15px;
 }
 
+.mt-16 {
+  margin-top: 16px;
+}
+
+.pl-15 {
+  padding-left: 15px;
+}
+
+.m-15 {
+  margin: 15px;
+}
+
 .p-16px {
   padding: 16px;
 }
@@ -1691,6 +1703,11 @@ svg.hrv-image-thumbnail--image {
   background: var(--white);
   border-radius: 8px;
   margin-top: 16px;
+
+  &.card-secondary {
+    background-color: var(--coolgray50);
+    color: var(--contentSecondary);
+  }
 }
 
 .omni-layout-card--header {

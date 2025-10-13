@@ -354,7 +354,7 @@ class MenuSeeder extends Seeder
                         'updated_at' => $now,
                     ],
                     [
-                        'label' => 'settings',
+                        'label' => 'configuration',
                         'icon' => null,
                         'menu_type' => 0,
                         'route' => '/admin/sale_channels/online_store/settings',

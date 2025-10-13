@@ -476,3 +476,30 @@
     background: var(--select-button-default-hover-color);
   }
 }
+
+.ms-next-button-group-default {
+  background-color: var(--color-coolgray-200);
+  max-width: max-content;
+  padding: 3px;
+  border-radius: 4px;
+  font-weight: 600;
+
+  .p-button {
+    padding: 8px 14px;
+    border-radius: 4px;
+    border: 0;
+    color: var(--color-coolgray-400);
+    background: transparent;
+    cursor: pointer;
+
+    .p-button-label {
+      font-weight: 600;
+    }
+
+    &.p-highlight {
+      background: var(--background-default);
+      font-weight: 600;
+      color: var(--color-coolgray-900);
+    }
+  }
+}

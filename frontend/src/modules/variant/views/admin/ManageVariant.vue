@@ -47,6 +47,9 @@
                 <div class="ui-information">
                   <div class="ui-information-head d-flex justify-content-between">
                     <span class="ui-information-title">{{ $t('product_variant_list') }}</span>
+                    <Button class="ms-btn btn-link text-end p-0" v-if="mode === FORM_MODE.UPDATE">
+                      <div class="p-button-label lh-normal ml-5">{{ $t('add_new_variant') }}</div>
+                    </Button>
                   </div>
                   <div class="ui-information-body">
                     <ul class="product-info-variant-list-wrapper break-text">
@@ -211,7 +214,7 @@
                               <InputGroupAddon class="pi pi-search"></InputGroupAddon>
                               <InputText v-model="value1" :placeholder="$t('product_search_warehouse')"
                                          class="flex-1 next-input--stylized"/>
-                            </InputGroup >
+                            </InputGroup>
                           </div>
                         </div>
                       </div>

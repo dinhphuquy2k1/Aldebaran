@@ -77,6 +77,49 @@
   }
 }
 
+.modal-body {
+  .modal-body-item {
+    padding: 24px;
+    border-bottom: 1px solid var(--border-item-modal-color);
+    cursor: pointer;
+
+    &.modal-body-item:hover {
+      background-color: var(--color-truegray-100);
+    }
+
+    .modal-body-item-icon {
+      position: absolute;
+      background: var(--alias-color-background-light);
+      border: 1px solid var(--border-top-line-color);
+      border-radius: 3px;
+      margin-right: 12px;
+      padding: 8px;
+    }
+
+    .modal-body-item-title {
+      display: inline-block;
+      margin: 0 24px 0 52px;
+
+      label {
+        margin-bottom: 5px;
+        font-weight: 500;
+        display: block;
+      }
+    }
+
+    .modal-body-item-icon-right {
+      position: absolute;
+      margin: 10px 0;
+      right: 24px;
+      color: var(--color-dark);
+    }
+
+    &:first-child {
+      border-top: 1px solid var(--border-item-modal-color);
+    }
+  }
+}
+
 @media (min-width: 576px) {
   .modal-dialog {
     max-width: 500px;

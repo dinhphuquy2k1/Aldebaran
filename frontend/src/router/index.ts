@@ -152,6 +152,15 @@ const routes: Array<RouteRecordRaw> = [
                 },
                 meta: {title: 'product_group_list'}
             },
+            {
+                path: 'discounts',
+                components: {
+                    header: () => import('@/components/admin/TheHeader.vue'),
+                    navbar: () => import('@/components/admin/TheNavbar.vue'),
+                    content: () => import('@/modules/discount/views/admin/DiscountList.vue')
+                },
+                meta: {title: 'product_group_list'}
+            },
         ],
     },
     // {
