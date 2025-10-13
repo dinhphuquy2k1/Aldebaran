@@ -11,10 +11,10 @@
     <div class="product-selector-body">
       <div class="h-100 d-flex flex-column overflow-hidden">
         <div class="product-filter-modal__section">
-          <IconField iconPosition="left" class="ms-input-size-m d-flex flex-1">
-            <InputIcon class="pi pi-search"></InputIcon>
+          <InputGroup iconPosition="left" class="ms-input-size-m d-flex flex-1">
+            <InputGroupAddon class="pi pi-search"></InputGroupAddon>
             <InputText v-model="value1" :placeholder="$t('search')" class="flex-1 ms-input-wrapper"/>
-          </IconField>
+          </InputGroup>
         </div>
         <div class="product-filter-modal__list overflow-auto">
           <div class="product-filter-modal__table">
@@ -75,16 +75,16 @@
 </template>
 
 <script>
-import IconField from 'primevue/iconfield';
-import InputIcon from 'primevue/inputicon';
+import InputGroup from 'primevue/inputgroup';
+import InputGroupAddon from 'primevue/inputgroupaddon';
 import InputText from 'primevue/inputtext';
 import TreeTable from 'primevue/treetable';
 import Column from 'primevue/column';
 
 export default {
   components: {
-    IconField,
-    InputIcon,
+    InputGroup,
+    InputGroupAddon,
     InputText,
     TreeTable,
     Column,

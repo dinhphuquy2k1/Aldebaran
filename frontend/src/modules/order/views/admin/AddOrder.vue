@@ -368,8 +368,8 @@
 <script>
 import TopActionBar from "@/components/admin/TopActionBar.vue";
 import InputText from 'primevue/inputtext';
-import IconField from 'primevue/iconfield';
-import InputIcon from 'primevue/inputicon';
+import InputGroup from 'primevue/inputgroup';
+import InputGroupAddon from 'primevue/inputgroupaddon';
 import Button from 'primevue/button';
 import Textarea from 'primevue/textarea';
 import Dropdown from "primevue/dropdown";
@@ -383,8 +383,8 @@ export default {
   components: {
     TopActionBar,
     InputText,
-    IconField,
-    InputIcon,
+    InputGroup,
+    InputGroupAddon,
     Button,
     Textarea,
     Dropdown,

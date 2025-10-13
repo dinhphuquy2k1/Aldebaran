@@ -24,11 +24,11 @@
             </div>
           </div>
           <div class="col">
-            <IconField iconPosition="left" class="next-icon-field--stylized h-40">
-              <InputIcon class="pi pi-search"></InputIcon>
+            <InputGroup iconPosition="left" class="next-icon-group--stylized h-40">
+              <InputGroupAddon class="pi pi-search"></InputGroupAddon>
               <InputText v-model="search" :placeholder="$t('search')" class="next-input next-input--invisible"
                          @input="changeSearch"/>
-            </IconField>
+            </InputGroup>
           </div>
         </div>
 
@@ -75,8 +75,8 @@ import SelectButton from 'primevue/selectbutton';
 import Dropdown from "primevue/dropdown";
 import Button from "primevue/button";
 import OverlayPanel from "primevue/overlaypanel";
-import IconField from 'primevue/iconfield';
-import InputIcon from 'primevue/inputicon';
+import InputGroup from 'primevue/inputgroup';
+import InputGroupAddon from 'primevue/inputgroupaddon';
 import InputText from 'primevue/inputtext';
 import InputNumber from "primevue/inputnumber";
 import MultiSelect from 'primevue/multiselect';
@@ -89,8 +89,8 @@ export default {
     Dropdown,
     Button,
     OverlayPanel,
-    IconField,
-    InputIcon,
+    InputGroup,
+    InputGroupAddon,
     InputText,
     SelectButton,
     InputNumber,

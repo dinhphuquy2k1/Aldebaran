@@ -207,11 +207,11 @@
                         </div>
                         <div class="row pb-10">
                           <div class="col">
-                            <IconField iconPosition="left" class="d-flex flex-1">
-                              <InputIcon class="pi pi-search"></InputIcon>
+                            <InputGroup iconPosition="left" class="d-flex flex-1 next-icon-group--stylized h-40">
+                              <InputGroupAddon class="pi pi-search"></InputGroupAddon>
                               <InputText v-model="value1" :placeholder="$t('product_search_warehouse')"
                                          class="flex-1 next-input--stylized"/>
-                            </IconField>
+                            </InputGroup >
                           </div>
                         </div>
                       </div>
@@ -306,8 +306,8 @@
 import Button from "primevue/button";
 import InputText from "primevue/inputtext";
 import Checkbox from "primevue/checkbox";
-import IconField from "primevue/iconfield";
-import InputIcon from "primevue/inputicon";
+import InputGroup from 'primevue/inputgroup';
+import InputGroupAddon from 'primevue/inputgroupaddon';
 import Dialog from "primevue/dialog";
 import FileUploader from "@/components/admin/FileUploader.vue";
 import {FORM_MODE} from "@/core/constants";
@@ -317,8 +317,8 @@ export default {
     Button,
     InputText,
     Checkbox,
-    IconField,
-    InputIcon,
+    InputGroup,
+    InputGroupAddon,
     Dialog,
     FileUploader,
   },

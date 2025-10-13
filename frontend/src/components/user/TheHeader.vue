@@ -7,9 +7,9 @@
         </div>
         <div class="ms-header-middle d-flex justify-content-between flex-1 flex-column">
           <div class="d-none d-lg-block">
-            <IconField>
+            <InputGroup>
               <InputText :placeholder="$t('search_product')"/>
-              <InputIcon>
+              <InputGroupAddon>
                 <div class="ms-header-search_btn">
                   <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g id="Regular/MagnifyingGlass">
@@ -21,8 +21,8 @@
                     </g>
                   </svg>
                 </div>
-              </InputIcon>
-            </IconField>
+              </InputGroupAddon>
+            </InputGroup>
           </div>
           <div class="ms-header-policy-search mt-10 d-none d-xl-block">
             <div class="d-flex gap-3">
@@ -94,9 +94,9 @@
       </div>
     </div>
     <div class="ms-header-mobile d-lg-none">
-      <IconField>
+      <InputGroup>
         <InputText :placeholder="$t('search_product')"/>
-        <InputIcon>
+        <InputGroupAddon>
           <div class="ms-header-search_btn">
             <svg version="1.1" class="svg search" xmlns="http://www.w3.org/2000/svg"
                  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 24 27"
@@ -104,23 +104,23 @@
               <rect x="17" y="17" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -9.2844 19.5856)" width="4"
                     height="8"></rect></svg>
           </div>
-        </InputIcon>
-      </IconField>
+        </InputGroupAddon>
+      </InputGroup>
     </div>
   </header>
 </template>
 <script>
 import InputText from 'primevue/inputtext';
-import IconField from 'primevue/iconfield';
-import InputIcon from 'primevue/inputicon';
+import InputGroup from 'primevue/inputgroup';
+import InputGroupAddon from 'primevue/inputgroupaddon';
 import Menubar from 'primevue/menubar';
 
 
 export default {
   components: {
     InputText,
-    IconField,
-    InputIcon,
+    InputGroup,
+    InputGroupAddon,
     Menubar,
   },
   data() {

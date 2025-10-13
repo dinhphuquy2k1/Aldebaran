@@ -508,3 +508,26 @@ input:focus {
     color: var(--color-dark);
   }
 }
+
+.p-inputgroup {
+
+  &.next-icon-group--stylized {
+    border: 1px solid var(--color-light-gray);
+    border-radius: 4px;
+
+    .p-inputtext {
+      border: 0;
+      height: 100% !important;
+      padding: 0 !important;
+    }
+
+    .p-inputgroup-addon {
+      border: 0;
+      background: var(--background-default);
+      background-size: 18px 18px;
+      background-image: url('@public/assets/icons/search.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+}
