@@ -379,5 +379,10 @@
   "discount_by_purchase_value_example": "Ví dụ: \"Giảm 10% cho mỗi áo thun khi mua từ 500k\"",
   "fixed_price_by_quantity": "Đồng giá theo số lượng mua",
   "fixed_price_by_quantity_example": "Ví dụ: \"Đồng giá 100k khi mua từ 5 áo thun\"",
-  "popular": "Phổ biến"
+  "popular": "Phổ biến",
+  "customer_option": "Tùy chọn khách hàng",
+  "all_channel": "Tất cả kênh",
+  "branch_option": "Tùy chọn chi nhánh",
+  "delivery_area": "Khu vực giao hàng",
+  "promotion_count": "{count} khuyến mãi"
 }

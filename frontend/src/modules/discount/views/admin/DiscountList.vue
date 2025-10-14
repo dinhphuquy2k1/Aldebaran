@@ -74,18 +74,22 @@
                               </div>
                             </div>
                             <div class="col-6">
-                              <div class="d-flex label-input-group-pricing--list">
-                                <Checkbox inputId="has_delivery"/>
-                                <label for="" class="font-weight-normal ml-10 mb-5">{{ $t('has_end_time') }}</label>
+                              <div class="hrv-next-input-checkbox ui-table d-flex label-input-group-pricing--list mb-5">
+                                <Checkbox v-model="checked" inputId="end_time" class="hrv-next-checkbox"
+                                          :binary="true"/>
+                                <label for="end_time" class="hrv-next-label--switch">{{ $t('has_end_time') }}</label>
                               </div>
                               <Calendar class="input-date-picker input-date-picker--old-style" dateFormat="dd/mm/yy"/>
                             </div>
                           </div>
                           <div class="row mt-0">
                             <div class="col-12">
-                              <div class="d-flex label-input-group-pricing--list mt-16">
-                                <Checkbox inputId="has_delivery"/>
-                                <label for="" class="font-weight-normal ml-10 mb-5">{{ $t('has_end_time') }}</label>
+                              <div
+                                  class="d-flex label-input-group-pricing--list mt-16 hrv-next-input-checkbox ui-table mb-5">
+                                <Checkbox inputId="periodTime" class="hrv-next-checkbox"/>
+                                <label for="periodTime" class="font-weight-normal hrv-next-label--switch">{{
+                                    $t('limit_day_and_time')
+                                  }}</label>
                               </div>
                             </div>
                           </div>
@@ -98,6 +102,142 @@
                       </div>
                       <div class="omni-layout-card--section">
                         <div class="d-flex justify-content-between flex-wrap"></div>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="omni-layout-card card-default">
+                        <div class="omni-layout-card--header">
+                          <span class="header-title">{{ $t('order_discount') }}</span>
+                        </div>
+                        <div class="omni-layout-card--section">
+                          <div class="d-flex">
+                            <div class="w-50">
+                              <label for="" class="mb-15">{{ $t('discount_value') }}</label>
+                              <div class="d-flex">
+                                <InputNumber inputId="minmax-buttons" mode="decimal"
+                                             class="ms-input-number next-input ms-input-number-wrapper" showButtons
+                                             :min="0" :max="100"/>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="omni-layout-card card-default">
+                        <div class="omni-layout-card--header">
+                          <span class="header-title">{{ $t('minimum_condition') }}</span>
+                        </div>
+                        <div class="omni-layout-card--section">
+                          <div class="d-flex align-items-center pointer ms-next-input-radio">
+                            <RadioButton v-model="checked" input-id="conditionOption-1" value="2"/>
+                            <label for="" class="ms-next-label--switch">{{ $t('no_requirement') }}</label>
+                          </div>
+                          <div class="d-flex align-items-center pointer ms-next-input-radio">
+                            <RadioButton v-model="checked" input-id="conditionOption-1" value="2"/>
+                            <label for="" class="ms-next-label--switch">{{ $t('minimum_order_value') }}</label>
+                          </div>
+                          <div class="d-flex align-items-center pointer ms-next-input-radio">
+                            <RadioButton v-model="checked" input-id="conditionOption-1" value="2"/>
+                            <label for="" class="ms-next-label--switch">{{ $t('minimum_product_quantity') }}</label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="omni-layout-card card-default">
+                        <div class="omni-layout-card--header">
+                          <span class="header-title">{{ $t('customer_target') }}</span>
+                        </div>
+                        <div class="omni-layout-card--section">
+                          <div class="d-flex align-items-center pointer ms-next-input-radio">
+                            <RadioButton v-model="checked" input-id="conditionOption-1" value="2"/>
+                            <label for="" class="ms-next-label--switch">{{ $t('unlimited_customers') }}</label>
+                          </div>
+                          <div class="d-flex align-items-center pointer ms-next-input-radio">
+                            <RadioButton v-model="checked" input-id="conditionOption-1" value="2"/>
+                            <label for="" class="ms-next-label--switch">{{ $t('customer_groups') }}</label>
+                          </div>
+                          <div class="d-flex align-items-center pointer ms-next-input-radio">
+                            <RadioButton v-model="checked" input-id="conditionOption-1" value="2"/>
+                            <label for="" class="ms-next-label--switch">{{ $t('customer_option') }}</label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="omni-layout-card card-default">
+                        <div class="omni-layout-card--header">
+                          <span class="header-title">{{ $t('applied_channels') }}</span>
+                        </div>
+                        <div class="omni-layout-card--section">
+                          <div class="d-flex align-items-center pointer ms-next-input-radio">
+                            <RadioButton v-model="checked" input-id="conditionOption-1" value="2"/>
+                            <label for="" class="ms-next-label--switch">{{ $t('all_channel') }}</label>
+                          </div>
+                          <div class="d-flex align-items-center pointer ms-next-input-radio">
+                            <RadioButton v-model="checked" input-id="conditionOption-1" value="2"/>
+                            <label for="" class="ms-next-label--switch">{{ $t('channel_options') }}</label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="omni-layout-card card-default">
+                        <div class="omni-layout-card--header">
+                          <span class="header-title">{{ $t('applied_branches') }}</span>
+                        </div>
+                        <div class="omni-layout-card--section">
+                          <div class="d-flex align-items-center pointer ms-next-input-radio">
+                            <RadioButton v-model="checked" input-id="conditionOption-1" value="2"/>
+                            <label for="" class="ms-next-label--switch">{{ $t('all_branches') }}</label>
+                          </div>
+                          <div class="d-flex align-items-center pointer ms-next-input-radio">
+                            <RadioButton v-model="checked" input-id="conditionOption-1" value="2"/>
+                            <label for="" class="ms-next-label--switch">{{ $t('branch_option') }}</label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="omni-layout-card card-default">
+                        <div class="omni-layout-card--header">
+                          <span class="header-title">{{ $t('delivery_area') }}</span>
+                        </div>
+                        <div class="omni-layout-card--section">
+                          <div class="d-flex align-items-center pointer ms-next-input-radio">
+                            <RadioButton v-model="checked" input-id="conditionOption-1" value="2"/>
+                            <label for="" class="ms-next-label--switch">{{ $t('nationwide') }}</label>
+                          </div>
+                          <div class="d-flex align-items-center pointer ms-next-input-radio">
+                            <RadioButton v-model="checked" input-id="conditionOption-1" value="2"/>
+                            <label for="" class="ms-next-label--switch">{{ $t('province_option') }}</label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="omni-layout-card card-default">
+                        <div class="omni-layout-card--header">
+                          <span class="header-title">{{ $t('promotion_combination') }}</span>
+                        </div>
+                        <div class="omni-layout-card--section">
+                          <div class="mb-10">
+                            <span>{{ $t('promotion_combination_desc') }}:</span>
+                          </div>
+                          <div class="mb-10 d-flex mb-5">
+                            <div
+                                class="d-flex label-input-group-pricing--list hrv-next-input-checkbox ui-table">
+                              <Checkbox inputId="periodTime" class="hrv-next-checkbox"/>
+                              <label for="periodTime" class="font-weight-normal hrv-next-label--switch">{{
+                                  $t('other_promotions')
+                                }}</label>
+                            </div>
+                            <Button class="ms-btn btn-link no-padding text-secondary text-right border-0 ml-5" style="line-height: 19px">
+                              <div class="p-button-label">{{ $t('promotion_count', {count: 0}) }}</div>
+                            </Button>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -259,6 +399,8 @@ import InputText from 'primevue/inputtext';
 import Textarea from 'primevue/textarea';
 import Calendar from 'primevue/calendar';
 import Checkbox from "primevue/checkbox";
+import InputNumber from 'primevue/inputnumber';
+import RadioButton from 'primevue/radiobutton';
 import InputSwitch from 'primevue/inputswitch';
 
 export default {
@@ -271,6 +413,8 @@ export default {
     Calendar,
     Checkbox,
     InputSwitch,
+    InputNumber,
+    RadioButton,
   },
   data() {
     return {
@@ -300,6 +444,7 @@ export default {
         },
       ],
       discounts: [1],
+      checked: false,
     }
   },
   methods: {

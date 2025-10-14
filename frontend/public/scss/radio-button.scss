@@ -1,31 +1,68 @@
 .p-radiobutton {
   width: 18px;
   height: 18px;
+
+  .p-radiobutton-box {
+    box-shadow: unset !important;
+  }
 }
 
-.p-radiobutton .p-radiobutton-box {
-  width: 18px;
-  height: 18px;
-  border: 2px solid var(--Gray-200);
-}
+.ms-next-input-radio {
+  gap: 10px;
+  display: flex;
 
-.p-radiobutton .p-radiobutton-box.p-highlight {
-  background: var(--Primary-500);
-}
+  & + .ms-next-input-radio {
+    margin-top: 16px;
+  }
 
-.p-radiobutton .p-radiobutton-box .p-radiobutton-icon {
-  width: 8px;
-  height: 8px;
-}
+  .ms-next-label--switch {
+    line-height: 1px;
+    cursor: pointer;
+    color: var(--color-dark);
+    font-weight: 400;
+  }
 
-.p-radiobutton .p-radiobutton-box:not(.p-disabled).p-focus {
-  box-shadow: unset;
-}
+  .p-radiobutton {
+    .p-radiobutton-box {
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 16px;
+      width: 16px;
+      background: var(--select-button-default-bg-color);
+      margin: 0;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      vertical-align: middle;
+      cursor: pointer;
 
-.p-radiobutton .p-radiobutton-box:not(.p-disabled):not(.p-highlight):hover {
-  border-color: var(--Primary-500);
-}
+      .p-radiobutton-icon {
+        content: "";
+        display: block;
+        height: 8px;
+        width: 8px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        border-radius: 100%;
+        background-color: transparent;
+        -webkit-transform: translate(-50%, -50%) scale(0);
+        transform: translate(-50%, -50%) scale(0);
+        -webkit-transition: -webkit-transform .15s ease-in-out;
+        transition: -webkit-transform .15s ease-in-out;
+        transition: transform .15s ease-in-out, -webkit-transform .15s ease-in-out;
+      }
 
-.p-component.p-radiobutton-checked ~ label {
-  color: var(--Gray-900);
+      &.p-highlight {
+        background-color: var(--button-primary-bg-color);
+
+        .p-radiobutton-icon {
+          background-color: var(--background-default);
+          -webkit-transform: translate(-50%, -50%) scale(1);
+          transform: translate(-50%, -50%) scale(1);
+        }
+      }
+    }
+  }
 }

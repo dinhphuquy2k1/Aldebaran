@@ -323,5 +323,10 @@
   "discount_by_purchase_value_example": "Example: \"10% off each T-shirt when spending over 500k\"",
   "fixed_price_by_quantity": "Fixed Price by Quantity",
   "fixed_price_by_quantity_example": "Example: \"100k fixed price when buying 5 T-shirts\"",
-  "popular": "Popular"
+  "popular": "Popular",
+  "customer_option": "Customer Option",
+  "all_channel": "All Channels",
+  "branch_option": "Branch Option",
+  "delivery_area": "Delivery Area",
+  "promotion_count": "{count} promotions"
 }

@@ -240,14 +240,6 @@ input:focus {
 
 }
 
-.ui-table {
-  .p-checkbox-box {
-    border: unset;
-    border-radius: 2px;
-    background-color: var(--bg-input-checkbox) !important;
-  }
-}
-
 .p-inputswitch.p-highlight .p-inputswitch-slider:before {
   transform: translateX(0.85rem);
 }
