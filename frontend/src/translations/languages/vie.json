@@ -384,5 +384,18 @@
   "all_channel": "Tất cả kênh",
   "branch_option": "Tùy chọn chi nhánh",
   "delivery_area": "Khu vực giao hàng",
-  "promotion_count": "{count} khuyến mãi"
+  "promotion_count": "{count} khuyến mãi",
+  "selected_variants": "Biến thể đã chọn",
+  "promotion_apply_each_item_note": "Nếu không chọn, khuyến mãi sẽ áp dụng cho từng mặt hàng trong giỏ hàng",
+  "promotion_apply_once_per_order": "Chỉ áp dụng giảm giá một lần trên toàn bộ đơn hàng",
+  "shipping_discount": "Giảm giá vận chuyển",
+  "shipping_discount_condition": "Không áp dụng nếu phí vận chuyển vượt quá giá trị nhất định",
+  "from_to_time_range": "Từ {start_time} đến trước {end_time}",
+  "monday": "Thứ hai",
+  "tuesday": "Thứ ba",
+  "wednesday": "Thứ tư",
+  "thursday": "Thứ năm",
+  "friday": "Thứ sáu",
+  "saturday": "Thứ bảy",
+  "sunday": "Chủ nhật"
 }

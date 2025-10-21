@@ -328,5 +328,18 @@
   "all_channel": "All Channels",
   "branch_option": "Branch Option",
   "delivery_area": "Delivery Area",
-  "promotion_count": "{count} promotions"
+  "promotion_count": "{count} promotions",
+  "selected_variants": "Selected Variants",
+  "promotion_apply_each_item_note": "If not selected, the promotion will apply to each item in the cart",
+  "promotion_apply_once_per_order": "Apply discount only once per entire order",
+  "shipping_discount": "Shipping Discount",
+  "shipping_discount_condition": "Not applicable if the shipping fee exceeds a certain amount",
+  "from_to_time_range": "From {start_time} to before {end_time}",
+  "monday": "Monday",
+  "tuesday": "Tuesday",
+  "wednesday": "Wednesday",
+  "thursday": "Thursday",
+  "friday": "Friday",
+  "saturday": "Saturday",
+  "sunday": "Sunday"
 }

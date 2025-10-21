@@ -161,6 +161,24 @@ const routes: Array<RouteRecordRaw> = [
                 },
                 meta: {title: 'product_group_list'}
             },
+            {
+                path: 'discounts/new',
+                components: {
+                    header: () => import('@/components/admin/TheHeader.vue'),
+                    navbar: () => import('@/components/admin/TheNavbar.vue'),
+                    content: () => import('@/modules/discount/views/admin/ManageDiscount.vue')
+                },
+                meta: {title: 'product_group_list'}
+            },
+            {
+                path: 'discounts/:discountId',
+                components: {
+                    header: () => import('@/components/admin/TheHeader.vue'),
+                    navbar: () => import('@/components/admin/TheNavbar.vue'),
+                    content: () => import('@/modules/discount/views/admin/ManageDiscount.vue')
+                },
+                meta: {title: 'product_group_list'}
+            },
         ],
     },
     // {

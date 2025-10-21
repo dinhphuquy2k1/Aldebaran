@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Src\Domain\FilterOption\Services;
 
 
-use Src\Domain\Category\Snapshot\CategorySnapshot;
+use Src\Domain\Category\Snapshots\CategorySnapshot;
 
 interface IFilterOptionService
 {

@@ -126,6 +126,81 @@
                     <div>
                       <div class="omni-layout-card card-default">
                         <div class="omni-layout-card--header">
+                          <span class="header-title">{{ $t('shipping_discount') }}</span>
+                        </div>
+                        <div class="omni-layout-card--section">
+                          <div class="d-flex">
+                            <div class="w-50">
+                              <label for="" class="mb-15">{{ $t('discount_value') }}</label>
+                              <div class="d-flex">
+                                <InputNumber inputId="minmax-buttons" mode="decimal"
+                                             class="ms-input-number next-input ms-input-number-wrapper" showButtons
+                                             :min="0" :max="100"/>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="border-top mt-10">
+                            <div
+                                class="d-flex label-input-group-pricing--list mt-16 hrv-next-input-checkbox ui-table mb-5">
+                              <Checkbox inputId="periodTime" class="hrv-next-checkbox"/>
+                              <label for="periodTime" class="font-weight-normal hrv-next-label--switch">{{
+                                  $t('shipping_discount_condition')
+                                }}</label>
+                            </div>
+                            <div class="mt-10 w-50">
+                              <InputNumber inputId="minmax-buttons" mode="decimal"
+                                           inputClass="text-start"
+                                           class="ms-input-number next-input ms-input-number-wrapper" showButtons
+                                           :min="0" :max="100"/>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="omni-layout-card card-default">
+                        <div class="omni-layout-card--header">
+                          <span class="header-title">{{ $t('applied_products') }}</span>
+                        </div>
+                        <div class="omni-layout-card--section">
+                          <div>
+                            <div class="d-flex align-items-center pointer ms-next-input-radio">
+                              <RadioButton v-model="checked" input-id="conditionOption-1" value="2"/>
+                              <label for="" class="ms-next-label--switch">{{ $t('product_groups') }}</label>
+                            </div>
+                            <div class="d-flex align-items-center pointer ms-next-input-radio">
+                              <RadioButton v-model="checked" input-id="conditionOption-1" value="2"/>
+                              <label for="" class="ms-next-label--switch">{{ $t('products') }}</label>
+                            </div>
+                            <div class="d-flex align-items-center pointer ms-next-input-radio">
+                              <RadioButton v-model="checked" input-id="conditionOption-1" value="2"/>
+                              <label for="" class="ms-next-label--switch">{{ $t('variant') }}</label>
+                            </div>
+                            <div class="ui-information-body pt-16 pb-16">
+                              <InputGroup iconPosition="left" class="next-icon-group--stylized h-40">
+                                <InputGroupAddon class="pi pi-search"></InputGroupAddon>
+                                <InputText :placeholder="$t('search')"
+                                           class="next-input next-input--invisible"
+                                />
+                              </InputGroup>
+                            </div>
+                          </div>
+                          <div class="border-top mt-15">
+                            <div
+                                class="d-flex label-input-group-pricing--list mt-16 hrv-next-input-checkbox ui-table my-3">
+                              <Checkbox inputId="periodTime" class="hrv-next-checkbox"/>
+                              <label for="periodTime" class="font-weight-normal hrv-next-label--switch">{{
+                                  $t('promotion_apply_once_per_order')
+                                }}</label>
+                            </div>
+                            <span class="font-italic text-secondary">{{ $t('promotion_apply_each_item_note') }}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="omni-layout-card card-default">
+                        <div class="omni-layout-card--header">
                           <span class="header-title">{{ $t('minimum_condition') }}</span>
                         </div>
                         <div class="omni-layout-card--section">
@@ -136,6 +211,17 @@
                           <div class="d-flex align-items-center pointer ms-next-input-radio">
                             <RadioButton v-model="checked" input-id="conditionOption-1" value="2"/>
                             <label for="" class="ms-next-label--switch">{{ $t('minimum_order_value') }}</label>
+                          </div>
+                          <div class="w-50 discount-channel--option mb-15">
+                            <div class="my-4">
+                              <InputNumber inputId="minmax-buttons" mode="decimal"
+                                           :placeholder="$t('price_zero')"
+                                           inputClass="text-start"
+                                           class="ms-input-number next-input ms-input-number-wrapper text-start"
+                                           showButtons
+                                           :min="0" :max="100"/>
+                            </div>
+                            <span class="text-secondary">{{ $t('apply_for', {for: $t('selected_variants')}) }}</span>
                           </div>
                           <div class="d-flex align-items-center pointer ms-next-input-radio">
                             <RadioButton v-model="checked" input-id="conditionOption-1" value="2"/>
@@ -213,6 +299,14 @@
                             <RadioButton v-model="checked" input-id="conditionOption-1" value="2"/>
                             <label for="" class="ms-next-label--switch">{{ $t('province_option') }}</label>
                           </div>
+                          <div class="ui-information-body pt-16 pb-16">
+                            <InputGroup iconPosition="left" class="next-icon-group--stylized h-40">
+                              <InputGroupAddon class="pi pi-search"></InputGroupAddon>
+                              <InputText :placeholder="$t('search')"
+                                         class="next-input next-input--invisible"
+                              />
+                            </InputGroup>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -226,16 +320,53 @@
                             <span>{{ $t('promotion_combination_desc') }}:</span>
                           </div>
                           <div class="mb-10 d-flex mb-5">
-                            <div
-                                class="d-flex label-input-group-pricing--list hrv-next-input-checkbox ui-table">
+                            <div class="d-flex label-input-group-pricing--list hrv-next-input-checkbox ui-table">
                               <Checkbox inputId="periodTime" class="hrv-next-checkbox"/>
                               <label for="periodTime" class="font-weight-normal hrv-next-label--switch">{{
                                   $t('other_promotions')
                                 }}</label>
                             </div>
-                            <Button class="ms-btn btn-link no-padding text-secondary text-right border-0 ml-5" style="line-height: 19px">
+                            <Button class="ms-btn btn-link no-padding text-secondary text-right border-0 ml-5"
+                                    style="line-height: 19px">
                               <div class="p-button-label">{{ $t('promotion_count', {count: 0}) }}</div>
                             </Button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="omni-layout-card card-default">
+                        <div class="omni-layout-card--header">
+                          <span class="header-title">{{ $t('usage_limit') }}</span>
+                        </div>
+                        <div class="omni-layout-card--section">
+                          <div class="d-flex label-input-group-pricing--list hrv-next-input-checkbox ui-table">
+                            <Checkbox inputId="periodTime" class="hrv-next-checkbox"/>
+                            <label for="periodTime" class="font-weight-normal hrv-next-label--switch">{{
+                                $t('total_usage_limit')
+                              }}</label>
+                          </div>
+                          <div class="my-4 w-50">
+                            <InputNumber inputId="minmax-buttons" mode="decimal"
+                                         :placeholder="$t('price_zero')"
+                                         inputClass="text-start"
+                                         class="ms-input-number next-input ms-input-number-wrapper text-start"
+                                         showButtons
+                                         :min="0" :max="100"/>
+                          </div>
+                          <div class="d-flex label-input-group-pricing--list hrv-next-input-checkbox ui-table">
+                            <Checkbox inputId="periodTime" class="hrv-next-checkbox"/>
+                            <label for="periodTime" class="font-weight-normal hrv-next-label--switch">{{
+                                $t('usage_limit_per_customer')
+                              }}</label>
+                          </div>
+                          <div class="my-4 w-50">
+                            <InputNumber inputId="minmax-buttons" mode="decimal"
+                                         :placeholder="$t('price_zero')"
+                                         inputClass="text-start"
+                                         class="ms-input-number next-input ms-input-number-wrapper text-start"
+                                         showButtons
+                                         :min="0" :max="100"/>
                           </div>
                         </div>
                       </div>
@@ -402,6 +533,9 @@ import Checkbox from "primevue/checkbox";
 import InputNumber from 'primevue/inputnumber';
 import RadioButton from 'primevue/radiobutton';
 import InputSwitch from 'primevue/inputswitch';
+import InputGroup from 'primevue/inputgroup';
+import InputGroupAddon from 'primevue/inputgroupaddon';
+import {getDiscountDetail} from "@/api/discount";
 
 export default {
   components: {
@@ -415,6 +549,8 @@ export default {
     InputSwitch,
     InputNumber,
     RadioButton,
+    InputGroup,
+    InputGroupAddon,
   },
   data() {
     return {
@@ -590,5 +726,9 @@ export default {
 
 .discount-summary--text-capitalize {
   text-transform: lowercase;
+}
+
+.discount-channel--option {
+  margin-left: 25px;
 }
 </style>

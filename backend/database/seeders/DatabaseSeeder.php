@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             PropertyValueSeeder::class,
             MenuSeeder::class,
             FilterOptionsSeeder::class,
+            DiscountSeeder::class,
         ]);
 
         User::factory()->create([

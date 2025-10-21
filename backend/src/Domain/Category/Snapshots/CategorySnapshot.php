@@ -1,6 +1,6 @@
 <?php
 
-namespace Src\Domain\Category\Snapshot;
+namespace Src\Domain\Category\Snapshots;
 
 use Src\Domain\Category\Models\Category;
 

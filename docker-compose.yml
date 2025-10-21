@@ -9,7 +9,7 @@ services:
     volumes:
       - ./backend:/var/www/html/
       - ./docker/config/php:/usr/local/etc/
-      - ./frontend/src/i18n/languages:/var/www/html/storage/languages
+      - ./frontend/src/translations/languages:/var/www/html/storage/languages
     depends_on:
       - aldebaran-db
     restart: unless-stopped

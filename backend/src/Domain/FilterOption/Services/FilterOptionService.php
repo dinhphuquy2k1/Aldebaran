@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Src\Domain\FilterOption\Services;
 
-use Src\Domain\Category\Snapshot\CategorySnapshot;
+use Src\Domain\Category\Snapshots\CategorySnapshot;
 use Src\Domain\FilterOption\Models\FilterOption;
 use Src\Domain\FilterOption\ReadRepositories\IFilterOptionReadRepository;
 use Src\Domain\FilterOption\Snapshots\FilterOptionSnapshot;

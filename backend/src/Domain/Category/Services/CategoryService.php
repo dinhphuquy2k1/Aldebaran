@@ -6,7 +6,7 @@ namespace Src\Domain\Category\Services;
 
 use Illuminate\Support\Facades\Cache;
 use Src\Domain\Category\ReadRepositories\ICategoryReadRepository;
-use Src\Domain\Category\Snapshot\CategorySnapshot;
+use Src\Domain\Category\Snapshots\CategorySnapshot;
 
 readonly class CategoryService implements ICategoryService
 {

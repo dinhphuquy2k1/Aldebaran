@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Src\Domain\FilterOption\Enums\FilterOptionTypeEnum;
+use Src\Domain\FilterOption\Enums\FilterOptionScreenKeyEnum;
 use Src\Infrastructure\FilterOption\Models\FilterOption;
 
 class FilterOptionsSeeder extends Seeder
@@ -19,7 +19,7 @@ class FilterOptionsSeeder extends Seeder
                 'label' => "Loại sản phẩm",
                 'value' => "category",
                 'type' => "select",
-                'screen_key' => FilterOptionTypeEnum::ORDER_LIST,
+                'screen_key' => FilterOptionScreenKeyEnum::ORDER_LIST,
                 'created_at' => $now,
                 'updated_at' => $now,
                 'children' => [
@@ -27,7 +27,7 @@ class FilterOptionsSeeder extends Seeder
                         'label' => "Là",
                         'value' => "=",
                         'type' => "select",
-                        'screen_key' => FilterOptionTypeEnum::ORDER_LIST,
+                        'screen_key' => FilterOptionScreenKeyEnum::ORDER_LIST,
                         'created_at' => $now,
                         'updated_at' => $now,
                         'children' => [
@@ -35,7 +35,7 @@ class FilterOptionsSeeder extends Seeder
                                 'label' => "iPhone",
                                 'value' => "iphone",
                                 'type' => "multiselect",
-                                'screen_key' => FilterOptionTypeEnum::ORDER_LIST,
+                                'screen_key' => FilterOptionScreenKeyEnum::ORDER_LIST,
                                 'created_at' => $now,
                                 'updated_at' => $now,
                             ],
@@ -43,7 +43,7 @@ class FilterOptionsSeeder extends Seeder
                                 'label' => "Samsung",
                                 'value' => "samsung",
                                 'type' => "multiselect",
-                                'screen_key' => FilterOptionTypeEnum::ORDER_LIST,
+                                'screen_key' => FilterOptionScreenKeyEnum::ORDER_LIST,
                                 'created_at' => $now,
                                 'updated_at' => $now,
                             ]
@@ -53,7 +53,7 @@ class FilterOptionsSeeder extends Seeder
                         'label' => "Khác",
                         'value' => "<>",
                         'type' => "select",
-                        'screen_key' => FilterOptionTypeEnum::ORDER_LIST,
+                        'screen_key' => FilterOptionScreenKeyEnum::ORDER_LIST,
                         'created_at' => $now,
                         'updated_at' => $now,
                         'children' => [
@@ -61,7 +61,7 @@ class FilterOptionsSeeder extends Seeder
                                 'label' => "dell",
                                 'value' => "dell",
                                 'type' => "select",
-                                'screen_key' => FilterOptionTypeEnum::ORDER_LIST,
+                                'screen_key' => FilterOptionScreenKeyEnum::ORDER_LIST,
                                 'created_at' => $now,
                                 'updated_at' => $now,
                             ],
@@ -69,7 +69,7 @@ class FilterOptionsSeeder extends Seeder
                                 'label' => "lenovo",
                                 'value' => "lenovo",
                                 'type' => "select",
-                                'screen_key' => FilterOptionTypeEnum::ORDER_LIST,
+                                'screen_key' => FilterOptionScreenKeyEnum::ORDER_LIST,
                                 'created_at' => $now,
                                 'updated_at' => $now,
                             ]]
@@ -79,7 +79,7 @@ class FilterOptionsSeeder extends Seeder
                 'label' => "Giá",
                 'value' => "price",
                 'type' => "select",
-                'screen_key' => FilterOptionTypeEnum::ORDER_LIST,
+                'screen_key' => FilterOptionScreenKeyEnum::ORDER_LIST,
                 'created_at' => $now,
                 'updated_at' => $now,
                 'children' => [
@@ -87,7 +87,7 @@ class FilterOptionsSeeder extends Seeder
                         'label' => "Lớn hơn",
                         'value' => ">",
                         'type' => "select",
-                        'screen_key' => FilterOptionTypeEnum::ORDER_LIST,
+                        'screen_key' => FilterOptionScreenKeyEnum::ORDER_LIST,
                         'created_at' => $now,
                         'updated_at' => $now,
                         'children' => [
@@ -95,7 +95,7 @@ class FilterOptionsSeeder extends Seeder
                                 'label' => "Nhập giá trị",
                                 'value' => "input",
                                 'type' => "input",
-                                'screen_key' => FilterOptionTypeEnum::ORDER_LIST,
+                                'screen_key' => FilterOptionScreenKeyEnum::ORDER_LIST,
                                 'created_at' => $now,
                                 'updated_at' => $now,
                             ]]
@@ -104,7 +104,7 @@ class FilterOptionsSeeder extends Seeder
                         'label' => "Trong khoảng",
                         'value' => "between",
                         'type' => "group",
-                        'screen_key' => FilterOptionTypeEnum::ORDER_LIST,
+                        'screen_key' => FilterOptionScreenKeyEnum::ORDER_LIST,
                         'created_at' => $now,
                         'updated_at' => $now,
                         'children' => [
@@ -112,7 +112,7 @@ class FilterOptionsSeeder extends Seeder
                                 'label' => "Giá trị từ",
                                 'value' => "from",
                                 'type' => "date",
-                                'screen_key' => FilterOptionTypeEnum::ORDER_LIST,
+                                'screen_key' => FilterOptionScreenKeyEnum::ORDER_LIST,
                                 'created_at' => $now,
                                 'updated_at' => $now,
                             ],
@@ -120,7 +120,7 @@ class FilterOptionsSeeder extends Seeder
                                 'label' => "Giá trị đến",
                                 'value' => "to",
                                 'type' => "input",
-                                'screen_key' => FilterOptionTypeEnum::ORDER_LIST,
+                                'screen_key' => FilterOptionScreenKeyEnum::ORDER_LIST,
                                 'created_at' => $now,
                                 'updated_at' => $now,
                             ]
@@ -131,7 +131,7 @@ class FilterOptionsSeeder extends Seeder
                 'label' => "Tên sản phẩm",
                 'value' => "product_name",
                 'type' => "select",
-                'screen_key' => FilterOptionTypeEnum::ORDER_LIST,
+                'screen_key' => FilterOptionScreenKeyEnum::ORDER_LIST,
                 'created_at' => $now,
                 'updated_at' => $now,
                 'children' => [
@@ -139,7 +139,7 @@ class FilterOptionsSeeder extends Seeder
                         'label' => "Bắt đầu với",
                         'value' => "startswith",
                         'type' => "select",
-                        'screen_key' => FilterOptionTypeEnum::ORDER_LIST,
+                        'screen_key' => FilterOptionScreenKeyEnum::ORDER_LIST,
                         'created_at' => $now,
                         'updated_at' => $now,
                         'children' => [
@@ -147,7 +147,7 @@ class FilterOptionsSeeder extends Seeder
                                 'label' => "Nhập từ khoá",
                                 'value' => "input",
                                 'type' => "input",
-                                'screen_key' => FilterOptionTypeEnum::ORDER_LIST,
+                                'screen_key' => FilterOptionScreenKeyEnum::ORDER_LIST,
                                 'created_at' => $now,
                                 'updated_at' => $now,
                             ]
@@ -157,7 +157,7 @@ class FilterOptionsSeeder extends Seeder
                         'label' => "Kết thúc với",
                         'value' => "endswith",
                         'type' => "select",
-                        'screen_key' => FilterOptionTypeEnum::ORDER_LIST,
+                        'screen_key' => FilterOptionScreenKeyEnum::ORDER_LIST,
                         'created_at' => $now,
                         'updated_at' => $now,
                         'children' => [
@@ -165,7 +165,7 @@ class FilterOptionsSeeder extends Seeder
                                 'label' => "Nhập từ khoá",
                                 'value' => "input",
                                 'type' => "input",
-                                'screen_key' => FilterOptionTypeEnum::ORDER_LIST,
+                                'screen_key' => FilterOptionScreenKeyEnum::ORDER_LIST,
                                 'created_at' => $now,
                                 'updated_at' => $now,
                             ]

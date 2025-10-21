@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Src\Presentation\Category\Http\Controllers\API\CategoryController;
+use Src\Presentation\Discount\Http\Controllers\API\DiscountController;
 use Src\Presentation\FilterOption\Http\Controllers\API\FilterOptionController;
 use Src\Presentation\Menu\Http\Controllers\API\MenuController;
 
@@ -19,4 +20,9 @@ Route::prefix('v1')->group(function () {
     Route::prefix('filters')->group(function () {
         Route::post('/', [FilterOptionController::class, 'filters']);
     });
+
+    Route::prefix('discounts')->group(function () {
+        Route::get('/{id}', [DiscountController::class, 'show'])->where('id', '[0-9]+');
+    });
+
 });
