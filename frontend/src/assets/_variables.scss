@@ -242,6 +242,15 @@ $header-height-admin: 56px;
   --shadow-2xl: 0px 0px 1px 0px rgba(0, 0, 0, .24), 0px 20px 48px 0px rgba(0, 0, 0, .2);
   --sidebar-width: 240px;
   --header-height: 56px;
+  --font-weight-extrabold: 800;
+  --font-weight-bold: 700;
+  --font-weight-semibold: 600;
+  --font-weight-medium: 500;
+  --font-weight-regular: 400;
+  --font-weight-light: 300;
+  --font-weight-extralight: 200;
+  --font-decor-default: unset;
+  --font-decor-underline: underline;
 }
 
 @media (max-width: 992px) {

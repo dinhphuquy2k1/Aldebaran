@@ -1,42 +1,30 @@
-.p-calendar {
-  box-shadow: unset !important;
-
-  &.input-date-picker {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 8px;
-    width: 100%;
-    color: var(--alias-color-content-default);
-    font-size: 14px;
-    line-height: 20px;
-    -webkit-transition: all .15s ease-out;
-    transition: all .15s ease-out;
-    border: 1px solid var(--alias-color-border-strong);
-    background: var(--alias-color-background-default);
-    font-weight: 400;
-    cursor: pointer;
-    -webkit-user-select: none;
-    user-select: none;
-  }
-
-  &.input-date-picker--old-style {
-    border-radius: 4px !important;
-    -webkit-border-radius: 4px !important;
-    -moz-border-radius: 4px !important;
-    -ms-border-radius: 4px !important;
-    -o-border-radius: 4px !important;
-    height: 40px !important;
-
-    .p-inputtext {
-      padding: 12px !important;
-    }
-  }
+.ms-calendar-timeonly {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border: 1px solid var(--border-label-hover-description);
+  border-radius: 4px;
+  box-shadow: none;
 
   .p-inputtext {
-    border: none !important;
+    width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 10px !important;
+    line-height: 18px;
+    border: none;
+    outline: 0;
+    box-shadow: none;
+    border-radius: 4px;
+  }
+
+  .p-button {
     height: 100%;
-    padding: 0 !important;
-    box-shadow: unset !important;
+    padding: 0;
+    background: transparent;
+    color: var(--color-coolgray-900);
+    border: 0;
+    box-shadow: unset;
   }
 }

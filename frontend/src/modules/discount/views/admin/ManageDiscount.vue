@@ -55,38 +55,74 @@
                             <div class="col-12">
                               <div
                                   class="d-flex label-input-group-pricing--list mt-16 hrv-next-input-checkbox ui-table mb-5">
-                                <Checkbox inputId="periodTime" class="hrv-next-checkbox"/>
+                                <Checkbox v-model="discount.hasWeeklyTimeLimit" inputId="periodTime"
+                                          @change="changeWeeklyTimeLimit"
+                                          class="hrv-next-checkbox" :binary="true"/>
                                 <label for="periodTime" class="font-weight-normal hrv-next-label--switch">{{
                                     $t('limit_day_and_time')
                                   }}</label>
                               </div>
                             </div>
                           </div>
-                          <div class="d-flex flex-column" v-if="discount && discount.discountTimeRules">
+                          <div class="d-flex flex-column" v-if="discount.hasWeeklyTimeLimit">
                             <div class="d-flex flex-row py-4 border-bottom"
-                                 v-for="(rules, dayName) of discount.discountTimeRules">
-                              <div class="d-flex flex-row w-20" style="margin-top:10px">
+                                 v-for="(rules, dayName, ruleIdx) of discount.discountTimeRules">
+                              <div class="d-flex flex-row w-20">
                                 <div class="hrv-next-input-checkbox ui-table mr-15 d-block">
-                                  <Checkbox v-model="checked" inputId="end_time" class="hrv-next-checkbox"
+                                  <Checkbox v-model="discount.discountTimeRuleOptions[dayName].allDay"
+                                            :inputId="dayName"
+                                            class="hrv-next-checkbox"
+                                            @change="changeApplyTimeRuleForDay(dayName)"
                                             :binary="true"/>
                                 </div>
-                                <span>{{ $t(dayName) }}</span>
+                                <label :for="dayName" class="pointer" style="margin-top: 2px">{{ $t(dayName) }}</label>
                               </div>
                               <div class="d-flex justify-content-between w-80">
+                                <div class="d-flex justify-content-between flex-1" style="margin-top: 2px"
+                                     v-if="discount.discountTimeRules[dayName].data.length === 0">
+                                  <span class="align-self-center"
+                                        :class="[{'text-nodata': !discount.discountTimeRuleOptions[dayName].allDay}]">
+                                    {{ $t('all_day') }}</span>
+                                  <span class="text-primary pointer"
+                                        v-if="discount.discountTimeRuleOptions[dayName].allDay"
+                                        @click="chooseTimeRule(dayName)">{{
+                                      $t('select_time')
+                                    }}</span>
+                                </div>
                                 <div class="d-flex flex-column">
-                                  <div class="d-flex flex-column" v-for="(rule, idx) in rules" :key="idx">
-                                    <div class="d-flex flex-row mb-5"></div>
-                                    <span class="text-nodata mb-15">({{
+                                  <div class="d-flex flex-column" v-for="(rule, idx) in rules.data" :key="idx">
+                                    <div class="d-flex flex-row"
+                                         :class="[{'mb-15': !rule.startTime || !rule.endTime, 'mb-5': rule.startTime && rule.endTime}]">
+                                      <Calendar v-model="rule.startTime" timeOnly
+                                                class="ms-calendar-timeonly"
+                                                hourFormat="24"
+                                                stepMinute="15"
+                                                showIcon
+                                                icon="icon-next svg-next-icon-rotate-90 svg-next-icon-size-7"/>
+                                      <div class="align-self-center mx-2"> -</div>
+                                      <Calendar v-model="rule.endTime" timeOnly stepMinute="15"
+                                                class="ms-calendar-timeonly"
+                                                :disabled="!rule.startTime"
+                                                icon="icon-next svg-next-icon-rotate-90 svg-next-icon-size-7"
+                                                hourFormat="24" showIcon :minDate="rule.startTime"/>
+                                      <div class="align-self-center ml-10">
+                                        <div class="icon-close-no-circle svg-next-icon-size-20 pointer"
+                                             @click="removeTimeRule(dayName, idx)"></div>
+                                      </div>
+                                    </div>
+                                    <span class="text-nodata mb-15" v-if="rule.startTime && rule.endTime">({{
                                         $t('from_to_time_range', {
-                                          start_time: formatTimeHM(rule?.startAt),
-                                          end_time: formatTimeHM(rule?.endAt)
+                                          start_time: formatTime(rule?.startTime, 'hh:mm'),
+                                          end_time: formatTime(rule?.endTime, 'hh:mm')
                                         })
                                       }})</span>
                                   </div>
                                 </div>
-                                <div class="align-self-end w-30" style="margin-bottom:33px">
+                                <div class="align-self-end w-30"
+                                     :style="{marginBottom: discount.discountTimeRules[dayName].data[discount.discountTimeRules[dayName].data.length-1].startTime && discount.discountTimeRules[dayName].data[discount.discountTimeRules[dayName].data.length-1].endTime ? '50px' : '18px'}"
+                                     v-if="discount.discountTimeRuleOptions[dayName].allDay && discount.discountTimeRules[dayName].data.length > 0">
                                   <div class="d-flex justify-content-end">
-                                    <div class="pointer">
+                                    <div class="pointer" @click="addTimeRule(dayName)">
                                       <div class="svg-next-icon-size-20 text-primary">
                                         <div class="icon-create"></div>
                                       </div>
@@ -540,7 +576,7 @@ import InputGroup from 'primevue/inputgroup';
 import InputGroupAddon from 'primevue/inputgroupaddon';
 import {getDiscountDetail} from "@/api/discount";
 import {createEmptyDiscountModel, normalizeApiDiscount} from '@/modules/discount/services/DiscountModelFactory';
-import {formatTimeHM} from "@/shared/utils/time";
+import {formatTime} from "@/shared/utils/time";
 import {FORM_MODE} from "@/core/constants";
 
 export default {
@@ -590,7 +626,7 @@ export default {
     }
   },
   methods: {
-    formatTimeHM,
+    formatTime,
     /**
      * click change template discount
      */
@@ -610,6 +646,57 @@ export default {
     },
 
     /**
+     * Click select time
+     * @param day
+     */
+    chooseTimeRule(day) {
+      this.discount.discountTimeRules[day].data = [];
+      this.discount.discountTimeRules[day].data.push({
+        startTime: null,
+        endTime: null,
+        allDay: false,
+      });
+    },
+
+    /**
+     * Click button add time rule
+     * @param day
+     */
+    addTimeRule(day) {
+      this.discount.discountTimeRules[day].data.push({
+        startTime: null,
+        endTime: null,
+        allDay: false,
+      });
+    },
+
+    /**
+     * Click checkbox apply time rule for day
+     * @param day
+     */
+    changeApplyTimeRuleForDay(day) {
+      this.discount.discountTimeRules[day].data = [];
+    },
+
+    /**
+     * Click checkbox apply time rule
+     */
+    changeWeeklyTimeLimit() {
+      this.discount = createEmptyDiscountModel({
+        hasWeeklyTimeLimit: this.discount.hasWeeklyTimeLimit
+      });
+    },
+
+    /**
+     * Click remove time rule
+     * @param day
+     * @param idx
+     */
+    removeTimeRule(day, idx) {
+      this.discount.discountTimeRules[day].data.splice(idx, 1);
+    },
+
+    /**
      * init value
      */
     init() {
@@ -624,6 +711,7 @@ export default {
   },
   created() {
     this.init();
+    console.log(this.discount)
   }
 }
 </script>

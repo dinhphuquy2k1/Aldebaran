@@ -24,27 +24,34 @@ class DiscountTimeRuleSnapshot
     /**
      * @var string
      */
-    public string $startAt;
+    public string $startTime;
 
     /**
      * @var string|null
      */
-    public ?string $endAt;
+    public ?string $endTime;
+
+    /**
+     * @var bool
+     */
+    public bool $allDay;
 
     /**
      * @param int $discountTimeRuleId
      * @param int $discountId
      * @param string $dayOfWeek
-     * @param string $startAt
-     * @param string|null $endAt
+     * @param string $startTime
+     * @param string|null $endTime
+     * @param bool $allDay
      */
-    public function __construct(int $discountTimeRuleId, int $discountId, string $dayOfWeek, string $startAt, ?string $endAt)
+    public function __construct(int $discountTimeRuleId, int $discountId, string $dayOfWeek, string $startTime, ?string $endTime, bool $allDay)
     {
         $this->discountTimeRuleId = $discountTimeRuleId;
         $this->discountId = $discountId;
         $this->dayOfWeek = $dayOfWeek;
-        $this->startAt = $startAt;
-        $this->endAt = $endAt;
+        $this->startTime = $startTime;
+        $this->endTime = $endTime;
+        $this->allDay = $allDay;
     }
 
     /**
@@ -57,8 +64,9 @@ class DiscountTimeRuleSnapshot
             discountTimeRuleId: $discountTimeRule->getDiscountTimeRuleId()->getValue(),
             discountId: $discountTimeRule->getDiscountId()->getValue(),
             dayOfWeek: $discountTimeRule->getDayOfWeek()->getName(),
-            startAt: $discountTimeRule->getStartTime()->getValue(),
-            endAt: $discountTimeRule->getStartTime()?->getValue(),
+            startTime: $discountTimeRule->getStartTime()->getValue(),
+            endTime: $discountTimeRule->getEndTime()?->getValue(),
+            allDay: $discountTimeRule->isAllDay(),
         );
     }
 }

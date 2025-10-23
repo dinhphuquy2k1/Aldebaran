@@ -341,5 +341,7 @@
   "thursday": "Thursday",
   "friday": "Friday",
   "saturday": "Saturday",
-  "sunday": "Sunday"
+  "sunday": "Sunday",
+  "all_day": "All Day",
+  "select_time": "Select Time"
 }

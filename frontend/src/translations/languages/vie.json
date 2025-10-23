@@ -397,5 +397,7 @@
   "thursday": "Thứ năm",
   "friday": "Thứ sáu",
   "saturday": "Thứ bảy",
-  "sunday": "Chủ nhật"
+  "sunday": "Chủ nhật",
+  "all_day": "Cả ngày",
+  "select_time": "Chọn giờ"
 }
