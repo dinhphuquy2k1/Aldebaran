@@ -48,8 +48,12 @@ class DiscountReadRepository extends BaseRepository implements IDiscountReadRepo
                 new DiscountId($record->getAttributeValue('id')),
                 new DiscountCode($record->getAttributeValue('code')),
                 new DiscountType($record->getAttributeValue('type')),
+                $record->getAttributeValue('description'),
                 new Date($record->getAttributeValue('start_at')),
                 $record->getAttributeValue('end_at') ? new Date($record->getAttributeValue('end_at')) : null,
+                (int)$record->getAttributeValue('discount_value'),
+                (int)$record->getAttributeValue('usage_limit_total'),
+                (int)$record->getAttributeValue('usage_limit_per_user'),
             );
         }
 
@@ -60,6 +64,7 @@ class DiscountReadRepository extends BaseRepository implements IDiscountReadRepo
     {
         $query = $this->model->newQuery();
         $query->with(['timeRules']);
+        $query->withCount(['combinations as combinable_count']);
         $query->where('id', $discountId);
 
         $record = $query->first();
@@ -81,8 +86,13 @@ class DiscountReadRepository extends BaseRepository implements IDiscountReadRepo
             new DiscountId($record->getAttributeValue('id')),
             new DiscountCode($record->getAttributeValue('code')),
             new DiscountType($record->getAttributeValue('type')),
+            $record->getAttributeValue('description'),
             new Date($record->getAttributeValue('start_at')),
             $record->getAttributeValue('end_at') ? new Date($record->getAttributeValue('end_at')) : null,
+            (int)$record->getAttributeValue('discount_value'),
+            (int)$record->getAttributeValue('usage_limit_total'),
+            (int)$record->getAttributeValue('usage_limit_per_user'),
+            (int)$record->getAttributeValue('combinable_count'),
             $timeRules,
         );
     }

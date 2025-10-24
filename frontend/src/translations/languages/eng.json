@@ -343,5 +343,9 @@
   "saturday": "Saturday",
   "sunday": "Sunday",
   "all_day": "All Day",
-  "select_time": "Select Time"
+  "select_time": "Select Time",
+  "fixed_price": "Fixed Price",
+  "reduce_shipping_fee_count": "<b>Reduce</b> {count} shipping fee",
+  "select_placeholder": "Select...",
+  "fixed_price_count": "Fixed price {count}"
 }

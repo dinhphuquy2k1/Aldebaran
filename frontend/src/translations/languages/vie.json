@@ -399,5 +399,9 @@
   "saturday": "Thứ bảy",
   "sunday": "Chủ nhật",
   "all_day": "Cả ngày",
-  "select_time": "Chọn giờ"
+  "select_time": "Chọn giờ",
+  "fixed_price": "Đồng giá",
+  "reduce_shipping_fee_count": "<b>Giảm</b> {count} phí vận chuyển",
+  "select_placeholder": "Chọn...",
+  "fixed_price_count": "Đồng giá {count}"
 }

@@ -106,37 +106,6 @@
   color: #000;
 }
 
-.p-dropdown-panel .p-dropdown-items .p-dropdown-item, .p-multiselect-panel .p-multiselect-items .p-multiselect-item {
-  cursor: pointer;
-  height: 36px;
-  white-space: nowrap;
-  border-radius: 4px;
-  padding: 0 8px;
-  margin: 0 8px 0 8px;
-  color: #000 !important;
-
-  &.p-focus {
-    background: #fff;
-  }
-
-  &.p-highlight {
-    background: #dfebff;
-    color: #000;
-  }
-
-  &:hover {
-    background: #dfebff;
-  }
-
-  &:first-child {
-    margin-top: 8px;
-  }
-
-  &:last-child {
-    margin-bottom: 8px;
-  }
-}
-
 .p-treeselect-panel {
   box-sizing: border-box;
 
@@ -308,6 +277,29 @@
     svg {
       width: 8px;
       height: 8px;
+    }
+  }
+}
+
+.p-dropdown-panel {
+  .p-dropdown-items {
+    .p-dropdown-item {
+      padding: 8px 12px;
+      line-height: 20px;
+      cursor: pointer;
+      color: var(--color-coolgray-900);
+
+      &:not(.p-highlight) {
+        &:not(.p-disabled) {
+          &:hover {
+            background: var(--bg-dropdown-item-hover);
+          }
+        }
+      }
+
+      &.p-highlight {
+        background: var(--bg-dropdown-item-hover);
+      }
     }
   }
 }

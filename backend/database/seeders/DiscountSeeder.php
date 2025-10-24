@@ -14,9 +14,7 @@ class DiscountSeeder extends Seeder
             'type' => 0,
             'start_at' => now()->startOfMonth(),
             'end_at' => now()->endOfMonth(),
-            'apply_condition' => json_encode([
-                ''
-            ])
+            'apply_condition' => json_encode(['']),
         ]);
 
         $rules = [
@@ -27,6 +25,15 @@ class DiscountSeeder extends Seeder
 
         foreach ($rules as $rule) {
             $discount->timeRules()->create($rule);
+        }
+
+        $otherDiscounts = Discount::factory()->count(3)->create();
+        $discount->combinableDiscounts()->attach(
+            $otherDiscounts->pluck('id')->toArray()
+        );
+
+        foreach ($otherDiscounts as $other) {
+            $other->combinableDiscounts()->attach($discount->id);
         }
     }
 }

@@ -21,6 +21,8 @@ return new class extends Migration {
             $table->tinyInteger('discount_unit')->nullable()->comment('Unit reduction');
             $table->decimal('max_value', 10, 2)->default(0)->comment('Maximum discount value');
             $table->decimal('min_order_value', 10, 2)->default(0)->comment('Minimum order value');
+            $table->integer('usage_limit_total')->default(0)->comment('Total number of times the promotion can be used');
+            $table->integer('usage_limit_per_user')->default(0)->comment('Number of times each user is used');
             $table->json('apply_condition')->comment('Other conditions (e.g. applicable by region, product, etc.)');
             $table->boolean('enabled')->default(1);
             $table->timestamps();

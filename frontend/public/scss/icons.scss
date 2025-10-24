@@ -589,6 +589,11 @@ span.icon24 {
   height: 16px;
 }
 
+.svg-next-icon-size-18 {
+  width: 18px;
+  height: 18px;
+}
+
 .svg-next-icon-size-40 {
   width: 40px;
   height: 40px;
@@ -782,4 +787,32 @@ span.icon24 {
   mask: url("@public/assets/icons/svg-create-icon.svg") no-repeat center;
   mask-size: contain;
   background-color: currentColor;
+}
+
+.icon-copy {
+  width: 100%;
+  height: 100%;
+  -webkit-mask: url("@public/assets/icons/svg-copy-icon.svg") no-repeat center;
+  -webkit-mask-size: contain;
+  mask: url("@public/assets/icons/svg-copy-icon.svg") no-repeat center;
+  mask-size: contain;
+  background-color: currentColor;
+}
+
+.icon-discount-order {
+  width: 100%;
+  height: 100%;
+  background-image: url("@public/assets/icons/svg-order-icon.svg");
+}
+
+.icon-discount-same-price {
+  width: 100%;
+  height: 100%;
+  background-image: url("@public/assets/icons/svg-same-price-icon.svg");
+}
+
+.icon-discount-transport {
+  width: 100%;
+  height: 100%;
+  background-image: url("@public/assets/icons/svg-transport-icon.svg");
 }

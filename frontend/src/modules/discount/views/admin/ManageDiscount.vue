@@ -16,13 +16,14 @@
                               <label for="">{{ $t('discount_code') }}</label>
                             </div>
                             <div class="mt-5">
-                              <InputText class="next-input" :placeholder="$t('enter_promotion_code')"></InputText>
+                              <InputText v-model="discount.code" class="next-input"
+                                         :placeholder="$t('enter_promotion_code')"></InputText>
                             </div>
                             <p class="text-nodata mt-5">{{ $t('auto_generate_code_desc') }}</p>
                           </div>
                           <div class="mt-15">
                             <label for="" class="mb-5">{{ $t('description') }}</label>
-                            <Textarea :rows="2" class="hrv-ui-textarea"
+                            <Textarea v-model="discount.description" :rows="2" class="hrv-ui-textarea"
                                       style="overflow:hidden;overflow-wrap:break-word;height:56px"
                                       :placeholder="$t('description')"/>
                           </div>
@@ -37,18 +38,24 @@
                         <div class="omni-layout-card--section">
                           <div class="row">
                             <div class="col-6">
-                              <div class="mb-5">{{ $t('start_time') }}</div>
+                              <div class="mb-5 pt-2">{{ $t('start_time') }}</div>
                               <div>
-                                <Calendar class="input-date-picker input-date-picker--old-style" dateFormat="dd/mm/yy"/>
+                                <Calendar v-model="discount.startAt"
+                                          class="input-date-picker input-date-picker--old-style" dateFormat="dd/mm/yy"/>
                               </div>
                             </div>
                             <div class="col-6">
                               <div class="hrv-next-input-checkbox ui-table d-flex label-input-group-pricing--list mb-5">
-                                <Checkbox v-model="checked" inputId="end_time" class="hrv-next-checkbox"
+                                <Checkbox v-model="discount.hasEndAt" inputId="end_time" class="hrv-next-checkbox"
                                           :binary="true"/>
                                 <label for="end_time" class="hrv-next-label--switch">{{ $t('has_end_time') }}</label>
                               </div>
-                              <Calendar class="input-date-picker input-date-picker--old-style" dateFormat="dd/mm/yy"/>
+                              <div>
+                                <Calendar v-model="discount.endAt"
+                                          class="input-date-picker input-date-picker--old-style"
+                                          v-if="discount.hasEndAt"
+                                          dateFormat="dd/mm/yy"/>
+                              </div>
                             </div>
                           </div>
                           <div class="row mt-0">
@@ -119,7 +126,7 @@
                                   </div>
                                 </div>
                                 <div class="align-self-end w-30"
-                                     :style="{marginBottom: discount.discountTimeRules[dayName].data[discount.discountTimeRules[dayName].data.length-1].startTime && discount.discountTimeRules[dayName].data[discount.discountTimeRules[dayName].data.length-1].endTime ? '50px' : '18px'}"
+                                     :style="{marginBottom: discount.discountTimeRules[dayName].data[discount.discountTimeRules[dayName].data.length-1].startTime && discount.discountTimeRules[dayName].data[discount.discountTimeRules[dayName].data.length-1].endTime ? '48px' : '25px'}"
                                      v-if="discount.discountTimeRuleOptions[dayName].allDay && discount.discountTimeRules[dayName].data.length > 0">
                                   <div class="d-flex justify-content-end">
                                     <div class="pointer" @click="addTimeRule(dayName)">
@@ -140,45 +147,55 @@
                         <span class="header-title">{{ $t('promotion_type') }}</span>
                       </div>
                       <div class="omni-layout-card--section">
-                        <div class="d-flex justify-content-between flex-wrap"></div>
+                        <div class="d-flex justify-content-between flex-wrap">
+                          <Dropdown v-model="discount.type" :options="discountTypeOptions" @change="changeType"
+                                    optionLabel="label" optionValue="value"
+                                    :placeholder="$t('select_placeholder')" class="next-dropdown h-40"
+                                    style="margin-bottom: 5px">
+                            <template #value="slotProps">
+                              <div v-if="discount.selectedType" class="d-flex align-items-center">
+                                <div class="svg-next-icon-size-30 mr-10">
+                                  <div :class="[discount.selectedType.icon]"></div>
+                                </div>
+                                <div>{{ $t(discount.selectedType.label) }}</div>
+                              </div>
+                              <span v-else>
+                                  {{ slotProps.placeholder }}
+                              </span>
+                            </template>
+                            <template #option="slotProps">
+                              <div class="d-flex align-items-center">
+                                <div class="svg-next-icon-size-30 mr-10">
+                                  <div :class="[slotProps.option.icon]"></div>
+                                </div>
+                                <div>{{ $t(slotProps.option.label) }}</div>
+                              </div>
+                            </template>
+                          </Dropdown>
+                        </div>
                       </div>
                     </div>
-                    <div>
+                    <div v-if="discount.type !== null">
                       <div class="omni-layout-card card-default">
                         <div class="omni-layout-card--header">
-                          <span class="header-title">{{ $t('order_discount') }}</span>
+                          <span class="header-title">{{ $t(discount.selectedType.label) }}</span>
                         </div>
                         <div class="omni-layout-card--section">
                           <div class="d-flex">
                             <div class="w-50">
-                              <label for="" class="mb-15">{{ $t('discount_value') }}</label>
+                              <label for="" class="mb-15"
+                                     v-if="discount.type === DiscountType.SHIPPING">{{ $t('discount_value') }}</label>
                               <div class="d-flex">
-                                <InputNumber inputId="minmax-buttons" mode="decimal"
-                                             class="ms-input-number next-input ms-input-number-wrapper" showButtons
-                                             :min="0" :max="100"/>
+                                <InputNumber v-model="discount.discountValue" mode="decimal"
+                                             class="ms-next-input-number mr-5 text-end"
+                                             :min="0" inputClass="text-end"/>
+                                <Dropdown v-model="discount.type" :options="discountTypeOptions" optionLabel="label"
+                                          :placeholder="$t('add_filter_condition')" class="next-dropdown h-40"
+                                          style="margin-bottom: 5px"/>
                               </div>
                             </div>
                           </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div>
-                      <div class="omni-layout-card card-default">
-                        <div class="omni-layout-card--header">
-                          <span class="header-title">{{ $t('shipping_discount') }}</span>
-                        </div>
-                        <div class="omni-layout-card--section">
-                          <div class="d-flex">
-                            <div class="w-50">
-                              <label for="" class="mb-15">{{ $t('discount_value') }}</label>
-                              <div class="d-flex">
-                                <InputNumber inputId="minmax-buttons" mode="decimal"
-                                             class="ms-input-number next-input ms-input-number-wrapper" showButtons
-                                             :min="0" :max="100"/>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="border-top mt-10">
+                          <div class="border-top mt-10" v-if="discount.type === DiscountType.SHIPPING">
                             <div
                                 class="d-flex label-input-group-pricing--list mt-16 hrv-next-input-checkbox ui-table mb-5">
                               <Checkbox inputId="periodTime" class="hrv-next-checkbox"/>
@@ -360,14 +377,18 @@
                           </div>
                           <div class="mb-10 d-flex mb-5">
                             <div class="d-flex label-input-group-pricing--list hrv-next-input-checkbox ui-table">
-                              <Checkbox inputId="periodTime" class="hrv-next-checkbox"/>
-                              <label for="periodTime" class="font-weight-normal hrv-next-label--switch">{{
+                              <Checkbox v-model="discount.hasCombinable" inputId="allowSharedPromotion"
+                                        class="hrv-next-checkbox" :binary="true"/>
+                              <label for="allowSharedPromotion" class="font-weight-normal hrv-next-label--switch">{{
                                   $t('other_promotions')
                                 }}</label>
                             </div>
                             <Button class="ms-btn btn-link no-padding text-secondary text-right border-0 ml-5"
                                     style="line-height: 19px">
-                              <div class="p-button-label">{{ $t('promotion_count', {count: 0}) }}</div>
+                              <div class="p-button-label">{{
+                                  $t('promotion_count', {count: discount.combinableCount})
+                                }}
+                              </div>
                             </Button>
                           </div>
                         </div>
@@ -380,32 +401,40 @@
                         </div>
                         <div class="omni-layout-card--section">
                           <div class="d-flex label-input-group-pricing--list hrv-next-input-checkbox ui-table">
-                            <Checkbox inputId="periodTime" class="hrv-next-checkbox"/>
-                            <label for="periodTime" class="font-weight-normal hrv-next-label--switch">{{
+                            <Checkbox v-model="discount.hasUsageLimitTotal" inputId="countLimit"
+                                      class="hrv-next-checkbox" :binary="true" @change="changeUsageLimitTotal"/>
+                            <label for="countLimit" class="font-weight-normal hrv-next-label--switch">{{
                                 $t('total_usage_limit')
                               }}</label>
                           </div>
                           <div class="my-4 w-50">
                             <InputNumber inputId="minmax-buttons" mode="decimal"
-                                         :placeholder="$t('price_zero')"
+                                         v-if="discount.hasUsageLimitTotal"
+                                         v-model="discount.usageLimitTotal"
+                                         placeholder="0"
                                          inputClass="text-start"
                                          class="ms-input-number next-input ms-input-number-wrapper text-start"
                                          showButtons
                                          :min="0" :max="100"/>
                           </div>
                           <div class="d-flex label-input-group-pricing--list hrv-next-input-checkbox ui-table">
-                            <Checkbox inputId="periodTime" class="hrv-next-checkbox"/>
-                            <label for="periodTime" class="font-weight-normal hrv-next-label--switch">{{
+                            <Checkbox v-model="discount.hasUsageLimitPerUser" inputId="countCustomer"
+                                      @change="changeUsageLimitPerUser"
+                                      class="hrv-next-checkbox" :binary="true"/>
+                            <label for="countCustomer" class="font-weight-normal hrv-next-label--switch">{{
                                 $t('usage_limit_per_customer')
                               }}</label>
                           </div>
                           <div class="my-4 w-50">
-                            <InputNumber inputId="minmax-buttons" mode="decimal"
-                                         :placeholder="$t('price_zero')"
-                                         inputClass="text-start"
-                                         class="ms-input-number next-input ms-input-number-wrapper text-start"
-                                         showButtons
-                                         :min="0" :max="100"/>
+                            <InputNumber
+                                v-model="discount.usageLimitPerUser"
+                                inputId="minmax-buttons" mode="decimal"
+                                v-if="discount.hasUsageLimitPerUser"
+                                placeholder="0"
+                                inputClass="text-start"
+                                class="ms-input-number next-input ms-input-number-wrapper text-start"
+                                showButtons
+                                :min="0" :max="100"/>
                           </div>
                         </div>
                       </div>
@@ -419,28 +448,52 @@
                         <div class="header-title">{{ $t('summary') }}</div>
                       </div>
                       <div class="omni-layout-card--section">
+                        <div class="d-flex mb-15" v-if="discount.code">
+                          <span class="h2 word-break">{{ discount.code }}</span>
+                          <div class="ml-5">
+                            <div class="svg-next-icon-size-18 text-content_accent pointer">
+                              <div class="icon-copy"></div>
+                            </div>
+                          </div>
+                        </div>
                         <div class="d-flex justify-content-between">
                           <strong>{{ $t('type_and_method') }}</strong>
                         </div>
                         <div class="pl-15 m-15 discount-summary">
                           <ul>
-                            <li class="mb-5 discount-summary--text-capitalize">{{ $t('discount_code') }}</li>
+                            <li class="mb-5">{{ $t('discount_code') }}</li>
+                            <li class="mb-5" v-if="discount.type !== null">
+                              {{ $t(discount.selectedType.label) }}
+                            </li>
                           </ul>
                         </div>
                         <div class="d-flex justify-content-between">
                           <strong>{{ $t('details') }}</strong>
                         </div>
+                        <div class="pl-15 m-15 discount-summary">
+                          <ul class="discount-summary-list">
+                            <li class="mb-5" v-if="discount.type === DiscountType.FIXED">
+                              {{ $t('fixed_price_count', {count: discount.discountValue})}}
+                            </li>
+                          </ul>
+                        </div>
+                        <div class="my-4 detail-empty">--</div>
                         <div class="my-4">
                           <div class="d-flex justify-content-between">
                             <strong>{{ $t('limit') }}</strong>
                           </div>
                         </div>
                         <div class="pl-15 m-15 discount-summary">
-                          <ul>
-                            <li class="mb-5">
-                              {{ $t('valid_period', {start_date: '10/10/2025', end_date: '10/10/2025'}) }}
+                          <ul class="discount-summary-list">
+                            <li class="mb-5" v-if="discount.usageLimitTotal === 0 && discount.hasUsageLimitTotal">
+                              {{ $t('no_usage_limit') }}
+                            </li>
+                            <li class="mb-5" v-if="discount.type === DiscountType.SHIPPING">
+                              <span v-html="$t('reduce_shipping_fee_count', {count: 0})"></span>
                             </li>
                           </ul>
+                          <div class="my-4 detail-emtpy" style="margin-left: -30px">--
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -574,12 +627,19 @@ import RadioButton from 'primevue/radiobutton';
 import InputSwitch from 'primevue/inputswitch';
 import InputGroup from 'primevue/inputgroup';
 import InputGroupAddon from 'primevue/inputgroupaddon';
+import Dropdown from 'primevue/dropdown';
 import {getDiscountDetail} from "@/api/discount";
 import {createEmptyDiscountModel, normalizeApiDiscount} from '@/modules/discount/services/DiscountModelFactory';
 import {formatTime} from "@/shared/utils/time";
 import {FORM_MODE} from "@/core/constants";
+import {createDiscountTypeOptions, DiscountType} from "@/modules/discount/enums/DiscountType";
 
 export default {
+  computed: {
+    DiscountType() {
+      return DiscountType
+    }
+  },
   components: {
     Button,
     Dialog,
@@ -593,12 +653,14 @@ export default {
     RadioButton,
     InputGroup,
     InputGroupAddon,
+    Dropdown,
   },
   data() {
     return {
       visibleCreateDiscount: false,
       selectedTemplateOption: null,
       selectedTemplateFilter: null,
+      discountTypeOptions: createDiscountTypeOptions(),
       discountTemplateOptions: [
         {
           value: this.$t('promotion_program'),
@@ -682,9 +744,28 @@ export default {
      * Click checkbox apply time rule
      */
     changeWeeklyTimeLimit() {
-      this.discount = createEmptyDiscountModel({
-        hasWeeklyTimeLimit: this.discount.hasWeeklyTimeLimit
-      });
+      this.discount = createEmptyDiscountModel(this.discount, {reset: ['discountTimeRules', 'discountTimeRuleOptions']});
+    },
+
+    /**
+     * Click checkbox usage limit total
+     */
+    changeUsageLimitTotal() {
+      this.discount = createEmptyDiscountModel(this.discount, {reset: ['usageLimitTotal']});
+    },
+
+    /**
+     * Click checkbox usage limit per user
+     */
+    changeUsageLimitPerUser() {
+      this.discount = createEmptyDiscountModel(this.discount, {reset: ['usageLimitPerUser']});
+    },
+
+    /**
+     * Click dropdown discount type
+     */
+    changeType() {
+      this.discount.selectedType = this.discountTypeOptions.find((item) => item.value === this.discount.type);
     },
 
     /**
@@ -837,6 +918,14 @@ export default {
 
 .discount-summary--text-capitalize {
   text-transform: lowercase;
+}
+
+.discount-summary-list:empty + .detail-emtpy {
+  display: block;
+}
+
+.discount-summary-list:not(:empty) + .detail-emtpy {
+  display: none;
 }
 
 .discount-channel--option {
