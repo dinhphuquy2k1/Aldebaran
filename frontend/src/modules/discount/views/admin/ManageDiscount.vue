@@ -41,7 +41,9 @@
                               <div class="mb-5 pt-2">{{ $t('start_time') }}</div>
                               <div>
                                 <Calendar v-model="discount.startAt"
-                                          class="input-date-picker input-date-picker--old-style" dateFormat="dd/mm/yy"/>
+                                          class="input-date-picker input-date-picker--old-style"
+                                          :dateFormat="getCustomFormatByLocale('dd_mm_yy')"
+                                          showTime hourFormat="24"/>
                               </div>
                             </div>
                             <div class="col-6">
@@ -54,7 +56,9 @@
                                 <Calendar v-model="discount.endAt"
                                           class="input-date-picker input-date-picker--old-style"
                                           v-if="discount.hasEndAt"
-                                          dateFormat="dd/mm/yy"/>
+                                          showTime
+                                          hourFormat="24"
+                                          :dateFormat="getCustomFormatByLocale('dd_mm_yy')"/>
                               </div>
                             </div>
                           </div>
@@ -221,16 +225,24 @@
                         <div class="omni-layout-card--section">
                           <div>
                             <div class="d-flex align-items-center pointer ms-next-input-radio">
-                              <RadioButton v-model="checked" input-id="conditionOption-1" value="2"/>
-                              <label for="" class="ms-next-label--switch">{{ $t('product_groups') }}</label>
+                              <RadioButton v-model="checked" input-id="0"
+                                           :value="DiscountCondition.DiscountProductType.ALL"/>
+                              <label for="0" class="ms-next-label--switch">{{ $t('all_products') }}</label>
                             </div>
                             <div class="d-flex align-items-center pointer ms-next-input-radio">
-                              <RadioButton v-model="checked" input-id="conditionOption-1" value="2"/>
-                              <label for="" class="ms-next-label--switch">{{ $t('products') }}</label>
+                              <RadioButton v-model="checked" input-id="1"
+                                           :value="DiscountCondition.DiscountProductType.GROUP"/>
+                              <label for="1" class="ms-next-label--switch">{{ $t('product_groups') }}</label>
                             </div>
                             <div class="d-flex align-items-center pointer ms-next-input-radio">
-                              <RadioButton v-model="checked" input-id="conditionOption-1" value="2"/>
-                              <label for="" class="ms-next-label--switch">{{ $t('variant') }}</label>
+                              <RadioButton v-model="checked" input-id="2"
+                                           :value="DiscountCondition.DiscountProductType.PRODUCT"/>
+                              <label for="2" class="ms-next-label--switch">{{ $t('products') }}</label>
+                            </div>
+                            <div class="d-flex align-items-center pointer ms-next-input-radio">
+                              <RadioButton v-model="checked" input-id="3"
+                                           :value="DiscountCondition.DiscountProductType.VARIANT"/>
+                              <label for="3" class="ms-next-label--switch">{{ $t('variant') }}</label>
                             </div>
                             <div class="ui-information-body pt-16 pb-16">
                               <InputGroup iconPosition="left" class="next-icon-group--stylized h-40">
@@ -261,12 +273,18 @@
                         </div>
                         <div class="omni-layout-card--section">
                           <div class="d-flex align-items-center pointer ms-next-input-radio">
-                            <RadioButton v-model="checked" input-id="conditionOption-1" value="2"/>
-                            <label for="" class="ms-next-label--switch">{{ $t('no_requirement') }}</label>
+                            <RadioButton v-model="checked" input-id="conditionOption-1"
+                                         :value="DiscountCondition.DiscountMinConditionType.NONE"/>
+                            <label for="conditionOption-1" class="ms-next-label--switch">{{
+                                $t('no_requirement')
+                              }}</label>
                           </div>
                           <div class="d-flex align-items-center pointer ms-next-input-radio">
-                            <RadioButton v-model="checked" input-id="conditionOption-1" value="2"/>
-                            <label for="" class="ms-next-label--switch">{{ $t('minimum_order_value') }}</label>
+                            <RadioButton v-model="checked" input-id="conditionOption-2"
+                                         :value="DiscountCondition.DiscountMinConditionType.ORDER_VALUE"/>
+                            <label for="conditionOption-2" class="ms-next-label--switch">{{
+                                $t('minimum_order_value')
+                              }}</label>
                           </div>
                           <div class="w-50 discount-channel--option mb-15">
                             <div class="my-4">
@@ -280,8 +298,10 @@
                             <span class="text-secondary">{{ $t('apply_for', {for: $t('selected_variants')}) }}</span>
                           </div>
                           <div class="d-flex align-items-center pointer ms-next-input-radio">
-                            <RadioButton v-model="checked" input-id="conditionOption-1" value="2"/>
-                            <label for="" class="ms-next-label--switch">{{ $t('minimum_product_quantity') }}</label>
+                            <RadioButton v-model="checked" input-id="conditionOption-3"
+                                         :value="DiscountCondition.DiscountMinConditionType.QUANTITY"/>
+                            <label for="conditionOption-3"
+                                   class="ms-next-label--switch">{{ $t('minimum_product_quantity') }}</label>
                           </div>
                         </div>
                       </div>
@@ -293,16 +313,25 @@
                         </div>
                         <div class="omni-layout-card--section">
                           <div class="d-flex align-items-center pointer ms-next-input-radio">
-                            <RadioButton v-model="checked" input-id="conditionOption-1" value="2"/>
-                            <label for="" class="ms-next-label--switch">{{ $t('unlimited_customers') }}</label>
+                            <RadioButton v-model="checked" input-id="customerOption-0"
+                                         :value="DiscountCondition.DiscountCustomerType.ALL"/>
+                            <label for="customerOption-0" class="ms-next-label--switch">{{
+                                $t('unlimited_customers')
+                              }}</label>
                           </div>
                           <div class="d-flex align-items-center pointer ms-next-input-radio">
-                            <RadioButton v-model="checked" input-id="conditionOption-1" value="2"/>
-                            <label for="" class="ms-next-label--switch">{{ $t('customer_groups') }}</label>
+                            <RadioButton v-model="checked" input-id="customerOption-1"
+                                         :value="DiscountCondition.DiscountCustomerType.GROUP"/>
+                            <label for="customerOption-1" class="ms-next-label--switch">{{
+                                $t('customer_groups')
+                              }}</label>
                           </div>
                           <div class="d-flex align-items-center pointer ms-next-input-radio">
-                            <RadioButton v-model="checked" input-id="conditionOption-1" value="2"/>
-                            <label for="" class="ms-next-label--switch">{{ $t('customer_option') }}</label>
+                            <RadioButton v-model="checked" input-id="customerOption-2"
+                                         :value="DiscountCondition.DiscountCustomerType.CUSTOMER"/>
+                            <label for="customerOption-2" class="ms-next-label--switch">{{
+                                $t('customer_option')
+                              }}</label>
                           </div>
                         </div>
                       </div>
@@ -314,12 +343,16 @@
                         </div>
                         <div class="omni-layout-card--section">
                           <div class="d-flex align-items-center pointer ms-next-input-radio">
-                            <RadioButton v-model="checked" input-id="conditionOption-1" value="2"/>
-                            <label for="" class="ms-next-label--switch">{{ $t('all_channel') }}</label>
+                            <RadioButton v-model="checked" input-id="channelOption-1"
+                                         :value="DiscountCondition.DiscountChannelType.ALL"/>
+                            <label for="channelOption-1" class="ms-next-label--switch">{{ $t('all_channel') }}</label>
                           </div>
                           <div class="d-flex align-items-center pointer ms-next-input-radio">
-                            <RadioButton v-model="checked" input-id="conditionOption-1" value="2"/>
-                            <label for="" class="ms-next-label--switch">{{ $t('channel_options') }}</label>
+                            <RadioButton v-model="checked" input-id="channelOption-2"
+                                         :value="DiscountCondition.DiscountChannelType.CUSTOM"/>
+                            <label for="channelOption-2" class="ms-next-label--switch">{{
+                                $t('channel_options')
+                              }}</label>
                           </div>
                         </div>
                       </div>
@@ -331,12 +364,14 @@
                         </div>
                         <div class="omni-layout-card--section">
                           <div class="d-flex align-items-center pointer ms-next-input-radio">
-                            <RadioButton v-model="checked" input-id="conditionOption-1" value="2"/>
-                            <label for="" class="ms-next-label--switch">{{ $t('all_branches') }}</label>
+                            <RadioButton v-model="checked" input-id="branch-1"
+                                         :value="DiscountCondition.DiscountBranchType.ALL"/>
+                            <label for="branch-1" class="ms-next-label--switch">{{ $t('all_branches') }}</label>
                           </div>
                           <div class="d-flex align-items-center pointer ms-next-input-radio">
-                            <RadioButton v-model="checked" input-id="conditionOption-1" value="2"/>
-                            <label for="" class="ms-next-label--switch">{{ $t('branch_option') }}</label>
+                            <RadioButton v-model="checked" input-id="branch-1"
+                                         :value="DiscountCondition.DiscountBranchType.CUSTOM"/>
+                            <label for="branch-2" class="ms-next-label--switch">{{ $t('branch_option') }}</label>
                           </div>
                         </div>
                       </div>
@@ -348,12 +383,14 @@
                         </div>
                         <div class="omni-layout-card--section">
                           <div class="d-flex align-items-center pointer ms-next-input-radio">
-                            <RadioButton v-model="checked" input-id="conditionOption-1" value="2"/>
-                            <label for="" class="ms-next-label--switch">{{ $t('nationwide') }}</label>
+                            <RadioButton v-model="checked" input-id="province-1"
+                                         :value="DiscountCondition.DiscountRegionType.ALL"/>
+                            <label for="province-1" class="ms-next-label--switch">{{ $t('nationwide') }}</label>
                           </div>
                           <div class="d-flex align-items-center pointer ms-next-input-radio">
-                            <RadioButton v-model="checked" input-id="conditionOption-1" value="2"/>
-                            <label for="" class="ms-next-label--switch">{{ $t('province_option') }}</label>
+                            <RadioButton v-model="checked" input-id="province-2"
+                                         :value="DiscountCondition.DiscountRegionType.CUSTOM"/>
+                            <label for="province-2" class="ms-next-label--switch">{{ $t('province_option') }}</label>
                           </div>
                           <div class="ui-information-body pt-16 pb-16">
                             <InputGroup iconPosition="left" class="next-icon-group--stylized h-40">
@@ -473,7 +510,7 @@
                         <div class="pl-15 m-15 discount-summary">
                           <ul class="discount-summary-list">
                             <li class="mb-5" v-if="discount.type === DiscountType.FIXED">
-                              {{ $t('fixed_price_count', {count: discount.discountValue})}}
+                              {{ $t('fixed_price_count', {count: discount.discountValue}) }}
                             </li>
                           </ul>
                         </div>
@@ -490,6 +527,10 @@
                             </li>
                             <li class="mb-5" v-if="discount.type === DiscountType.SHIPPING">
                               <span v-html="$t('reduce_shipping_fee_count', {count: 0})"></span>
+                            </li>
+                            <li class="mb-5" v-if="discount.startAt && discount.endAt">
+                              <span
+                                  v-html="$t('valid_period', {start_date: formatDateI18n(discount.startAt, 'ymd_hms'), end_date: formatDateI18n(discount.endAt, 'ymd_hms') })"></span>
                             </li>
                           </ul>
                           <div class="my-4 detail-emtpy" style="margin-left: -30px">--
@@ -633,12 +674,17 @@ import {createEmptyDiscountModel, normalizeApiDiscount} from '@/modules/discount
 import {formatTime} from "@/shared/utils/time";
 import {FORM_MODE} from "@/core/constants";
 import {createDiscountTypeOptions, DiscountType} from "@/modules/discount/enums/DiscountType";
+import * as DiscountCondition from '@/modules/discount/enums/DiscountCondition';
+import {formatDateI18n, formatDatePattern, getCustomFormatByLocale} from "@/shared/utils/date";
 
 export default {
   computed: {
     DiscountType() {
       return DiscountType
-    }
+    },
+    DiscountCondition() {
+      return DiscountCondition
+    },
   },
   components: {
     Button,
@@ -688,6 +734,8 @@ export default {
     }
   },
   methods: {
+    getCustomFormatByLocale,
+    formatDateI18n,
     formatTime,
     /**
      * click change template discount
@@ -790,7 +838,7 @@ export default {
       }
     }
   },
-  created() {
+  async created() {
     this.init();
     console.log(this.discount)
   }
