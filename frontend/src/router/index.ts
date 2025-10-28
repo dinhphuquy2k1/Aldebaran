@@ -179,6 +179,21 @@ const routes: Array<RouteRecordRaw> = [
                 },
                 meta: {title: 'product_group_list'}
             },
+            {
+                path: 'accounts',
+                components: {
+                    header: () => import('@/components/admin/TheHeader.vue'),
+                    content: () => import('@/modules/account/views/admin/ManageAccount.vue')
+                },
+            },
+            {
+                path: 'settings',
+                components: {
+                    header: () => import('@/components/admin/TheHeader.vue'),
+                    navbar: () => import('@/components/admin/TheNavbar.vue'),
+                    content: () => import('@/modules/settings/views/admin/SettingList.vue')
+                },
+            },
         ],
     },
     // {

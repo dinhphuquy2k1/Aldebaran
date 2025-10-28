@@ -3,9 +3,9 @@
     <router-view name="header"></router-view>
     <div class="d-flex ms-main flex-grow-1">
       <router-view name="navbar"></router-view>
-      <div class="ms-content d-flex flex-1">
+      <main class="ms-content d-flex flex-1">
         <router-view name="content"></router-view>
-      </div>
+      </main>
     </div>
   </div>
 </template>

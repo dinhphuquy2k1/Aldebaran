@@ -1755,6 +1755,82 @@ svg.hrv-image-thumbnail--image {
   padding-top: 2px !important;
 }
 
+.ui-main-container {
+  max-width: 1000px;
+  margin: 10px auto;
+  padding: 0 10px 30px;
+}
+
+.body-background {
+  background-color: var(--bg-body-color);
+}
+
+.ui-annotated-section-container {
+  margin: 15px 0;
+
+  .ui-annotated-section {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 15px 30px 0;
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin-top: 0;
+
+    .ui-annotated-section__annotation {
+      -webkit-box-flex: 1;
+      -webkit-flex: 1 1 240px;
+      -ms-flex: 1 1 240px;
+      flex: 1 1 240px;
+      padding: 0 64px 0 0;
+
+      .ui-annotated-section__title {
+        padding: 15px 0;
+
+        .ui-heading {
+          font-size: 16px;
+          margin: 0 0 15px;
+          color: inherit;
+          font-weight: 500;
+          line-height: 1.1;
+        }
+      }
+    }
+
+    .ui-annotated-section__content {
+      -webkit-box-flex: 2;
+      -webkit-flex: 2 1 480px;
+      -ms-flex: 2 1 480px;
+      flex: 2 1 480px;
+      max-width: 100%;
+      min-width: 0;
+      padding: 0;
+    }
+  }
+}
+
+.ui-main .ui-main-section + .ui-main-section {
+  border-top: 1px solid var(--border-top-line-color);
+}
+
+.wrapper-content {
+  border-radius: 3px;
+  background-color: #fff;
+  -webkit-box-shadow: 0 0 0 1px rgba(63, 63, 68, .05), 0 1px 3px 0 rgba(63, 63, 68, .15);
+  box-shadow: 0 0 0 1px rgba(63, 63, 68, .05), 0 1px 3px 0 rgba(63, 63, 68, .15);
+}
+
 .ghosty {
   background: transparent;
   box-shadow: none;
@@ -1915,6 +1991,20 @@ svg.hrv-image-thumbnail--image {
   .ms-container-fluid {
     max-width: 1400px;
     justify-content: space-between;
+  }
+}
+
+@media (max-width: 568px) {
+  .ui-annotated-section-container {
+    .ui-annotated-section {
+      padding: 0;
+
+      .ui-annotated-section__annotation {
+        .ui-annotated-section__title {
+          padding-left: 15px;
+        }
+      }
+    }
   }
 }
 
