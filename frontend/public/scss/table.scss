@@ -161,3 +161,54 @@
 .table-header--name {
   min-width: 125px;
 }
+
+.ms-table {
+  thead {
+    th {
+      background: var(--alias-color-background-faded);
+      border-radius: 0;
+      border: none;
+      padding: 8px;
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 16px;
+      vertical-align: middle;
+      border-bottom: 1px solid var(--alias-color-border-default);
+      white-space: nowrap;
+      color: var(--alias-color-content-default);
+
+      &:first-child {
+        padding-left: 16px;
+      }
+    }
+  }
+
+  tbody {
+    tr {
+
+      td {
+        padding: 8px;
+        vertical-align: middle;
+        border-bottom: 1px solid var(--alias-color-border-default);
+        background: var(--alias-color-background-default);
+        line-height: 20px;
+
+        &:first-child {
+          padding-left: 16px;
+        }
+      }
+
+      &:last-child {
+        td {
+          border-bottom: none;
+        }
+      }
+
+      &:hover {
+        td {
+          background: var(--bg-ms-table-hover-color);
+        }
+      }
+    }
+  }
+}

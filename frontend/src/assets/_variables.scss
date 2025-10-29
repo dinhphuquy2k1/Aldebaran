@@ -215,13 +215,13 @@ $header-height-admin: 56px;
   --gap-4: 16px;
   --gap-5: 20px;
   --gap-6: 24px;
-  --space-0: 0rem;
+  --space-0: 0px;
   --space-1: 4px;
-  --space-2: .8rem;
+  --space-2: 8px;
   --space-3: 12px;
   --space-4: 16px;
-  --space-5: 2rem;
-  --space-6: 2.4rem;
+  --space-5: 20px;
+  --space-6: 24px;
   --space-7: 2.8rem;
   --space-8: 3.2rem;
   --space-9: 3.6rem;
@@ -258,6 +258,10 @@ $header-height-admin: 56px;
   --border-tab-link-highlight-color: #01579b;
   --text-tab-link-color: #637381;
   --svg-fill-setting-color: #0d3064;
+  --bg-badge-warning-color: #fdbe4133;
+  --text-badge-warning-color: #fdbd41;
+  --alias-color-content-danger: #dc2828;
+  --bg-ms-table-hover-color: #f2f3f5;
 }
 
 @media (max-width: 992px) {

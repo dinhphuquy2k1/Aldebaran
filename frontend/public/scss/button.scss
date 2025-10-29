@@ -341,6 +341,7 @@
   height: 32px;
   gap: var(--space-1);
   font-size: 14px;
+  min-width: max-content;
   line-height: 16px;
 }
 
@@ -502,4 +503,9 @@
       color: var(--color-coolgray-900);
     }
   }
+}
+
+.btn-destructive--plain {
+  color: var(--alias-color-content-danger);
+  background: transparent;
 }

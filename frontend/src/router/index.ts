@@ -194,6 +194,30 @@ const routes: Array<RouteRecordRaw> = [
                     content: () => import('@/modules/settings/views/admin/SettingList.vue')
                 },
             },
+            {
+                path: 'settings/general',
+                components: {
+                    header: () => import('@/components/admin/TheHeader.vue'),
+                    navbar: () => import('@/components/admin/TheNavbar.vue'),
+                    content: () => import('@/modules/general_setting/views/admin/GeneralSetting.vue')
+                },
+            },
+            {
+                path: 'settings/staff',
+                components: {
+                    header: () => import('@/components/admin/TheHeader.vue'),
+                    navbar: () => import('@/components/admin/TheNavbar.vue'),
+                    content: () => import('@/modules/user/views/admin/UserList.vue')
+                },
+            },
+            {
+                path: 'settings/locations',
+                components: {
+                    header: () => import('@/components/admin/TheHeader.vue'),
+                    navbar: () => import('@/components/admin/TheNavbar.vue'),
+                    content: () => import('@/modules/location/views/admin/LocationList.vue')
+                },
+            },
         ],
     },
     // {
