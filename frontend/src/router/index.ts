@@ -218,6 +218,22 @@ const routes: Array<RouteRecordRaw> = [
                     content: () => import('@/modules/location/views/admin/LocationList.vue')
                 },
             },
+            {
+                path: 'settings/group_permissions',
+                components: {
+                    header: () => import('@/components/admin/TheHeader.vue'),
+                    navbar: () => import('@/components/admin/TheNavbar.vue'),
+                    content: () => import('@/modules/group_permissions/views/admin/GroupPermissionList.vue')
+                },
+            },
+            {
+                path: 'settings/group_permissions/new',
+                components: {
+                    header: () => import('@/components/admin/TheHeader.vue'),
+                    navbar: () => import('@/components/admin/TheNavbar.vue'),
+                    content: () => import('@/modules/group_permissions/views/admin/ManageGroupPermission.vue')
+                },
+            },
         ],
     },
     // {

@@ -491,5 +491,19 @@
   "name": "Name",
   "enter_address_name": "Enter address name",
   "pickup_address": "Pickup address",
-  "add_address": "Add address"
+  "add_address": "Add address",
+  "role_list": "Role list",
+  "create_role": "Create role",
+  "role_code": "Role code",
+  "creator": "Creator",
+  "permission_by_role": "Permissions by role",
+  "select_sample_role": "Select sample role",
+  "full_admin_access": "Full administrative access",
+  "expand": "Expand",
+  "view": "View",
+  "create_and_edit": "Create and edit",
+  "export_data": "Export data",
+  "access_all_branch_data": "Access data from all branches",
+  "enter_role_name": "Enter role name",
+  "enter_role_code": "Enter role code"
 }

@@ -548,5 +548,19 @@
   "name": "Tên",
   "enter_address_name": "Nhập tên địa chỉ",
   "pickup_address": "Địa chỉ lấy hàng",
-  "add_address": "Thêm địa chỉ"
+  "add_address": "Thêm địa chỉ",
+  "role_list": "Danh sách vai trò",
+  "create_role": "Tạo vai trò",
+  "role_code": "Mã vai trò",
+  "creator": "Người tạo",
+  "permission_by_role": "Phân quyền theo vai trò",
+  "select_sample_role": "Chọn vai trò mẫu",
+  "full_admin_access": "Toàn quyền quản trị",
+  "expand": "Mở rộng",
+  "view": "Xem",
+  "create_and_edit": "Tạo và chỉnh sửa",
+  "export_data": "Xuất dữ liệu",
+  "access_all_branch_data": "Truy cập dữ liệu tất cả chi nhánh",
+  "enter_role_name": "Nhập tên vai trò",
+  "enter_role_code": "Nhập mã vai trò"
 }
