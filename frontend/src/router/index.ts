@@ -26,6 +26,14 @@ const routes: Array<RouteRecordRaw> = [
         },
         children: [
             {
+                path: 'dashboard',
+                components: {
+                    header: () => import('@/components/admin/TheHeader.vue'),
+                    navbar: () => import('@/components/admin/TheNavbar.vue'),
+                    content: () => import('@/modules/dashboard/views/admin/Dashboard.vue')
+                }
+            },
+            {
                 path: 'dashboard/generals',
                 components: {
                     header: () => import('@/components/admin/TheHeader.vue'),

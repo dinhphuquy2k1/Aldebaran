@@ -35,7 +35,7 @@
                     <div class="d-flex align-items-center justify-content-between mgb-4 flex-wrap gap-4">
                       <p class="text-headl mgb-0">{{ $t('permission_by_role') }}</p>
                       <Button class="ms-btn btn-mono--secondary ms-btn-size-m" @click="chooseSampleRole">
-                        <div class="p-button-label ml-3 d-none d-sm-inline-block">{{ $t('select_sample_role') }}</div>
+                        <div class="p-button-label ml-3">{{ $t('select_sample_role') }}</div>
                       </Button>
                     </div>
                     <div class="mgt-4">

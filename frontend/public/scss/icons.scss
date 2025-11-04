@@ -500,6 +500,11 @@ span.icon24 {
   height: 22px !important;
 }
 
+.svg-next-icon-size-24 {
+  width: 24px !important;
+  height: 24px !important;
+}
+
 .svg-next-icon-size-30 {
   width: 30px !important;
   height: 30px !important;
@@ -853,3 +858,39 @@ span.icon24 {
   mask-size: contain;
   background-color: currentColor;
 }
+
+.icon-refresh {
+  width: 100%;
+  height: 100%;
+  -webkit-mask: url("@public/assets/icons/svg-refresh-icon.svg") no-repeat center;
+  -webkit-mask-size: contain;
+  mask: url("@public/assets/icons/svg-refresh-icon.svg") no-repeat center;
+  mask-size: contain;
+  background-color: currentColor;
+}
+
+.icon-svg-order-unpaid {
+  width: 100%;
+  height: 100%;
+  background-image: url("@public/assets/icons/svg-order-unpaid-icon.svg");
+}
+
+.icon-svg-order-on-delivery {
+  width: 100%;
+  height: 100%;
+  background-image: url("@public/assets/icons/svg-order-on-delivery-icon.svg");
+}
+
+.icon-svg-order-not-delivered {
+  width: 100%;
+  height: 100%;
+  background-image: url("@public/assets/icons/svg-order-not-delivered-icon.svg");
+}
+
+.icon-svg-order-cancel-order {
+  width: 100%;
+  height: 100%;
+  background-image: url("@public/assets/icons/svg-order-cancel-order-icon.svg");
+}
+
+

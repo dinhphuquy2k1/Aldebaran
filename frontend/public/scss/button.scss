@@ -296,6 +296,20 @@
       }
     }
   }
+
+  &.btn-accent--link {
+    background: transparent;
+    color: var(--alias-color-content-accent);
+    height: fit-content;
+    padding: 0;
+    font-weight: 400;
+
+    &:hover {
+      color: var(--alias-color-background-accent-strong);
+      text-decoration-line: underline;
+    }
+  }
+
 }
 
 .btn-default {

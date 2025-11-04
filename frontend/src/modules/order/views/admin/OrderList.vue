@@ -306,10 +306,10 @@
     <template #footer>
       <div class="d-flex justify-end gap-2">
         <Button class="ms-btn btn-mono--secondary ms-btn-size-m">
-          <div class="p-button-label ml-3 d-none d-sm-inline-block">{{ $t('cancel') }}</div>
+          <div class="p-button-label ml-3">{{ $t('cancel') }}</div>
         </Button>
         <Button class="ms-btn btn-accent--primary ms-btn-size-m">
-          <div class="p-button-label ml-3 d-none d-sm-inline-block">{{ $t('order_cancel') }}</div>
+          <div class="p-button-label ml-3">{{ $t('order_cancel') }}</div>
         </Button>
       </div>
     </template>

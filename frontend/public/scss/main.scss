@@ -1291,6 +1291,61 @@ a {
   padding: 20px !important;
 }
 
+.mgl-2 {
+  margin-left: var(--space-2) !important;
+}
+
+.pdr-2 {
+  padding-right: var(--space-2) !important;
+}
+
+.pdl-2 {
+  padding-left: var(--space-2) !important;
+}
+
+.text-headl {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.mgt-3 {
+  margin-top: var(--space-3) !important;
+}
+
+.gap-3 {
+  gap: var(--gap-3) !important;
+}
+
+.border-default {
+  border: 1px solid var(--alias-color-border-default);
+}
+
+.h-100 {
+  height: 100% !important;
+}
+
+.mgr-1 {
+  margin-right: var(--space-1) !important;
+}
+
+.mgr-2 {
+  margin-right: var(--space-2) !important;
+}
+
+.pd-2 {
+  padding: var(--space-2) !important;
+}
+
+.pdr-4 {
+  padding-right: var(--space-4) !important;
+}
+
+.fw-semi-bold {
+  font-weight: 600 !important;
+}
+
 .hrv-card {
   border-radius: 16px;
   background: #fff;
@@ -1424,6 +1479,7 @@ a {
 }
 
 .pdb-3, .pdy-3 {
+  padding-top: var(--space-3) !important;
   padding-bottom: var(--space-3) !important;
 }
 
@@ -1618,6 +1674,7 @@ a {
 
 .pdt-1, .pdy-1 {
   padding-top: var(--space-1) !important;
+  padding-bottom: var(--space-1) !important;
 }
 
 .hrv-image-thumbnail--image {

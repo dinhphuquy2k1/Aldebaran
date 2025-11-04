@@ -26,7 +26,7 @@
                       <InputText v-model="value1" :placeholder="$t('search')" class="flex-1 ms-input-wrapper"/>
                     </IconField>
                     <Button class="ms-btn btn-mono--secondary ms-btn-size-m">
-                      <div class="p-button-label ml-3 d-none d-sm-inline-block">{{ $t('search') }}</div>
+                      <div class="p-button-label ml-3">{{ $t('search') }}</div>
                     </Button>
                   </div>
 
@@ -113,10 +113,10 @@
                   </div>
                   <div class="create-order-btn">
                     <Button class="ms-btn btn-mono--secondary ms-btn-size-m">
-                      <div class="p-button-label ml-3 d-none d-sm-inline-block">{{ $t('copy_cart_link') }}</div>
+                      <div class="p-button-label ml-3">{{ $t('copy_cart_link') }}</div>
                     </Button>
                     <Button class="ms-btn btn-accent--primary ms-btn-size-m" disabled>
-                      <div class="p-button-label ml-3 d-none d-sm-inline-block">{{ $t('create_order') }}</div>
+                      <div class="p-button-label ml-3">{{ $t('create_order') }}</div>
                     </Button>
                   </div>
                 </div>
@@ -230,7 +230,7 @@
                     <div class="svg-next-icon-size-20">
                       <div class="icon-add-circle"></div>
                     </div>
-                    <div class="p-button-label ml-3 d-none d-sm-inline-block">{{ $t('add_attribute') }}</div>
+                    <div class="p-button-label ml-3">{{ $t('add_attribute') }}</div>
                   </Button>
                 </div>
               </div>
@@ -279,10 +279,10 @@
     <template #footer>
       <div class="d-flex justify-end gap-2">
         <Button class="ms-btn btn-mono--secondary ms-btn-size-m">
-          <div class="p-button-label ml-3 d-none d-sm-inline-block">{{ $t('cancel') }}</div>
+          <div class="p-button-label ml-3">{{ $t('cancel') }}</div>
         </Button>
         <Button class="ms-btn btn-accent--primary ms-btn-size-m" disabled>
-          <div class="p-button-label ml-3 d-none d-sm-inline-block">{{ $t('create_product') }}</div>
+          <div class="p-button-label ml-3">{{ $t('create_product') }}</div>
         </Button>
       </div>
     </template>
@@ -349,10 +349,10 @@
     <template #footer>
       <div class="d-flex justify-end gap-2">
         <Button class="ms-btn btn-mono--secondary ms-btn-size-m">
-          <div class="p-button-label ml-3 d-none d-sm-inline-block">{{ $t('cancel') }}</div>
+          <div class="p-button-label ml-3">{{ $t('cancel') }}</div>
         </Button>
         <Button class="ms-btn btn-accent--primary ms-btn-size-m">
-          <div class="p-button-label ml-3 d-none d-sm-inline-block">{{ $t('save') }}</div>
+          <div class="p-button-label ml-3">{{ $t('save') }}</div>
         </Button>
       </div>
     </template>
