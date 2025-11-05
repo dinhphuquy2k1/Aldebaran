@@ -242,6 +242,22 @@ const routes: Array<RouteRecordRaw> = [
                     content: () => import('@/modules/group_permissions/views/admin/ManageGroupPermission.vue')
                 },
             },
+            {
+                path: 'sale_channels/online_store/articles',
+                components: {
+                    header: () => import('@/components/admin/TheHeader.vue'),
+                    navbar: () => import('@/components/admin/TheNavbar.vue'),
+                    content: () => import('@/modules/sale_channels/online_store/views/admin/ArticleList.vue')
+                },
+            },
+            {
+                path: 'sale_channels/online_store/pages',
+                components: {
+                    header: () => import('@/components/admin/TheHeader.vue'),
+                    navbar: () => import('@/components/admin/TheNavbar.vue'),
+                    content: () => import('@/modules/sale_channels/online_store/views/admin/PageList.vue')
+                },
+            },
         ],
     },
     // {

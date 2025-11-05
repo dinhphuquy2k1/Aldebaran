@@ -525,5 +525,19 @@
   "orders_unpaid": "{count} unpaid orders",
   "user_guide": "User Guide",
   "shipping_in_progress": "In transit",
-  "unpaid": "Unpaid"
+  "unpaid": "Unpaid",
+  "post_list": "Post List",
+  "blog_management": "Blog Management",
+  "comment_management": "Comment Management",
+  "create_post": "Create Post",
+  "all_posts": "All Posts",
+  "title": "Title",
+  "category_name": "Category",
+  "tag": "Tag",
+  "author": "Author",
+  "publish_date": "Publish Date",
+  "create_page": "Create Page",
+  "all_pages": "All Content Pages",
+  "page_count_message": "There are <span class=\"fw-bold\">{count}</span> content pages",
+  "post_count_message": "There are <span class=\"fw-bold\">{count}</span> posts"
 }

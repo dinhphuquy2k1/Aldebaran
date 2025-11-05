@@ -893,4 +893,22 @@ span.icon24 {
   background-image: url("@public/assets/icons/svg-order-cancel-order-icon.svg");
 }
 
+.icon-blog {
+  width: 100%;
+  height: 100%;
+  -webkit-mask: url("@public/assets/icons/svg-blog-icon.svg") no-repeat center;
+  -webkit-mask-size: contain;
+  mask: url("@public/assets/icons/svg-blog-icon.svg") no-repeat center;
+  mask-size: contain;
+  background-color: currentColor;
+}
 
+.icon-comment {
+  width: 100%;
+  height: 100%;
+  -webkit-mask: url("@public/assets/icons/svg-comment-icon.svg") no-repeat center;
+  -webkit-mask-size: contain;
+  mask: url("@public/assets/icons/svg-comment-icon.svg") no-repeat center;
+  mask-size: contain;
+  background-color: currentColor;
+}

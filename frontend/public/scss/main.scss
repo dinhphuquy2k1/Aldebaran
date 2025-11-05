@@ -1334,6 +1334,10 @@ a {
   margin-right: var(--space-2) !important;
 }
 
+.gap-10 {
+  gap: 10px;
+}
+
 .pd-2 {
   padding: var(--space-2) !important;
 }
@@ -2186,6 +2190,12 @@ h2 {
   .ms-container-fluid {
     max-width: 1400px;
     justify-content: space-between;
+  }
+}
+
+@media (max-width: 660px) {
+  .page-header .action {
+    display: none;
   }
 }
 
