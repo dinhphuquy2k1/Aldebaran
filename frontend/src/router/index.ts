@@ -227,6 +227,14 @@ const routes: Array<RouteRecordRaw> = [
                 },
             },
             {
+                path: 'settings/checkouts',
+                components: {
+                    header: () => import('@/components/admin/TheHeader.vue'),
+                    navbar: () => import('@/components/admin/TheNavbar.vue'),
+                    content: () => import('@/modules/checkout/views/admin/ManageCheckout.vue')
+                },
+            },
+            {
                 path: 'settings/group_permissions',
                 components: {
                     header: () => import('@/components/admin/TheHeader.vue'),
@@ -258,6 +266,15 @@ const routes: Array<RouteRecordRaw> = [
                     content: () => import('@/modules/sale_channels/online_store/views/admin/PageList.vue')
                 },
             },
+            {
+                path: 'customers',
+                components: {
+                    header: () => import('@/components/admin/TheHeader.vue'),
+                    navbar: () => import('@/components/admin/TheNavbar.vue'),
+                    content: () => import('@/modules/customer/views/admin/CustomerList.vue')
+                },
+            },
+
         ],
     },
     // {

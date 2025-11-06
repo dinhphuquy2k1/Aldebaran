@@ -1264,6 +1264,14 @@ a {
   }
 }
 
+.mgy-4 {
+  margin-top: var(--space-4) !important;
+}
+
+.gap-6 {
+  gap: var(--gap-6);
+}
+
 .mgb-4, .mgy-4 {
   margin-bottom: var(--space-4) !important;
 }
@@ -1450,6 +1458,14 @@ a {
 .my-5 {
   margin-bottom: 30px !important;
   margin-top: 30px !important;
+}
+
+.card-divider {
+  border-bottom: 1px solid var(--alias-color-border-default);
+}
+
+.pdb-4 {
+  padding-bottom: var(--space-4) !important;
 }
 
 .omni-layout-body {

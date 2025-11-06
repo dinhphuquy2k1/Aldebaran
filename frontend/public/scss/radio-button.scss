@@ -66,3 +66,16 @@
     }
   }
 }
+
+.input-radio__extend {
+  margin-top: 4px;
+  padding-left: 24px;
+}
+
+.input-radio-groups {
+  .input-radio-wrapper {
+    & + .input-radio-wrapper {
+      margin-top: 12px;
+    }
+  }
+}
