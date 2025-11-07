@@ -651,5 +651,6 @@
   "allow_customer_pickup": "Cho phép người mua tuỳ chọn đến cửa hàng nhận hàng.",
   "view_more_guide": "Xem thêm hướng dẫn chi tiết",
   "checkout_language_customization": "Tùy chỉnh ngôn ngữ trên trang thanh toán để khách hàng mua sắm thuận tiện hơn.",
-  "select_default_language": "Chọn ngôn ngữ mặc định"
+  "select_default_language": "Chọn ngôn ngữ mặc định",
+  "enter_email": "Nhập email"
 }

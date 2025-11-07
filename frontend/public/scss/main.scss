@@ -1272,6 +1272,11 @@ a {
   gap: var(--gap-6);
 }
 
+.layout-720px {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
 .mgb-4, .mgy-4 {
   margin-bottom: var(--space-4) !important;
 }

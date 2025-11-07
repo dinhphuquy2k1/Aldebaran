@@ -227,6 +227,14 @@ const routes: Array<RouteRecordRaw> = [
                 },
             },
             {
+                path: 'settings/locations/new',
+                components: {
+                    header: () => import('@/components/admin/TheHeader.vue'),
+                    navbar: () => import('@/components/admin/TheNavbar.vue'),
+                    content: () => import('@/modules/location/views/admin/ManageLocation.vue')
+                },
+            },
+            {
                 path: 'settings/checkouts',
                 components: {
                     header: () => import('@/components/admin/TheHeader.vue'),

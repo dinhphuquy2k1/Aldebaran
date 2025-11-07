@@ -594,5 +594,6 @@
   "allow_customer_pickup": "Allow customers to choose in-store pickup.",
   "view_more_guide": "View detailed guide",
   "checkout_language_customization": "Customize checkout page language to make shopping easier for customers.",
-  "select_default_language": "Select default language"
+  "select_default_language": "Select default language",
+  "enter_email": "Enter email"
 }
