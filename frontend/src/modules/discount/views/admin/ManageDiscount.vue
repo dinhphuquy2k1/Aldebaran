@@ -675,8 +675,7 @@ import {formatTime} from "@/shared/utils/time";
 import {FORM_MODE} from "@/core/constants";
 import {createDiscountTypeOptions, DiscountType} from "@/modules/discount/enums/DiscountType";
 import * as DiscountCondition from '@/modules/discount/enums/DiscountCondition';
-import {formatDateI18n, formatDatePattern, getCustomFormatByLocale} from "@/shared/utils/date";
-import {setLocale} from "@/translations";
+import {formatDateI18n, getCustomFormatByLocale} from "@/shared/utils/date";
 
 export default {
   computed: {

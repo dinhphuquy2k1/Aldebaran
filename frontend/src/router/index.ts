@@ -283,6 +283,14 @@ const routes: Array<RouteRecordRaw> = [
                 },
             },
             {
+                path: 'customers/new',
+                components: {
+                    header: () => import('@/components/admin/TheHeader.vue'),
+                    navbar: () => import('@/components/admin/TheNavbar.vue'),
+                    content: () => import('@/modules/customer/views/admin/ManageCustomer.vue')
+                },
+            },
+            {
                 path: 'shipments',
                 components: {
                     header: () => import('@/components/admin/TheHeader.vue'),

@@ -623,5 +623,11 @@
   "in_transit": "In transit",
   "waiting_return": "Pending return",
   "returned": "Returned",
-  "order_code": "Order Code"
+  "order_code": "Order Code",
+  "gender_male": "Male",
+  "gender_female": "Female",
+  "invoice_information": "Invoice Information",
+  "enter_full_name": "Enter full name",
+  "date_of_birth": "Date of Birth",
+  "gender": "Gender"
 }

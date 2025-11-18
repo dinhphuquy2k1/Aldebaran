@@ -680,5 +680,11 @@
   "in_transit": "Đang giao",
   "waiting_return": "Chờ chuyển hoàn",
   "returned": "Đã chuyển hoàn",
-  "order_code": "Mã đơn hàng"
+  "order_code": "Mã đơn hàng",
+  "gender_male": "Nam",
+  "gender_female": "Nữ",
+  "invoice_information": "Thông tin xuất hoá đơn",
+  "enter_full_name": "Nhập họ và tên",
+  "date_of_birth": "Ngày sinh",
+  "gender": "Giới tính"
 }
