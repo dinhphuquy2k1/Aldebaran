@@ -901,6 +901,92 @@ img {
   margin-top: 2px !important;
 }
 
+.min-height-300px {
+  min-height: 300px !important;
+}
+
+.omni-layout-card--item {
+  position: relative;
+
+  & + .omni-layout-card--item {
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 16px;
+      display: block;
+      width: calc(100% - 32px);
+      height: 1px;
+      background-color: var(--bg-omni-card-item);
+    }
+  }
+}
+
+.omni-layout-card--item-inner {
+  position: relative;
+  display: block;
+  text-decoration: none;
+  padding: 16px;
+}
+
+.omni-layout-card--item-stack-cover {
+  margin-top: -16px;
+  margin-left: -16px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+.omni-layout-card--item-stack {
+  margin-top: 16px;
+  margin-left: 16px;
+  max-width: 100%;
+
+  &.fill {
+    flex: 1 1 auto;
+  }
+}
+
+.content-secondary {
+  color: var(--contentSecondary) !important;
+}
+
+.omni-card-wrapper {
+  margin: -8px 0 0 -8px;
+  display: flex;
+  flex-wrap: wrap;
+
+  .omni-card {
+    margin: 8px 0 0 8px;
+  }
+}
+
+.omni-card {
+  background-color: transparent;
+  border: 1px solid var(--borderPrimary);
+  padding: 7px 15px;
+  border-radius: 4px;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: auto;
+  max-width: none;
+
+  &.card-touchable {
+    cursor: pointer;
+  }
+
+  &.fulfill-profile--add {
+    display: flex;
+    border: 1px dashed var(--blue600);
+
+    div {
+      color: var(--blue600);
+      align-self: center;
+    }
+  }
+}
+
 .ml-1 {
   margin-left: 1px !important;
 }
@@ -1980,6 +2066,7 @@ svg.hrv-image-thumbnail--image {
 
 h2 {
   color: inherit;
+  font-size: 20px;
 }
 
 .pd-4 {

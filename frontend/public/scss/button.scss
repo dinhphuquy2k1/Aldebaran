@@ -523,3 +523,52 @@
   color: var(--alias-color-content-danger);
   background: transparent;
 }
+
+.omni-btn {
+  font-size: 14px;
+  padding: 7px 15px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 1px solid;
+
+  &.omni-btn-ghost {
+    color: var(--color-dark);
+    border: 1px solid var(--color-dark);
+    text-align: center;
+    outline: none;
+    background: inherit;
+
+    &:disabled {
+      color: var(--text-ghost-color);
+      border-color: var(--border-label-hover-description);
+      cursor: not-allowed;
+    }
+  }
+
+  &.omni-btn-primary {
+    border-color: var(--border-omni-button-color);
+    background: var(--bg-omni-button-color);
+    box-shadow: 0 1px var(--box-shadow-omni-button-color);
+    color: var(--background-default);
+
+    &:disabled {
+      background: var(--bg-omni-button-disabled-color);
+      border-color: transparent;
+      box-shadow: none;
+      cursor: not-allowed;
+    }
+  }
+
+  &.omni-btn-secondary {
+    border-color: var(--border-label-hover-description);
+    background: var(--bg-omni-button-secondary-color);
+    box-shadow: 0 1px var(--box-shadow-button-secondary-color);
+    color: var(--color-dark);
+
+    &:hover {
+      box-shadow: 0 0 5px 1px var(--box-shadow-button-secondary-hover-color);
+      background: var(--bg-omni-button-secondary-hover-color);
+    }
+  }
+}

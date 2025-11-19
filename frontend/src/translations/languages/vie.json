@@ -686,5 +686,19 @@
   "invoice_information": "Thông tin xuất hoá đơn",
   "enter_full_name": "Nhập họ và tên",
   "date_of_birth": "Ngày sinh",
-  "gender": "Giới tính"
+  "gender": "Giới tính",
+  "warehouse_dispatch": "Kho xuất hàng",
+  "bulk_order_preparation": "Chuẩn bị đơn hàng loạt",
+  "delivery_history_hl": "Lịch sử GHHL",
+  "selected_orders": "Đơn được chọn",
+  "delivery_settings": "Thiết lập giao hàng",
+  "eligible_for_delivery": "Có thể giao",
+  "delivery_error": "Lỗi giao hàng",
+  "not_eligible_delivery": "Chưa đủ điều kiện giao",
+  "column": "Cột",
+  "order_not_found": "Không tìm thấy đơn hàng",
+  "edit_or_choose_other_delivery_setting": "Hãy chỉnh sửa hoặc chọn thiết lập giao hàng khác",
+  "print_product_list": "In danh sách sản phẩm",
+  "choose_carrier_in_section": "Vui lòng chọn nhà vận chuyển ở phần",
+  "not_available": "Chưa có"
 }

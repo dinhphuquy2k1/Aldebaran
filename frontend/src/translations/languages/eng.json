@@ -629,5 +629,19 @@
   "invoice_information": "Invoice Information",
   "enter_full_name": "Enter full name",
   "date_of_birth": "Date of Birth",
-  "gender": "Gender"
+  "gender": "Gender",
+  "warehouse_dispatch": "Dispatch warehouse",
+  "bulk_order_preparation": "Bulk order preparation",
+  "delivery_history_hl": "HL Delivery history",
+  "selected_orders": "Selected orders",
+  "delivery_settings": "Delivery settings",
+  "eligible_for_delivery": "Eligible for delivery",
+  "delivery_error": "Delivery error",
+  "not_eligible_delivery": "Not eligible for delivery",
+  "column": "Column",
+  "order_not_found": "No orders found",
+  "edit_or_choose_other_delivery_setting": "Please edit or choose another delivery setting",
+  "print_product_list": "Print product list",
+  "choose_carrier_in_section": "Please select a carrier in the {name} section",
+  "not_available": "Not available"
 }

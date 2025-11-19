@@ -58,6 +58,14 @@ const routes: Array<RouteRecordRaw> = [
                 }
             },
             {
+                path: 'orders/mass_fulfill',
+                components: {
+                    header: () => import('@/components/admin/TheHeader.vue'),
+                    navbar: () => import('@/components/admin/TheNavbar.vue'),
+                    content: () => import('@/modules/order/views/admin/MassFulfill.vue')
+                }
+            },
+            {
                 path: 'orders/:orderId',
                 components: {
                     header: () => import('@/components/admin/TheHeader.vue'),

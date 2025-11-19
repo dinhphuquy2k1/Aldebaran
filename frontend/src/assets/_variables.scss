@@ -263,6 +263,18 @@ $header-height-admin: 56px;
   --alias-color-content-danger: #dc2828;
   --bg-ms-table-hover-color: #f2f3f5;
   --alias-color-background-overlay-neutral: rgba(229, 231, 235, .5);
+  --bg-omni-card-item: #e1e3e5;
+  --text-ghost-color: #a6a6a6;
+  --border-omni-button-color: #0041a7;
+  --bg-omni-button-color: linear-gradient(180deg, #4275ff, #2962ff);
+  --box-shadow-omni-button-color: #00254f1a;
+  --bg-omni-button-disabled-color: #e0e7ff;
+  --bg-omni-button-secondary-color: linear-gradient(180deg, #fff, #f9f9f9);
+  --bg-omni-button-secondary-hover-color: linear-gradient(180deg, #f9f9f9, #efefef);
+  --box-shadow-button-secondary-color: #2121210d;
+  --box-shadow-button-secondary-hover-color: #2121210d;
+  --blue600: #2463eb;
+  --borderPrimary: #e5e7eb;
 }
 
 @media (max-width: 992px) {
