@@ -25,7 +25,18 @@
                         <div class="omni-layout-card--item-stack">
                           <strong>{{ $t('warehouse_dispatch') }}</strong>
                         </div>
-                        <div class="omni-layout-card--item-stack"></div>
+                        <div class="omni-layout-card--item-stack">
+                          <Dropdown
+                              :options="[
+                                { label: 'Hiển thị 10', value: 10 },
+                                { label: 'Hiển thị 20', value: 20 },
+                                { label: 'Hiển thị 50', value: 50 }
+                                ]"
+                              optionLabel="label"
+                              optionValue="value"
+                              class="hrv-btn width-250"
+                          />
+                        </div>
                       </div>
                     </div>
                     <div class="omni-layout-card--section">
@@ -57,13 +68,15 @@
                       </TabMenu>
                       <div class="p-15 d-flex gap-3">
                         <div class="flex-grow-1">
-                          <div class="omni-input-wrapper"></div>
+                          <div class="omni-input-wrapper">
+                            <InputText v-model="value1" :placeholder="$t('search')" class="omni-input flex-1"/>
+                          </div>
                         </div>
                         <Button class="omni-btn omni-btn-secondary mgl-2 pdl-2 pdr-2">
                           <div class="svg-next-icon-size-16">
                             <div class="icon-setting"></div>
                           </div>
-                          <div class="p-button-label ml-5">{{ $t('column') }}</div>
+                          <div class="ml-5">{{ $t('column') }}</div>
                         </Button>
                         <Dropdown
                             :options="[
@@ -73,7 +86,7 @@
                                 ]"
                             optionLabel="label"
                             optionValue="value"
-                            class="hrv-btn ms-btn-default btn-default w-0"
+                            class="hrv-btn w-0"
                         />
                       </div>
                       <div class="position-relative">
@@ -163,6 +176,7 @@ import TabView from 'primevue/tabview';
 import TabMenu from 'primevue/tabmenu';
 import Button from 'primevue/button';
 import Dropdown from "primevue/dropdown";
+import InputText from 'primevue/inputtext';
 
 export default {
   components: {
@@ -170,6 +184,7 @@ export default {
     TabView,
     Button,
     Dropdown,
+    InputText,
   },
   data() {
     return {

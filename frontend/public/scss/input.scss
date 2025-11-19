@@ -537,3 +537,25 @@ input:focus {
   transition: all .2s ease-out;
   outline: none;
 }
+
+.omni-input-wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border: 1px solid var(--border-label-hover-description);
+  border-radius: 4px;
+  box-shadow: none;
+
+  .omni-input {
+    width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 10px !important;
+    line-height: 18px;
+    border: none;
+    outline: 0;
+    box-shadow: none;
+    border-radius: 4px;
+  }
+}
