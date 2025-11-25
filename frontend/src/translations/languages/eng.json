@@ -643,5 +643,18 @@
   "edit_or_choose_other_delivery_setting": "Please edit or choose another delivery setting",
   "print_product_list": "Print product list",
   "choose_carrier_in_section": "Please select a carrier in the {name} section",
-  "not_available": "Not available"
+  "not_available": "Not available",
+  "order_quantity": "Order count",
+  "fullscreen": "Fullscreen",
+  "today": "Today",
+  "compare": "Compare",
+  "previous_period": "Previous period",
+  "sales_branch": "Sales branch",
+  "refund": "Refund",
+  "order_volume": "Order volume",
+  "net_revenue_by_branch": "Net revenue by branch",
+  "top_sales_staff": "Top sales staff",
+  "net_revenue_by_supplier": "Net revenue by supplier",
+  "no_data": "No data",
+  "net_revenue_by_sales_channel": "Net revenue by sales channel"
 }

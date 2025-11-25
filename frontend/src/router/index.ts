@@ -306,6 +306,14 @@ const routes: Array<RouteRecordRaw> = [
                     content: () => import('@/modules/shipment/views/admin/ShipmentList.vue')
                 },
             },
+            {
+                path: 'reports/dashboard',
+                components: {
+                    header: () => import('@/components/admin/TheHeader.vue'),
+                    navbar: () => import('@/components/admin/TheNavbar.vue'),
+                    content: () => import('@/modules/report/views/admin/Dashboard.vue')
+                },
+            },
         ],
     },
     // {

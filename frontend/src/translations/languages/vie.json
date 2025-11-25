@@ -700,5 +700,18 @@
   "edit_or_choose_other_delivery_setting": "Hãy chỉnh sửa hoặc chọn thiết lập giao hàng khác",
   "print_product_list": "In danh sách sản phẩm",
   "choose_carrier_in_section": "Vui lòng chọn nhà vận chuyển ở phần",
-  "not_available": "Chưa có"
+  "not_available": "Chưa có",
+  "order_quantity": "Số đơn hàng",
+  "fullscreen": "Toàn màn hình",
+  "today": "Hôm nay",
+  "compare": "So sánh",
+  "previous_period": "Kỳ trước",
+  "sales_branch": "Chi nhánh bán",
+  "refund": "Hoàn trả",
+  "order_volume": "Lượng đơn hàng",
+  "net_revenue_by_branch": "Doanh thu thuần theo chi nhánh bán",
+  "top_sales_staff": "Top nhân viên bán hàng",
+  "net_revenue_by_supplier": "Doanh thu thuần theo nhà cung cấp",
+  "no_data": "Không có dữ liệu",
+  "net_revenue_by_sales_channel": "Doanh thu thuần - từ kênh bán hàng"
 }
