@@ -713,5 +713,17 @@
   "top_sales_staff": "Top nhân viên bán hàng",
   "net_revenue_by_supplier": "Doanh thu thuần theo nhà cung cấp",
   "no_data": "Không có dữ liệu",
-  "net_revenue_by_sales_channel": "Doanh thu thuần - từ kênh bán hàng"
+  "net_revenue_by_sales_channel": "Doanh thu thuần - từ kênh bán hàng",
+  "personal": "Cá nhân",
+  "citizen_id": "CCCD",
+  "customer_group_name": "Tên nhóm khách hàng",
+  "enter_customer_group_name": "Đặt tên nhóm khách hàng",
+  "filter_condition": "Điều kiện lọc",
+  "and": "và",
+  "select": "Chọn",
+  "add_condition": "Thêm điều kiện",
+  "no_customers": "Chưa có khách hàng nào",
+  "list_updates_after_filter": "Danh sách sẽ cập nhật khi bạn áp dụng điều kiện lọc",
+  "select_brand": "Chọn thương hiệu",
+  "select_product_type": "Chọn loại sản phẩm"
 }

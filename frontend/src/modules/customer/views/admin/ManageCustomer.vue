@@ -136,6 +136,66 @@
                   <p class="text-headl">{{ $t('invoice_information') }}</p>
                 </div>
                 <div class="hrv-card-section">
+                  <div class="row">
+                    <div class="col-12 mb-15">
+                      <div class="d-flex align-items-center">
+                        <div class="hrv-next-input-radio d-flex align-items-center">
+                          <RadioButton name="eInvoiceInfo.isCompany"/>
+                          <label class="hrv-next-label--switch" for="«r14»">{{
+                              $t('personal')
+                            }}</label>
+                          <span class="trigger"></span>
+                        </div>
+                        <div class="hrv-next-input-radio d-flex align-items-center mt-0">
+                          <RadioButton name="eInvoiceInfo.isCompany"/>
+                          <label class="hrv-next-label--switch" for="«r15»">{{
+                              $t('company')
+                            }}</label>
+                          <span class="trigger"></span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6 col-12">
+                      <div>
+                        <label>{{ $t('full_name') }}</label>
+                      </div>
+                      <div class="mt-5">
+                        <InputText class="ms-input"
+                                   :placeholder="$t('enter_full_name')"></InputText>
+                      </div>
+                      <p class="mt-2 ml-1 mb-0 mh-15"></p>
+                    </div>
+                    <div class="col-sm-6 col-12">
+                      <div>
+                        <label>{{ $t('citizen_id')  }} ({{ $t('not_required') }})</label>
+                      </div>
+                      <div class="mt-5">
+                        <InputText class="ms-input"
+                                   placeholder="123456789012"></InputText>
+                      </div>
+                      <p class="mt-2 ml-1 mb-0 mh-15"></p>
+                    </div>
+                    <div class="col-12">
+                      <div>
+                        <label>{{ $t('Email') }}</label>
+                      </div>
+                      <div class="mt-5">
+                        <InputText class="ms-input"
+                                   placeholder="abc@gmail.com"></InputText>
+                      </div>
+                      <p class="mt-2 ml-1 mb-0 mh-15"></p>
+                    </div>
+                    <div class="col-12">
+                      <div>
+                        <label>{{ $t('address') }}</label>
+                      </div>
+                      <div class="mt-5">
+                        <InputText class="ms-input"
+                                   placeholder="abc@gmail.com"></InputText>
+                      </div>
+                      <p class="mt-2 ml-1 mb-0 mh-15"></p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

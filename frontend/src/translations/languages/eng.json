@@ -656,5 +656,17 @@
   "top_sales_staff": "Top sales staff",
   "net_revenue_by_supplier": "Net revenue by supplier",
   "no_data": "No data",
-  "net_revenue_by_sales_channel": "Net revenue by sales channel"
+  "net_revenue_by_sales_channel": "Net revenue by sales channel",
+  "personal": "Personal",
+  "citizen_id": "National ID",
+  "customer_group_name": "Customer group name",
+  "enter_customer_group_name": "Enter customer group name",
+  "filter_condition": "Filter conditions",
+  "and": "AND",
+  "select": "Select",
+  "add_condition": "Add condition",
+  "no_customers": "No customers yet",
+  "list_updates_after_filter": "The list will update after you apply the filter conditions",
+  "select_brand": "Select brand",
+  "select_product_type": "Select product type"
 }

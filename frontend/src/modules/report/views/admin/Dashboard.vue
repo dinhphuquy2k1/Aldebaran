@@ -1,7 +1,7 @@
 <template>
   <section class="layout-container layout-wrapper-block">
     <div class="layout-container-sub layout-wrapper-block_sub" style="padding-bottom: 90px;">
-      <TabMenu :model="tabMenus" class="omni-tabs">
+      <TabMenu :model="tabMenus" class="omni-tabs bg-transparent">
         <template #item="{ item, props }">
           <a class="p-menuitem-link">
             <span class="p-menuitem-text">{{ item.name }}</span>
@@ -158,13 +158,14 @@
               <div class="hrv-card">
                 <div class="hrv-card-head">{{ $t('net_revenue') }}</div>
                 <div class="hrv-card-section" style="height:438px;">
-                  <div class="d-flex justify-content-center align-items-center flex-column"
-                       style="height:379px;overflow-y:auto;z-index:1">
-                    <div class="svg-next-icon-size-88">
-                      <div class="icon-thin-list"></div>
-                    </div>
-                    <p class="mt-16 text-secondary">{{ $t('no_data') }}</p>
-                  </div>
+<!--                  <div class="d-flex justify-content-center align-items-center flex-column"-->
+<!--                       style="height:379px;overflow-y:auto;z-index:1">-->
+<!--                    <div class="svg-next-icon-size-88">-->
+<!--                      <div class="icon-thin-list"></div>-->
+<!--                    </div>-->
+<!--                    <p class="mt-16 text-secondary">{{ $t('no_data') }}</p>-->
+<!--                  </div>-->
+                  <Chart type="line" :data="netRevenueChart.data" :options="netRevenueChart.options" class="h-100 w-100" />
                 </div>
               </div>
             </div>
@@ -269,7 +270,6 @@ import TabMenu from 'primevue/tabmenu';
 import Button from 'primevue/button';
 import Dropdown from "primevue/dropdown";
 import Chart from 'primevue/chart';
-import ChartWithCenterTextExample from "@/modules/report/examples/ChartWithCenterTextExample.vue";
 import DoughnutChart from "@/components/admin/DoughnutChart.vue";
 
 export default {
@@ -279,7 +279,6 @@ export default {
     Button,
     Dropdown,
     Chart,
-    ChartWithCenterTextExample,
     DoughnutChart,
   },
   data() {
@@ -300,6 +299,7 @@ export default {
           },
         ],
       },
+      netRevenueChart: {},
     }
   },
   methods: {
@@ -310,9 +310,71 @@ export default {
           { data: [100, 200] }
         ]
       };
+    },
+    loadNetRevenueChart() {
+      const documentStyle = getComputedStyle(document.documentElement);
+      const textColor = documentStyle.getPropertyValue('--text-color');
+      const textColorSecondary = documentStyle.getPropertyValue('--text-color-secondary');
+      const surfaceBorder = documentStyle.getPropertyValue('--surface-border');
+      const dataPoints = [
+        8,5,8,11,12,10,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+      ];
+
+      const labels = Array(dataPoints.length).fill("");
+
+      const dateLabels = [
+        { index: 0,  label: "01/03" },
+        { index: 5,  label: "05/03" },
+        { index: 10, label: "10/03" },
+        { index: 14, label: "15/03" },
+        { index: 18, label: "20/03" },
+        { index: 23, label: "25/03" },
+        { index: 29, label: "01/04" }
+      ];
+
+      dateLabels.forEach(d => {
+        labels[d.index] = d.label;
+      });
+      this.netRevenueChart = {
+        data: {
+          labels,
+          datasets: [
+            {
+              label: 'Lượng đơn hàng',
+              data: dataPoints,
+              fill: true,
+              tension: 0.4,
+              borderColor: '#4B8DF8',
+              backgroundColor: 'rgba(75, 141, 248, 0.2)',
+              pointRadius: 2
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            x: {
+              ticks: {
+                autoSkip: false,
+                maxRotation: 0
+              },
+              grid: { display: false }
+            },
+            y: {
+              beginAtZero: true,
+              grid: { color: '#eee' }
+            }
+          },
+          plugins: {
+            legend: { display: false }
+          }
+        }
+      }
     }
   },
   mounted() {
+    this.loadNetRevenueChart();
   },
 }
 </script>

@@ -572,3 +572,14 @@
     }
   }
 }
+
+.btn-tertiary {
+  outline: none;
+  box-shadow: 0 1px var(--box-shadow-button-tertiary-color);
+  background: var(--bg-button-tertiary-color);
+
+  &:hover {
+    background: var(--bg-hover-button-tertiary-color);
+    outline: none;
+  }
+}

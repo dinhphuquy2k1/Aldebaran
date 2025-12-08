@@ -299,6 +299,22 @@ const routes: Array<RouteRecordRaw> = [
                 },
             },
             {
+                path: 'customers/new/auto',
+                components: {
+                    header: () => import('@/components/admin/TheHeader.vue'),
+                    navbar: () => import('@/components/admin/TheNavbar.vue'),
+                    content: () => import('@/modules/customer/views/admin/ManageCustomerAuto.vue')
+                },
+            },
+            {
+                path: 'customers/new/fixed',
+                components: {
+                    header: () => import('@/components/admin/TheHeader.vue'),
+                    navbar: () => import('@/components/admin/TheNavbar.vue'),
+                    content: () => import('@/modules/customer/views/admin/ManageCustomerFixed.vue')
+                },
+            },
+            {
                 path: 'shipments',
                 components: {
                     header: () => import('@/components/admin/TheHeader.vue'),

@@ -14,7 +14,7 @@ export function formatTime(
     }
     // Nếu là chuỗi HH:MM hoặc HH:MM:SS
     else if (/^\d{1,2}:\d{2}(:\d{2})?$/.test(timeInput)) {
-        const [h, m, s = '00'] = timeInput.split(':').map(Number);
+        const [h, m, s = 0] = timeInput.split(':').map(Number);
         date = new Date();
         date.setHours(h, m, s, 0);
     }
@@ -47,7 +47,7 @@ export function parseTimeToDate(timeStr?: string, baseDate: Date = new Date()): 
         throw new Error("Invalid time format");
     }
 
-    const [h, m, s = '0'] = timeStr.split(':').map(Number);
+    const [h, m, s = 0] = timeStr.split(':').map(Number);
 
     // Tạo 1 bản copy của ngày gốc để giữ nguyên ngày/tháng/năm
     const d = new Date(baseDate);

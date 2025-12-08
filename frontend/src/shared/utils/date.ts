@@ -32,7 +32,7 @@ export function formatDateI18n(date: Date | string | null | undefined, key = 'ym
 
     // Without pattern, fallback to vue-i18n's Intl API
     try {
-        return i18n.global.d(d, key)
+        return i18n.global.d(d, key as any)
     } catch (err) {
         return d.toLocaleString(locale)
     }
